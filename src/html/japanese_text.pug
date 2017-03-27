@@ -1,0 +1,513 @@
+extends /layouts/_base
+append variables
+  //- Required
+  - var pageTitle= "";
+  - var pageDescription= "";
+  - var pageLang= "";
+  //- Optional
+  - var pageOgpTitle= "";
+  - var pageOgpImage= "";
+  - var pageOgpType= "";
+  //- Not modified
+  - var pageUrl= "/";
+append js
+  script.
+    objectFitImages('img.object-fit-img');
+
+block content
+  article
+    // Sample Content to Plugin to Template
+    h1 CSS の基本的な要素
+    p
+      | この HTML の目的は何のデフォルト設定が CSS を持っているか決定するのを手伝うこと、そして、場所を設計するとき、どんな可能な要素でもミスしないようにすべての可能な HTML 要素がこの HTML に含められることを確認することです。
+    dl
+      dt Original:
+      dd
+        a(href='http://www.sitefromscratch.com/content/html-xhtml-css-testing') HTML XHTML for CSS Testing
+      dt Japanese Edition:
+      dd
+        a(href='http://coliss.com/articles/build-websites/operation/css/1457.html') HTMLの各要素が配置されたスタイルシートのチェック用のテンプレート
+    hr
+    h1#headings 見出し(hn)
+    h1 見出し 1
+    h2 見出し 2
+    h3 見出し 3
+    h4 見出し 4
+    h5 見出し 5
+    h6 見出し 6
+    small
+      a(href='#wrapper') [トップ]
+    hr
+    h1#paragraph パラグラフ(p)
+    img(style='width:250px;height:125px;float:right', src='images/css_gods_language.png', alt="CSS | God's Language")
+    p
+      | 洋酒といえば、誰でも最初に思い浮かべるのがウイスキー。
+      a(href='#', title='テストリンク') テストリンク(a)
+      | いわば洋酒のシンボル的な存在なのだが、英語表記が［一般に〔米〕では Whiskey,〔英〕では Whisky.］であることはあまり知られていない。米英両国では、このスペルの差で自国産と輸入品を区別しているという。わが和製ウイスキーの “Whisky”という英国式表示は、手本にしたスコッチのフォルムに倣ったものであり、それ以上の意味はないようだ。カナ表記にしても、ごくまれに〈ウヰスキー〉という書き方を見かけるが、これとて差別化を意図したものではなく単にカナづかいの時代性にすぎない。
+    p
+      | 現在、カナ表記は〈
+      em ウイスキー(em)
+      | 〉に一本化しており、そこに国産・舶来の区別はない。最近は価格面での差もちぢまり、20年前に ￥10,000 だった本場のスコッチが半値近くになるなど、ウイスキーは一層ポピュラーなものになってきた。しかし、消費量についていえば、洋酒のトップは何といってもビールだろう。よっぽどの下戸はともかく、まず誰でもタシナミ程度には口にする。
+    small
+      a(href='#wrapper') [トップ]
+    hr
+    h1#list_types リスト要素
+    h3 定義型リスト(dl)
+    dl
+      dt 定義型リスト　用語
+      dd 定義型リスト　定義
+    h3 順序付きリスト(ol)
+    ol
+      li リストアイテム 1
+      li リストアイテム 2
+      li リストアイテム 3
+    h3 並列列挙リスト(ul)
+    ul
+      li リストアイテム 1
+      li リストアイテム 2
+      li リストアイテム 3
+    small
+      a(href='#wrapper') [トップ]
+    hr
+    h1#form_elements フォーム要素
+    fieldset
+      legend Legend
+      p
+        | もっとも、オッペケペッポーの攻勢に、ぐぅのネを上げた紳士や淑女がいたかどうか…西洋カブレとは、要するに欧米文化への信奉者のこと。〈鰯ノ頭ヲ信心〉する者があるならヨーロッパやアメリカの文物を信仰する者がいても一向に不思議はない。信ずる者の強さで、依然グラス片手に舞踏会、アン・ドゥ・トロヮとやっていたように思われる。
+      form
+        h2 Form Element
+        p
+          | 憶測になるが、むしろ辛かったのは庶民の中の飲んべぇ連中ではなかったか。ハイカラ族にユサぶりをかけた手前、泰西の酒には手を出しづらい。「なに、ビールだとぉ、べらぼーめ、こちとら人間サマでぃ、カニじゃあるめぇしアブクなんか飲めるかってんだ」などと強がりながらも、サゾ飲みたかったろうという気がする。
+        p
+          label(for='text_field') テキストフィールド(text)：
+          br
+          input#text_field(type='text')
+        p
+          label(for='text_area') テキストエリア(textarea)：
+          br
+          textarea#text_area </textarea>
+        p
+          label(for='select_element') セレクト(select)：
+          br
+          select(name='select_element')
+            optgroup(label='Option Group 1')
+              option(value='1') オプション 1
+              option(value='2') オプション 2
+              option(value='3') オプション 3
+            optgroup(label='Option Group 2')
+              option(value='1') オプション 1
+              option(value='2') オプション 2
+              option(value='3') オプション 3
+        p
+          label(for='radio_buttons') ラジオボタン(radio)：
+          br
+          input.radio(type='radio', name='radio_button', value='radio_1')
+          |  ラジオボタン 1
+          br
+          input.radio(type='radio', name='radio_button', value='radio_2')
+          |  ラジオボタン 2
+          br
+          input.radio(type='radio', name='radio_button', value='radio_3')
+          |  ラジオボタン 3
+          br
+        p
+          label(for='checkboxes') チェックボックス(checkbox)：
+          br
+          input.checkbox(type='checkbox', name='checkboxes', value='check_1')
+          |  チェックボックス 1
+          br
+          input.checkbox(type='checkbox', name='checkboxes', value='check_2')
+          |  チェックボックス 2
+          br
+          input.checkbox(type='checkbox', name='checkboxes', value='check_3')
+          |  チェックボックス 3
+          br
+        p
+          label(for='password') パスワード(password)：
+          br
+          input.password(type='password', name='password')
+        p
+          label(for='file') ファイル(file)：
+          br
+          input.file(type='file', name='file')
+        p
+          input.button(type='reset', value='リセット(reset)')
+          input.button(type='submit', value='サブミット(submit)')
+    small
+      a(href='#wrapper') [トップ]
+    hr
+    h1#tables テーブル
+    table(cellspacing='0', cellpadding='0')
+      tr
+        th テーブルヘッダ(th) 1
+        th テーブルヘッダ 2
+        th テーブルヘッダ 3
+      tr
+        td セル(td) 1
+        td セル 2
+        td セル 3
+      tr.even
+        td セル 1
+        td セル 2
+        td セル 3
+      tr
+        td セル 1
+        td セル 2
+        td セル 3
+    small
+      a(href='#wrapper') [トップ]
+    hr
+    h1#misc その他
+    p
+      | しかし明治32年７月４日、恵比寿ビールのＰＲを目的にしたビアホールが新橋に登場。
+      sup 上付文字(sup)
+      |  dolor
+      sub 下付文字(sub)
+      | ジャムパン１ヶ２銭の時代に 0.25 リットル５銭でビールの１ぱい売りを始めたことから様相は一転する。レンガづくりのモダンな店ながら、はっぴ姿の車夫も金バッヂの紳士もゼニを払えば平等の客。
+      cite 引用元：cite
+      | 誰はゞかることなくビールをグィとやって舌ツヾミを打てる。当初から評判になって人々がワッと集まり、ファンの数もふえた。
+    pre
+      | pre
+      | この年は西暦1899年。まさに19世紀の〆くくりの年にビールのヌーヴェルバーグがぼっこうしたことになる。恵比寿は文字通り“福の神”となったわけだが、そのころの表記はすべて〈惠比壽〉であり、仮名書きの場合も〈えびす〉・〈エビス〉ならぬ〈ゑびす〉・〈ヱビス〉だった。いかにもゴリヤクのありそうな字ヅラである。
+      | 20世紀に入って1906年になると、夏目漱石は小説『二百十日』（中央公論・明治39年10月号）の中で次のようなエピソードを創作した。舞台は阿蘇のひなびた温泉宿。
+    blockquote
+      | blockquote
+      | ゆ上がりの男２人と「絣の筒袖をつんつるてんに着てゐる」下女のやりとりは、いささかマンザイのボケとツッコミのセリフを思わせるが、ビールもこの時期には日本のスミズミまでじゅうぶんに出回っていたのがわかる。
+      br
+      | -引用(blockquote)
+    small
+      a(href='#wrapper') [トップ]
+    // End of Sample Content
+    #KIZI
+        h2 見出し
+        .text
+          p h1は「Your site title」、h2はこのページの「見出し」「強調・追加・削除」...を参照してください。
+          h3 h3要素
+          h4 h4要素
+          h5 h5要素
+          h6 h6要素
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 強調・追加・削除
+        .text
+          p
+            em 強調
+            | ・
+            strong より強い強調
+            | ・
+            ins 追加
+            | ・
+            del 削除
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 フォーム
+        .text
+          form(action='個別設定')
+            p
+              input#TEXT(type='text', name='text', size='20', value='テキスト')
+              br
+              textarea#TEXTAREA(name='textarea', rows='5', cols='20') テキストエリア
+              br
+              select#SELECT(name='select', size='1')
+                option(value='option1') 選択肢1
+                option(value='option2') 選択肢2
+                option(value='option3') 選択肢3
+              br
+              input#CHECKBOX(type='checkbox', name='checkbox', value='')
+              label(for='CHECKBOX') チェックボックス
+              input#RADIO(type='radio', name='radio', value='')
+              label(for='RADIO') ラジオボタン
+              br
+              input#BUTTON(type='button', name='button', value='プッシュボタン')
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 リスト
+        .text
+          h3 序列リスト
+          ol
+            li 序列リスト1
+            li 序列リスト2
+            li 序列リスト3
+          h3 順不同リスト
+          ul
+            li 順不同リスト1
+            li 順不同リスト2
+            li 順不同リスト3
+          h3 定義リスト
+          dl
+            dt 定義する用語1
+            dd 用語1の説明。説明説明説明。
+            dt 定義する用語2
+            dd 用語2の説明。説明説明説明。
+            dt 定義する用語3
+            dd 用語3の説明。説明説明説明。
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 連絡先
+        .text
+          address メールアドレス
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        #KIZI
+        h2 引用（ブロックレヴェル）
+        .text
+          blockquote(cite='出典URL', title='タイトル')
+            p
+              | <blockquote><p>
+              code blockquote
+              | は引用された段落だということを表します。インデントや装飾ボックスとしての利用は適切ではありません。</p>
+            p
+              | <p>引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文引用文</p></blockquote>
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 引用（インライン）・参照先
+        .text
+          p
+            q(cite='出典URI')
+              | <q>
+              code q
+              | は引用された文章を表します。引用文引用文引用文引用文</q>
+          p
+            cite
+              | <cite>
+              code cite
+              | は参照先を表します。</cite>
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 整形済みテキスト
+        .text
+          pre.
+            \n<pre>preは整形済みであるテキストであることを表します。
+            改行や余白が定まっている定型詩やアスキーアート、
+            またソースコードを表示するのに利用されます。
+            ブロック要素は含めません。また            や            のような、行の幅を変える要素も含めません。
+            PREformatted text PREformatted text PREformatted text PREformatted text PREformatted text
+            PREformatted text PREformatted text PREformatted text PREformatted text PREformatted text PREformatted text</pre>
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 物理要素
+        .text
+          p
+            b <b>太字</b>
+          p
+            i <i>イタリック</i>
+          p
+            big <big>大きな文字</big>
+          p
+            small <small>小さな文字</small>
+          p
+            tt <tt>等幅</tt>
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        #KIZI
+        h2 その他要素
+        .text
+          h3 abbr・acronymサンプル
+          p
+            code <abbr>
+            | は省略語、
+            code <acronym>
+            | は頭文字語を表します。
+            code title
+            | 属性に省略前の語句を記します。
+          p
+            | 例：
+            abbr(title='HyperText Markup Language') HTML
+            acronym(title='North Atlantic Treaty Organisation') NATO
+          h3 codeサンプル
+          p
+            code <code>
+            | はソースコードを表します。
+          p
+            | 例：
+            code target="_blank"
+            | は是か否か。
+          h3 varサンプル
+          p
+            code <var>
+            | は変数を表します。プログラムや数式を表現するとき用います。
+          p
+            | 例：
+            var n
+            | =
+            var x
+            | +
+            var y
+            | -2
+          h3 kbdサンプル
+          p
+            code <kbd>
+            | はユーザーが入力するテキスト、またはキーボードのキーを表します。
+          p
+            | 例：
+            kbd ok
+            | と入力したあと
+            kbd Enter
+            | を押してください。
+          h3 sampサンプル
+          p
+            code <samp>
+            | はプログラムなどの出力例を表します。
+          p
+            | 例：sample.cgiが正しく実行されると
+            samp Hello！
+            | と表示されます。
+          h3 dfnサンプル
+          p
+            code <dfn>
+            | は定義される語句を表します。
+          p
+            | 例：
+            dfn dfn要素
+            | は定義語を示します。
+          h3 sub・supサンプル
+          p
+            code <sub>
+            | は下付き文字、
+            code sup
+            | は上付き文字です。数式や化学式に使われます。物理要素です。
+          p
+            | 例：水は「H
+            sub 2
+            | O」です。1+2
+            sup 3
+            | =9です。
+          h3 hrサンプル
+          p
+            code <hr>
+            | は水平線です。物理要素です。
+          hr
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 テーブル
+        .text
+          table
+            caption テーブルタイトル
+            thead
+              tr
+                th thead見出し
+                td theadデータ
+            tfoot
+              tr
+                th tfoot見出し
+                td tfootデータ
+            tbody
+              tr
+                th tbody見出し
+                td tbodyデータ
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 フォーム
+        .text
+          form
+            fieldset
+              legend optgroup
+              p
+                select(name='#')
+                  optgroup(label='グループ1')
+                    option(value='g1') 選択オプション1
+                    option(value='g2') 選択オプション2
+                    option(value='g3') 選択オプション3
+                  optgroup(label='グループ2')
+                    option(value='g4') 選択オプション4
+                    option(value='g5') 選択オプション5
+                    option(value='g6') 選択オプション6
+            fieldset
+              legend button
+              ul
+                li
+                  input(type='button', name='button', value='input type=button')
+                li
+                  input(type='submit', name='submit', value='input type=submit')
+                li
+                  input(type='reset', name='reset', value='input type=reset')
+              ul
+                li
+                  button(type='button', name='button', value='button type=button') button type=button
+                li
+                  button(type='submit', name='submit', value='button type=submit') button type=submit
+                li
+                  button(type='reset', name='reset', value='button type=reset') button type=reset
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr
+        h2 リスト入れ子
+        .text
+          h3 序列リスト
+          ol
+            li
+              | 序列リスト
+              ol
+                li リスト
+                li リスト
+            li
+              | 順不同リスト
+              ul
+                li リスト
+                li リスト
+            li
+              | 定義リスト
+              dl
+                dt 用語
+                dd 説明
+          h3 順不同リスト
+          ul
+            li
+              | 序列リスト
+              ol
+                li リスト
+                li リスト
+            li
+              | 順不同リスト
+              ul
+                li リスト
+                li リスト
+            li
+              | 定義リスト
+              dl
+                dt 用語
+                dd 説明
+          h3 定義リスト
+          dl
+            dt 序列リスト
+            dd
+              ol
+                li リスト
+                li リスト
+            dt 順不同リスト
+            dd
+              ul
+                li リスト
+                li リスト
+            dt 定義リスト
+            dd
+              dl
+                dt 用語
+                dd 説明
+          ul.modori
+            li
+              a(href='#PAGETOP') TOP
+        hr

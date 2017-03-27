@@ -1,0 +1,26 @@
+extends /layouts/_base
+append variables
+  //- Required
+  - var pageTitle= "";
+  - var pageDescription= "";
+  - var pageLang= "";
+  //- Optional
+  - var pageOgpTitle= "";
+  - var pageOgpImage= "";
+  - var pageOgpType= "";
+  //- Not modified
+  - var pageUrl= "/";
+append js
+  script.
+    objectFitImages('img.object-fit-img');
+
+block content
+  ul.thumb
+    li: a(href="#")
+      img(src="http://placehold.jp/500x100.png").object-fit-img
+    li: a(href="#")
+      img(src="http://placehold.jp/100x500.png").object-fit-img
+    li: a(href="#")
+      img(src="http://placehold.jp/250x250.png").object-fit-img
+    li: a(href="#")
+      img(src="http://placehold.jp/500x500.png").object-fit-img

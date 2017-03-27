@@ -1,0 +1,184 @@
+// ============================================================
+//  Some of the mixin require Kouto-Swiss
+// ============================================================
+
+// ============================================================
+//  Vertical InRitsu Mixin inspired Vertical Rhythm and Modular Scale
+// ============================================================
+vertical-inritsu($in-scale = 0)
+  $base-font-size ?= 1rem
+  $base-ratio ?= 1.4
+  $base-ratio-half = ((($base-ratio - 1) / 2 ) + 1)
+  $in-fz = $base-font-size * ($base-ratio ** ($in-scale / 4))
+  $in-base-unit = ($base-font-size * (base-ratio-half ** 3) / 4)
+  $in-lh = $in-base-unit
+  lh-calc($in-lh, $in-fz, $in-base-unit)
+    if ($in-lh - $in-fz) >= $in-base-unit
+      return $in-lh
+    $in-lh = $in-lh + $in-base-unit
+    return lh-calc($in-lh, $in-fz, $in-base-unit)
+  font-size: $in-fz
+  line-height: lh-calc($in-lh, $in-fz, $in-base-unit)
+  +media-query(media-large = only screen, min-width 960px)
+    font-size: $in-fz * $base-ratio-half
+    line-height: lh-calc($in-lh, $in-fz, $in-base-unit) * $base-ratio-half
+rational-space($base, $ratio, $mag, $is-large)
+  $rs-raito = ((($ratio - 1) / 2 ) + 1)
+  $rs-unit = $base * ($rs-raito ** 3) * $mag
+  if $is-large
+    return $rs-unit * $rs-raito
+  else
+    return $rs-unit
+rational-margin($with-margin-top = 1, $with-margin-right = 1, $with-margin-bottom = 1, $with-margin-left = 1)
+  $base-font-size ?= 1rem
+  $base-ratio ?= 1.414
+  if $with-margin-top
+    margin-top: rational-space($base-font-size, $base-ratio, $with-margin-top, false)
+  if $with-margin-right
+    margin-right: rational-space($base-font-size, $base-ratio, $with-margin-right, false)
+  if $with-margin-bottom
+    margin-bottom: rational-space($base-font-size, $base-ratio, $with-margin-bottom, false)
+  if $with-margin-left
+    margin-left: rational-space($base-font-size, $base-ratio, $with-margin-left, false)
+  +media-query(media-large = only screen, min-width 960px)
+    if $with-margin-top
+      margin-top: rational-space($base-font-size, $base-ratio, $with-margin-top, true)
+    if $with-margin-right
+      margin-right: rational-space($base-font-size, $base-ratio, $with-margin-right, true)
+    if $with-margin-bottom
+      margin-bottom: rational-space($base-font-size, $base-ratio, $with-margin-bottom, true)
+    if $with-margin-left
+      margin-left: rational-space($base-font-size, $base-ratio, $with-margin-left, true)
+rational-padding($with-padding-top = 1, $with-padding-right = 1, $with-padding-bottom = 1, $with-padding-left = 1)
+  $base-font-size ?= 1rem
+  $base-ratio ?= 1.4
+  if $with-padding-top
+    padding-top: rational-space($base-font-size, $base-ratio, $with-padding-top, false)
+  if $with-padding-right
+    padding-right: rational-space($base-font-size, $base-ratio, $with-padding-right, false)
+  if $with-padding-bottom
+    padding-bottom: rational-space($base-font-size, $base-ratio, $with-padding-bottom, false)
+  if $with-padding-left
+    padding-left: rational-space($base-font-size, $base-ratio, $with-padding-left, false)
+  +media-query(media-large = only screen, min-width 960px)
+    if $with-padding-top
+      padding-top: rational-space($base-font-size, $base-ratio, $with-padding-top, true)
+    if $with-padding-right
+      padding-right: rational-space($base-font-size, $base-ratio, $with-padding-right, true)
+    if $with-padding-bottom
+      padding-bottom: rational-space($base-font-size, $base-ratio, $with-padding-bottom, true)
+    if $with-padding-left
+      padding-left: rational-space($base-font-size, $base-ratio, $with-padding-left, true)
+// ============================================================
+//  Debugger
+// ============================================================
+//  USAGE:just include
+// ------------------------------------------------------------
+debugger()
+  background-color: rgba(255, 0, 0, 0.2)
+
+// ============================================================
+//  bold font smooth option
+// ============================================================
+//  USAGE:just include
+// ------------------------------------------------------------
+bold-smooth()
+  font-weight: bold
+  -webkit-font-smoothing: subpixel-antialiased
+  -moz-osx-font-smoothing: auto
+  //  -webkit-font-smoothing: antialiased
+  //  -moz-osx-font-smoothing: auto
+
+// ============================================================
+//  linemarker
+// ============================================================
+//  USAGE:just include
+// ------------------------------------------------------------
+// TODO: base-bg-colorを使って濃くする方法にする
+line-marker($marker-color = $strong-bg-color)
+  padding-left: .125em
+  padding-right: .125em
+  margin-left: .125em
+  margin-right: .125em
+  background-image: linear-gradient(transparent $amount-of-change, $marker-color ($amount-of-change * 2))
+// ============================================================
+// fixed Linkcolor
+// ============================================================
+// for unchange link color
+// usage:include color-fixed-with-links(parameter_color)
+// ------------------------------------------------------------
+link-color($color = @color, $without-decoration = false)
+  a
+    &:link, &:visited, &:hover, &:active, &:focus
+      color: $color
+      if $without-decoration
+        text-decoration: none
+// ============================================================
+// break container: contents in container be full width of view
+// ============================================================
+// just include
+// ------------------------------------------------------------
+liquid()
+  margin-left: calc(((100vw - 100%) / 2) * -1)
+  margin-right: calc(((100vw - 100%) / 2) * -1)
+  padding-left: calc((100vw - 100%) / 2)
+  padding-right: calc((100vw - 100%) / 2)
+
+// ============================================================
+// zurui gradietion
+// ============================================================
+// usage:include link-color-fixed(basecolor, lightercolor);
+// ------------------------------------------------------------
+// FIXME: not to use palette
+gradient-top-lighten($color = $palette('Grey', '700'), $lighten = 10%)
+  background-color: $color
+  filter-gradient(lighten($color, $lighten), $color, vertical)
+  background-image(linear-gradient(lighten($color, $lighten) 0%, $color 100%))
+gradient-top-darken($color = $palette('Grey','700'), $darken = 10%)
+  background-color: $color
+  filter-gradient(darken($color, $darken), $color, vertical)
+  background-image(linear-gradient(darken($color, $darken) 0%, $color 100%))
+// ============================================================
+// zurui box-shadow
+// ============================================================
+// usage:include zurui-box(kosa);
+// ------------------------------------------------------------
+// FIXME: not to use palette
+zurui-box($shadow = 0.15)
+  box-shadow: rgba(0, 0, 0, $shadow) 0 0 2px
+rich-box($shadow = 0.2)
+  box-shadow: rgba(0, 0, 0, $shadow) 0 0 0 20px inset
+deboss-box($border = 0.1, $shadow = 0.05, $highlight = 0.8)
+  border 1px solid rgba(0, 0, 0, $border)
+  box-shadow rgba(0, 0, 0, $shadow) -1px 1px 2px inset, rgba(255, 255, 255, $highlight) -1px 1px 0
+emboss-box($border = 0.1, $shadow = 0.05, $highlight = 0.5)
+  border: 1px solid rgba(0, 0, 0, $border)
+  box-shadow: rgba(0, 0, 0, $shadow) -1px 1px 0, rgba(255, 255, 255, $highlight) -1px 1px 0 inset
+button($color = #ff5622, $font-size = 16px, $text-color = $palette('White','Text'))
+  display: inline-block
+  background-origin: border-box
+  position: relative
+  font-weight: bold
+  ts-000(0.1)
+  gradient-top-lighten($color, 5%)
+  border-radius(4px)
+  emboss-box()
+  color: rgba($text-color, 0.9)
+  text-align: center
+  font-size: $font-size
+  padding: 0 $font-size * 2
+  height: ($font-size * 3)
+  line-height: ($font-size * 3)
+  i
+    font-size: 130%
+    margin-right: 5px
+    color: rgba($text-color, 0.5)
+  &:hover
+    gradient-top-lighten(lighten($color, 5%), 5%)
+    text-decoration: none
+    color: $text-color
+    i
+      color: $text-color
+  &:active
+    gradient-top-lighten($color, 5%)
+    top: 1px

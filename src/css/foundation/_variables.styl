@@ -1,0 +1,99 @@
+// ============================================================
+// Kouto Swiss settings
+// ============================================================
+ks-vendor-prefixes       = recommended
+ks-support-media-queries = true
+// ============================================================
+// Base settings *must set your preferences*
+// ============================================================
+$root-font-size      = 62.5%
+$base-black          = $mdc.gray.b900
+$amount-of-change    = 33%
+$base-white          = $mdc.gray.b50
+$base-bg-color       = tint($mdc.amber.b50, $amount-of-change * 2)
+$strong-bg-color     = tint($mdc.amber.b100, $amount-of-change)
+// $base-font-color     = #2F1D1A
+$base-font-color     = shade($mdc.brown.b900, $amount-of-change)
+// $base-font-color     = $mdc.brown.b900
+$base-gray           = mix($base-black, $base-white, 50%)
+// $base-accent         = tint($mdc.red.a700, $amount-of-change)
+$base-accent         = $mdc.red.a700
+$alpha-density       = 0.7
+$base-ratio          = 1.4
+$base-font-size      = 1.5rem
+$base-line-height    = 1.8
+$base-letter-spacing = 0.007em
+$base-font-weight    = 400
+$base-font-family    = -apple-system, BlinkMacSystemFont, 'Open Sans', "Hiragino Kaku Gothic ProN", YuGothicFixed, Meiryo, sans-serif
+$mono-font-family    = 'Source Code Pro', Inconsolate, 'Ricty Deminished', Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', 'Monaco', 'Consolas', 'Courier New', Courier, monospace
+
+// ============================================================
+// Caliculation from base setting *Do NOT have to set*
+// ============================================================
+$base-ratio-half    = ((($base-ratio - 1) / 2 ) + 1)
+$root-font-size-pc  = $root-font-size * $base-ratio-half
+$base-space         = $base-font-size * $base-ratio - $base-font-size
+$x-small = $base-font-size / $base-ratio
+$small  = $base-font-size / $base-ratio-half
+$large   = $base-font-size * $base-ratio
+$x-large  = $base-font-size * $base-ratio * $base-ratio
+// ============================================================
+// Color Caliculation *Do NOT have to set*
+// ============================================================
+$pure-black        = #000
+$pure-white        = #FFF
+$invert-bg-color   = invert($base-bg-color)
+$invert-font-color = invert($base-font-color)
+$base-shadow-color = alpha($pure-black, $alpha-density)
+$base-smoke-color  = alpha($pure-white, $alpha-density)
+$base-middle-color = $base-gray
+$accent-1st        = $base-accent
+$accent-1st-tint   = tint($accent-1st, $amount-of-change)
+$accent-1st-shade  = shade($accent-1st, $amount-of-change)
+// $accent-2nd        = ($accent-1st + 150deg)
+$accent-2nd        = split-complements($accent-1st)[0]
+$accent-2nd-tint   = tint($accent-2nd, $amount-of-change)
+$accent-2nd-shade  = shade($accent-2nd, $amount-of-change)
+// $accent-3rd        = ($accent-1st + 210deg)
+$accent-3rd        = split-complements($accent-1st)[1]
+$accent-3rd-tint   = tint($accent-3rd, $amount-of-change)
+$accent-3rd-shade  = shade($accent-3rd, $amount-of-change)
+
+if light($base-bg-color)
+  $primary-text = rgba($base-font-color, 0.87)
+  $secondary-text = rgba($base-font-color, 0.54)
+  $disabled-text = rgba($base-font-color, 0.38)
+  $dividers-text = rgba($base-font-color, 0.12)
+  $active-icon = rgba($base-font-color, 0.54)
+  $inactive-icon = rgba($base-font-color, 0.38)
+else
+  $primary-text = rgba($base-font-color, 1)
+  $secondary-text = rgba($base-font-color, 0.70)
+  $disabled-text = rgba($base-font-color, 0.50)
+  $dividers-text = rgba($base-font-color, 0.12)
+  $active-icon = rgba($base-font-color, 1)
+  $inactive-icon = rgba($base-font-color, 0.50)
+
+// ============================================================
+// Display size for Responsive
+// ============================================================
+// normal size for smallest like mobile first desing
+// medium for tablet, larger for laptop, largest for desktop
+// ------------------------------------------------------------
+media-small   = only screen, max-width 599px  // 0-599 SmartPhone
+media-medium  = only screen, min-width 600px  // 600-959 Tablet
+media-larger  = only screen, min-width 960px  // 960-1280 Laptop PC
+media-largest = only screen, min-width 1280px // 1280- Desktop PC
+// ============================================================
+// for pritout(monotone)
+// NOTICE: I don't know it works well
+//  ============================================================
++media-query( print )
+  #header, #footer
+    display: none
+  $base-bg-color = white
+  $base-font-color = black
+  if dark(grayscale($base-accent))
+    $base-accent = grayscale($base-accent)
+  else
+    $base-accent = grayscale(invert($base-accent))

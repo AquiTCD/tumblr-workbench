@@ -1,0 +1,25 @@
+html
+  font-size: $root-font-size
+  +media-query(media-larger)
+    font-size: $root-font-size-pc
+body
+  background-color: $base-bg-color
+  color: $base-font-color
+  font-family: $base-font-family
+  font-size: $base-font-size
+  line-height: $base-line-height
+  text-align: justify
+  text-justify: auto
+  font-feature-settings: 'palt'
+  letter-spacing: $base-letter-spacing
+  // -webkit-font-smoothing subpixel-antialiased
+  // -moz-osx-font-smoothing: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  // +media-query(media-large)
+  //   font-size: base-font-size-pc
+a
+  &:link
+    color: $color-accent
+pre, code
+  font-family: $mono-font-family
