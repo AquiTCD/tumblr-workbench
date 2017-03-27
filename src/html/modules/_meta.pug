@@ -4,16 +4,16 @@ meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale
 meta(name="format-detection" content="telephone=no,address=no,email=no")
 meta(name="apple-mobile-web-app-capable" content="yes")
 if pageTitle
-  title `${pageTitle'} | ${site.name}`
-  meta(property="og:title" content=`${pageTitle} | ${site.name}`)
+  title `${pageTitle}`
+  meta(property="og:title" content=`${pageTitle}`)
 else
   title site.name
-  meta(property="og:title" content=`${site.name}`)
+  meta(property="og:title" content=`${pageTitle}`)
 meta(name="description" content=`${pageDescription||site.description}`)
 //- OGP
 meta(property="og:type" content=`${pageOgpType||site.default.ogpType}`)
 meta(property="og:image" content=`${pageOgpImage||site.default.ogpImage}`)
-meta(property="og:url" content=`${site.rootUrl + pageUrl}`)
+meta(property="og:url" content=`${pageUrl}`)
 meta(property="og:description" content=`${pageDescription||site.description}`)
 meta(property="og:site_name" content=`${site.name}`)
 meta(property="og:locale" content=`${site.default.lang}`)
@@ -33,6 +33,29 @@ link(rel="canonical" href=`${pageUrl}`)
 link(rel="apple-touch-icon" href=`${site.touchIcon}`)
 //- link(rel="apple-touch-icon-precomposed" href="</apple-touch-icon.pngのパス>")
 link(rel="shortcut icon" href=`${site.favicon}`)
+link(rel='alternate' type='application/rss+xml' href=`${rss}`'{RSS}')
 //- /OGP
+
+meta(name='twitter:image', content='{PortraitURL-128}')
+|  {block:PermalinkPage} {block:Posts} {block:Photo}
+meta(property='og:image', content='{PhotoURL-HighRes}')
+|  {/block:Photo} {block:Photoset} {block:Photos}
+meta(property='og:image', content='{PhotoURL-HighRes}')
+|  {/block:Photos} {/block:Photoset} {/block:Posts} {/block:PermalinkPage}
+meta(property='og:site_name', content='{Title}')
+|  {block:Description}
+meta(property='og:description', content='{MetaDescription}')
+|  {/block:Description} {block:IfGoogleAuthor}
+link(rel='author', href='{text:Google Author}')
+|  {/block:IfGoogleAuthor} {block:IndexPage}
+link(rel='canonical', href='{BlogURL}')
+meta(property='og:url', content='{BlogURL}')
+|  {/block:IndexPage} {block:PermalinkPage}
+link(rel='canonical', href='{Permalink}')
+meta(property='og:url', content='{Permalink}')
+|  {/block:PermalinkPage}
+//[if IE 9 ]> <script type="text/javascript" src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
 block css
-  link(rel="stylesheet" href="/css/style.css")
+
+  link(rel='stylesheet' href='http://lib.solunita.net/stylesheets/style.css')
+  link(rel='stylesheet' href='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/gruvbox-dark.min.css')

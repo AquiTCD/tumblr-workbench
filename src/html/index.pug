@@ -1,7 +1,7 @@
 extends /layouts/_base
 append variables
   //- Required
-  - var pageTitle= "";
+  - var pageTitle= "{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}";
   - var pageDescription= "";
   - var pageLang= "";
   //- Optional
@@ -9,7 +9,7 @@ append variables
   - var pageOgpImage= "";
   - var pageOgpType= "";
   //- Not modified
-  - var pageUrl= "/";
+  - var pageUrl= "{Permalink}";
 append js
   script.
     objectFitImages('img.object-fit-img');

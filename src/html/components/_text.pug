@@ -1,0 +1,349 @@
+doctype html
+html(lang='ja', prefix='og: http://ogp.me/ns#')
+  head
+
+
+
+
+    //if lt IE 9
+      script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body.(class='{block:IndexPage}page-index{/block:IndexPage}{block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}')
+    style.
+      {CustomCSS}
+    #container.l-container
+      header#header.l-header.c-header
+        h1.p-blog-title
+          a(href='/', title='{Title}')
+            img.p-blog-title__logo(src='http://lib.solunita.net/images/trial-and-spiral__logo--no-margin.svg', alt='logo')
+      nav.paradeiser
+        a.paradeiser__logo__flex(href='/')
+          img.paradeiser__logo__flex__image(src='http://lib.solunita.net/images/trial-and-spiral__logo-header.svg', alt='Trial and Spiral logo')
+        a(href='/about')
+          icon.icon.icon-info
+          |
+          span About
+        .paradeiser_dropdown
+          a(href='#paradeiser-search')
+            icon.icon.icon-search
+            |
+            span Search
+          ul#paradeiser-search.paradeiser_children
+            li
+              form.c-search-form(action='/search', method='get')
+                input.c-search-form__field(type='text', name='q', placeholder='キーワード検索', value='{SearchQuery}')
+                |
+                input.c-search-form__button(type='submit', value='', alt='検索', title='検索')
+            li
+              .tag-clouds
+                a(href='/tagged/Announce（通知）')
+                  icon.icon.icon-price-tag
+                  | #Announce&#xFF08;&#x901A;&#x77E5;&#xFF09;
+                a(href='/tagged/App')
+                  icon.icon.icon-price-tag
+                  | #App
+                a(href='/tagged/Book（書籍）')
+                  icon.icon.icon-price-tag
+                  | #Book&#xFF08;&#x66F8;&#x7C4D;&#xFF09;
+                a(href='/tagged/Broadcast（放送）')
+                  icon.icon.icon-price-tag
+                  | #Broadcast&#xFF08;&#x653E;&#x9001;&#xFF09;
+                a(href='/tagged/Craft（工芸）')
+                  icon.icon.icon-price-tag
+                  | #Craft&#xFF08;&#x5DE5;&#x82B8;&#xFF09;
+                a(href='/tagged/Customize（設定）')
+                  icon.icon.icon-price-tag
+                  | #Customize&#xFF08;&#x8A2D;&#x5B9A;&#xFF09;
+                a(href='/tagged/Develop（開発）')
+                  icon.icon.icon-price-tag
+                  | #Develop&#xFF08;&#x958B;&#x767A;&#xFF09;
+                a(href='/tagged/Equipment（装備）')
+                  icon.icon.icon-price-tag
+                  | #Equipment&#xFF08;&#x88C5;&#x5099;&#xFF09;
+                a(href='/tagged/Gadget（道具）')
+                  icon.icon.icon-price-tag
+                  | #Gadget&#xFF08;&#x9053;&#x5177;&#xFF09;
+                a(href='/tagged/Game（ゲーム）')
+                  icon.icon.icon-price-tag
+                  | #Game&#xFF08;&#x30B2;&#x30FC;&#x30E0;&#xFF09;
+                a(href='/tagged/Hack（駆使）')
+                  icon.icon.icon-price-tag
+                  | #Hack&#xFF08;&#x99C6;&#x4F7F;&#xFF09;
+                a(href='/tagged/iPhone')
+                  icon.icon.icon-price-tag
+                  | #iPhone
+                a(href='/tagged/Journey（旅行）')
+                  icon.icon.icon-price-tag
+                  | #Journey&#xFF08;&#x65C5;&#x884C;&#xFF09;
+                a(href='/tagged/Life（生活）')
+                  icon.icon.icon-price-tag
+                  | #Life&#xFF08;&#x751F;&#x6D3B;&#xFF09;
+                a(href='/tagged/Mac')
+                  icon.icon.icon-price-tag
+                  | #Mac
+                a(href='/tagged/Miscellany（雑記）')
+                  icon.icon.icon-price-tag
+                  | #Miscellany&#xFF08;&#x96D1;&#x8A18;&#xFF09;
+                a(href='/tagged/Music（音楽）')
+                  icon.icon.icon-price-tag
+                  | #Music&#xFF08;&#x97F3;&#x697D;&#xFF09;
+                a(href='/tagged/Review（論評）')
+                  icon.icon.icon-price-tag
+                  | #Review&#xFF08;&#x8AD6;&#x8A55;&#xFF09;
+                a(href='/tagged/Tumblr')
+                  icon.icon.icon-price-tag
+                  | #Tumblr
+            li
+              a(href='#!')
+        .paradeiser_dropdown
+          a(href='#paradeiser-more')
+            icon.icon.icon-menu3
+            |
+            span More
+          ul#paradeiser-more.paradeiser_children
+            li
+              a(href='/photo') &#x65C5;&#x5199;&#x771F;
+            li
+              a(href='http://the-excursion-for-me.tumblr.com/') &#x65C5;&#x65E5;&#x8A18;
+            li
+              a(href='/archive') Archive
+            li
+              a(href='rss') RSS
+            li
+              a(href='#!')
+      |  {block:Description}
+      #description.l-description
+        h2.blog-description {Description}
+      |  {/block:Description}
+      #main.l-main.autopagerize_page_element(role='main')
+        | {block:TagPage}
+        h2.tagged &#x30BF;&#x30B0;&quot;{Tag}&quot;&#x304C;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x305F;&#x8A18;&#x4E8B;
+        |  {/block:TagPage} {block:SearchPage}
+        h2 &quot;{SearchQuery}&quot;&#x306E;&#x691C;&#x7D22;&#x7D50;&#x679C;: {SearchResultCount} &#x4EF6;
+        |  {/block:SearchPage} {block:NoSearchResults}
+        p &#x8A72;&#x5F53;&#x3059;&#x308B;&#x8A18;&#x4E8B;&#x306F;&#x898B;&#x3064;&#x304B;&#x308A;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;
+        |  {/block:NoSearchResults} {block:Posts}
+        article.p-posts(class='{TagsAsClasses} {PostType}')
+          | {block:Date}
+          .p-posts__date
+            icon.icon.icon-clock
+            |
+            a(href='{Permalink}') {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}
+          |  {/block:Date} {block:HasTags}
+          .p-posts__hastags
+            | {block:Tags}
+            a(href='{TagURL}')
+              icon.icon.icon-price-tag
+              | #{Tag}
+            |  {/block:Tags}
+          |  {/block:HasTags} {block:Text}
+          .p-text-post
+            header.p-text-post__header
+              | {block:Title}
+              h1.p-text-post__header__title
+                a(href='{Permalink}') {Title}
+              |  {/block:Title}
+            .p-text-post__content  {Body}
+          |  {/block:Text} {block:Photo}
+          .p-photo-post
+            .p-photo-post__entry-content
+              | {LinkOpenTag}
+              img(src='{PhotoURL-HighRes}', alt='{PhotoAlt}')
+              |  {LinkCloseTag} {block:Caption}
+              .p-photo-post__caption  {Caption}
+              |  {/block:Caption}
+          |  {/block:Photo} {block:Photoset}
+          .p-photoset-post
+            .p-photoset-post__entry-content
+              | {Photoset-700} {block:Caption}
+              .p-photoset-post__caption  {Caption}
+              |  {/block:Caption}
+          |  {/block:Photoset} {block:Quote}
+          .p-quote-post
+            .p-quote-post__entry-content(class='{Length}')
+              blockquote &ldquo;{Quote}&rdquo;
+              |  {block:Source}
+              .p-quote-post__quote-source  {Source}
+              |  {/block:Source}
+          |  {/block:Quote} {block:Link}
+          .p-link-post
+            header.p-link-post__entry-header
+              h1.entry-title
+                a.link-url(href='{URL}', {target}='') {Name}
+            .p-link-post__entry-content
+              | {block:Description}
+              .p-link-post__entry-content__link-description {Description}
+              |  {/block:Description}
+          |  {/block:Link} {block:Chat}
+          .p-chat-post
+            .p-chat-post__entry-content
+              | {block:Title}
+              h1.p-chat-post__entry-content__entry-title
+                a(href='{Permalink}') {Title}
+              |  {/block:Title}
+              ul.p-chat-post__ul-chat
+                | {block:Lines}
+                li.(class='{Alt} user_{UserNumber}')
+                  | {block:Label}
+                  span.label {Label}
+                  |  {/block:Label} {Line}
+                |  {/block:Lines}
+          |  {/block:Chat} {block:Video}
+          .p-video-post
+            .p-video-post__entry-content.video-iframe
+              | {Video-700} {block:Caption}
+              .p-video-post__entry-content__caption  {Caption}
+              |  {/block:Caption}
+          |  {/block:Video} {block:Audio}
+          .p-audio-post
+            .p-audio-post__entry-content
+              | {AudioPlayerBlack} {block:Caption}
+              .p-audio-post__entry-content__caption  {Caption}
+              |  {/block:Caption}
+          |  {/block:Audio} {block:Answer}
+          .p-answer-post
+            .p-answer-post__entry-content
+              .p-answer-post__entry-content__question.bubble  {Question}
+              .p-answer-post__entry-content__asker-group
+                img(src='{AskerPortraitURL-24}', width='24', height='24')
+                |  {Asker}
+              .p-answer-post__entry-content__answer.cont {Answer}
+          |  {/block:Answer} {block:ContentSource}
+          .p-content-source-post
+            a(href='{SourceURL}')
+              | {lang:Source}: {block:SourceLogo}
+              img(src='{BlackLogoURL}', width='{LogoWidth}', height='{LogoHeight}', alt='{SourceTitle}')
+              |  {/block:SourceLogo} {block:NoSourceLogo} {SourceTitle} {/block:NoSourceLogo}
+          |  {/block:ContentSource}
+          footer.p-posts__entry-footer
+            | {block:RebloggedFrom}
+            .p-posts__entry-footer__rebloggedfrom
+              span.p-posts__reblog-parent-name
+                | Reblogged from
+                a(href='{ReblogParentURL}')
+                  img.favicon(src='{ReblogParentPortraitURL-16}')
+                  |  {ReblogParentName}
+              |
+              span.p-posts__reblog-root-name
+                | Originally posted by
+                a(href='{ReblogRootURL}')
+                  img.favicon(src='{ReblogRootPortraitURL-16}')
+                  |  {ReblogRootName}
+            |  {/block:RebloggedFrom}
+            .p-posts__entry-footer__meta-footer
+              span.p-posts__entry-footer__meta-footer__timeago
+                a(href='{Permalink}') {TimeAgo}
+              |  {block:NoteCount}
+              span.p-posts__entry-footer__meta-footer__notecount
+                a(href='{Permalink}') {NoteCount} Notes
+              |  {/block:NoteCount}
+            |  {block:Date}
+            ul.p-posts__entry-footer__like-and-reblog
+              li.p-posts__entry-footer__like-and-reblog__button {ReblogButton}
+              li.p-posts__entry-footer__like-and-reblog__button {LikeButton}
+            ul.c-social
+              li.c-social__button
+                a(href='http://b.hatena.ne.jp/entry/{Permalink}', title='hatenabookmark')
+                  icon.icon.icon-hatebu
+              li.c-social__button
+                a(href='http://www.facebook.com/share.php?u={Permalink}', title='facebook')
+                  icon.icon.icon-facebook2
+              li.c-social__button
+                a(href='https://twitter.com/share?url={Permalink}&text={Title}', title='twitter')
+                  icon.icon.icon-twitter
+              li.c-social__button
+                a(href='http://getpocket.com/edit?url={Permalink}&title={Title}', title='pocket')
+                  icon.icon.icon-pocket
+            |  {/block:Date} {block:PermalinkPage}
+            ul.c-social--fixed
+              li.c-social--fixed__button
+                a(href='http://b.hatena.ne.jp/entry/{Permalink}', title='hatenabookmark')
+                  icon.icon.icon-hatebu
+              li.c-social--fixed__button
+                a(href='http://www.facebook.com/share.php?u={Permalink}', title='facebook')
+                  icon.icon.icon-facebook2
+              li.c-social--fixed__button
+                a(href='https://twitter.com/share?url={Permalink}&text={Title}', title='twitter')
+                  icon.icon.icon-twitter
+              li.c-social--fixed__button
+                a(href='http://getpocket.com/edit?url={Permalink}&title={Title}', title='pocket')
+                  icon.icon.icon-pocket
+              li.c-social--fixed__button
+                a(href='#', title='up')
+                  icon.icon.icon-circle-up
+            .c-related-posts
+              h2 &#x95A2;&#x9023;&#x8A18;&#x4E8B;
+              script(type='text/javascript').
+                (function(config) {
+                var scripts = document.getElementsByTagName('script');
+                var target = scripts[scripts.length-1];
+                window['tumblrrelatedpost'] = (function(data) {
+                for (var ul = document.createElement('ul'), i = 0; i < data.posts.length; i++)
+                if (data.posts[i]['url-with-slug'] !== location.href)
+                ul.innerHTML += '<li><a href="{{link}}">{{title}}</a></li>'.replace('{{link}}', data.posts[i]['url-with-slug']).replace('{{title}}', data.posts[i]['regular-title']);
+                target.parentNode.replaceChild(ul, target);
+                });
+                var script = document.createElement('script');
+                script.src = '/api/read/json?tagged={{tags}}&type=text&num={{num}}&start=0&callback={{callback}}'.replace('{{tags}}', ('{block:Tags}{Tag},{/block:Tags}'.split(',')[0] || '')).replace('{{num}}', config.num).replace('{{callback}}', 'tumblrrelatedpost');
+                document.head.appendChild(script);
+                })({num: 6});
+            |  {/block:PermalinkPage} {block:PostNotes}
+            h2.p-posts__entry-footer__notecount-header {NoteCount} Notes
+            .p-posts__entry-footer__notecontainer {PostNotes}
+            |  {/block:PostNotes}
+        |  {/block:Posts}
+      #pagination.l-pagination
+        | {block:PermalinkPagination}
+        .c-pagination--permalink
+          | {block:NextPost}
+          a.next(href='{NextPost}', rel='next') Newer Post
+          |  {/block:NextPost} {block:PreviousPost}
+          a(href='{PreviousPost}') Older Post
+          |  {/block:PreviousPost}
+        |  {/block:PermalinkPagination} {block:Pagination}
+        .c-pagination--index
+          | {block:PreviousPage}
+          a(href='{PreviousPage}') Prev
+          |  {/block:PreviousPage} {block:JumpPagination length=&quot;5&quot;} {block:CurrentPage}
+          span.current-page {PageNumber}
+          | {/block:CurrentPage} {block:JumpPage}
+          a.jump-page(href='{URL}') {PageNumber}
+          | {/block:JumpPage} {/block:JumpPagination} {block:NextPage}
+          a.next(href='{NextPage}', rel='next') Next
+          |  {/block:NextPage}
+        |  {/block:Pagination}
+      footer#footer.l-footer
+        .c-footer-block
+          span.copyright &copy;{CopyrightYears} {Title} by solunita.net
+    //if lt IE 9
+      script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js')
+    // [if gte IE 9] <!
+    script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.slim.js')
+    // <![endif]
+    script(src='http://lib.solunita.net/javascripts/mojik.js')
+    script.
+      Mojik.compose(".p-posts, .blog-description");
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js')
+    script.
+      $(document).ready(function() {
+      $('code').each(function(i, block) { hljs.highlightBlock(block); });
+      });
+    script(type='text/javascript').
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '{text:Google Analytics ID}']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    |  {block:IfEnableLikeButton}
+    #fb-root
+    script.
+      (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "http://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    |  {/block:IfEnableLikeButton}
