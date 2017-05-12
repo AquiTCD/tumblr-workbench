@@ -1,0 +1,24 @@
+.l-nav
+  width: 0
+  height: 100vh
+  // background: $primary-color-tint
+  background: $black-base
+  link-variation: $white-base true
+  rhythmical-padding: 0.5 0 0.5 0
+  vertical-rhythm: true
+  z-depth: 1
+  fixed: top left
+  &.is-open
+    width: 20%
+.l-nav_container
+  margin-left: rhythmical-space(0.25)
+  margin-right: rhythmical-space(0.25)
+  +media-query(media-medium)
+    margin-left: rhythmical-space(0.5)
+    margin-right: rhythmical-space(0.5)
+  +media-query(media-larger)
+    width: 960px
+    margin-left: auto
+    margin-right: auto
+    padding-left: rhythmical-space(1)
+    padding-right: rhythmical-space(1)

@@ -1,0 +1,37 @@
+extends /layouts/_base
+//- ============================================================
+block append variables
+  //- Required
+  - var pageTitle= "spa"
+  //- Optional
+  - var pageDescription= ""
+  - var pageLang= ""
+  - var pageOgpImage= ""
+  - var pageOgpType= ""
+  //- Not modified
+  - var pageUrl= "/spa.html"
+//- ============================================================
+block append css
+  //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+  //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css")
+block append js
+//- ============================================================
+block content
+  main.l-main
+    article.l-main_container
+      section.page.page1(data-role='page')
+        .inner
+          h1 This is page#1
+          a(href='#2') next page
+      section.page.page2(data-role='page')
+        .inner
+          h1 This is page#2
+          a(href='#3') next page
+      section.page.page3(data-role='page')
+        .inner
+          h1 This is page#3
+          a(href='#4') next page
+      section.page.page4(data-role='page')
+        .inner
+          h1 This is page#4
+          a(href='#1') next page

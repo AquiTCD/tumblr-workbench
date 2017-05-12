@@ -1,24 +1,29 @@
-@charset "utf-8"
+@charset 'utf-8'
 // ============================================================
 // Frameworks and Plugins for it with formatting
 // ============================================================
-@import "kouto-swiss"
+@import 'kouto-swiss'
 meyer-reset()
 box-sizing-reset()
+// ============================================================
+// import 3rd party plugins
+// ============================================================
+if !$useCDN
+  @import '../../build/css/plugins/*.css'
 // follows FLOCSS design concept
 // ============================================================
-// Foundation *order sensitive*
+// Foundation settings *order sensitive*
 // ============================================================
-@import 'foundation/_colors'
 @import 'foundation/_fonts'
+@import 'foundation/_colors'
 @import 'foundation/_variables'
 @import 'foundation/_mixins'
 @import 'foundation/_base'
 // ============================================================
-// Layout
+// Layouts
 // ============================================================
-// @import 'layout/*'
+@import 'layouts/*'
 // ============================================================
-// Object
+// Objects
 // ============================================================
-@import 'object/*'
+@import 'objects/**/*'

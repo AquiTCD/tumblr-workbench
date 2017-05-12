@@ -1,12 +1,15 @@
 block variables
 doctype html
-html(lang=`${pageLang||site.default.lang}`)
-  head(prefix=`og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#  ${pageOgpType||site.default.ogpType}: http://ogp.me/ns/${pageOgpType||site.default.ogpType}#`)
+html(lang=`${pageLang||settings.defaultLang}`)
+  head(prefix=`og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#  ${pageOgpType||settings.defaultOgpType}: http://ogp.me/ns/${pageOgpType||settings.defaultOgpType}#`)
     include /modules/_meta
+    include /modules/_css
   body
     include /layouts/_header
 
+    //- block prepend content
+    //-   include /layouts/_nav
     block content
 
     include /layouts/_footer
-    include /modules/_script
+    include /modules/_js

@@ -1,0 +1,57 @@
+extends /layouts/_base
+//- ============================================================
+block append variables
+  //- Required
+  - var pageTitle= "filter_sort"
+  //- Optional
+  - var pageDescription= ""
+  - var pageLang= ""
+  - var pageOgpImage= ""
+  - var pageOgpType= ""
+  //- Not modified
+  - var pageUrl= "/filter_sort.html"
+//- ============================================================
+block append css
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css")
+block prepend js
+  //- /*script(src='http://code.jquery.com/jquery-2.1.3.min.js')*/
+  script(src='http://underscorejs.org/underscore-min.js')
+  //- /*script(src='./index.js')*/
+//- ============================================================
+block content
+  main.l-main.break-js
+    .l-main_container.container
+      .page-header
+        h1 AJAX・API連携・データ検索
+      .form-horizontal
+        .form-group
+          label.col-sm-2.control-label(for='') group
+          .col-sm-10
+            select.form-control(name='filter')
+              option
+              option(value='a') a
+              option(value='b') b
+              option(value='c') c
+              option(value='d') d
+        .form-group
+          label.col-sm-2.control-label(for='') sort
+          .col-sm-10
+            select.form-control(name='sort')
+              option
+              option(value='id') id
+              option(value='name') name
+              option(value='age') age
+              option(value='group') group
+      table.table.table-striped
+        thead
+          script(type="text/template", data-template="item").
+            <% _.each(list, function (e, i){ %>
+              <tr>
+                <th><%= e.id %></th>
+                <th><%= e.name %></th>
+                <th><%= e.age %></th>
+                <th><%= e.group %></th>
+              </tr>
+            <% }); %>
+        tbody

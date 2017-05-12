@@ -1,0 +1,46 @@
+extends /layouts/_base
+//- ============================================================
+block append variables
+  //- Required
+  - var pageTitle= "Video2"
+  //- Optional
+  - var pageDescription= ""
+  - var pageLang= ""
+  - var pageOgpImage= ""
+  - var pageOgpType= ""
+  //- Not modified
+  - var pageUrl= "/video2.html"
+//- ============================================================
+block append css
+  style.
+    .preview button{
+    cursor: pointer;
+    }
+    #modal {
+      display: none;
+      width: 400px;
+      height: 300px;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #666666;
+      position:fixed;
+      z-index: 2;
+    }
+    #modal-overlay {
+      display:none;
+      width:100%;
+      height:100%;
+      background-color: rgba(0,0,0,0.5);
+      position:fixed;
+      top:0;
+      left:0;
+      z-index: 1;
+    }
+block append js
+//- ============================================================
+block content
+  main#contWrap.l-main
+    .l-main_container
+      video(id="test1" controls preload="auto" width="400" height="300")
+        source(src="https://onsen-dl.sslcs.cdngc.net/radio/chauradi170419he8n.mp4" type="video/mp4")

@@ -3,20 +3,22 @@ meta(http-equiv="X-UA-Compatible" content="IE=edge")
 meta(name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0")
 meta(name="format-detection" content="telephone=no,address=no,email=no")
 meta(name="apple-mobile-web-app-capable" content="yes")
-if pageTitle
-  title `${pageTitle'} | ${site.name}`
-  meta(property="og:title" content=`${pageTitle} | ${site.name}`)
+if pageTitle && (pageTitle != 'Home')
+  title= pageTitle + ' | ' + settings.name
+  meta(property="og:title" content=`${pageTitle} | ${settings.name}`)
+  meta(name="twitter:title" content=`${pageTitle} | ${settings.name}`)
 else
-  title site.name
-  meta(property="og:title" content=`${site.name}`)
-meta(name="description" content=`${pageDescription||site.description}`)
+  title= settings.name
+  meta(property="og:title" content=`${settings.name}`)
+  meta(name="twitter:title" content=`${settings.name}`)
+meta(name="description" content=`${pageDescription||settings.description}`)
 //- OGP
-meta(property="og:type" content=`${pageOgpType||site.default.ogpType}`)
-meta(property="og:image" content=`${pageOgpImage||site.default.ogpImage}`)
-meta(property="og:url" content=`${site.rootUrl + pageUrl}`)
-meta(property="og:description" content=`${pageDescription||site.description}`)
-meta(property="og:site_name" content=`${site.name}`)
-meta(property="og:locale" content=`${site.default.lang}`)
+meta(property="og:type" content=`${pageOgpType||settings.defaultOgpType}`)
+meta(property="og:image" content=`${pageOgpImage||settings.defaultOgpImage}`)
+meta(property="og:url" content=`${settings.rootUrl + pageUrl}`)
+meta(property="og:description" content=`${pageDescription||settings.description}`)
+meta(property="og:site_name" content=`${settings.name}`)
+meta(property="og:locale" content=`${settings.defaultLang}`)
 
 //- OGP Facebook
 //- / meta(property="fb:app_id" content="XXXXXXXXXXXXXXX")
@@ -25,14 +27,13 @@ meta(property="og:locale" content=`${site.default.lang}`)
 meta(name="twitter:card" content="summary")
 //- / meta(name="twitter:site" content="@site")
 //- / meta(name="twitter:creator" content="@user")
-meta(name="twitter:title" content=`${pageTitle} | ${site.name}`)
-meta(name="twitter:description" content=`${pageDescription||site.description}`)
-meta(name="twitter:image" content=`${pageOgpImage||site.default.ogpImage}`)
+meta(name="twitter:description" content=`${pageDescription||settings.description}`)
+meta(name="twitter:image" content=`${pageOgpImage||settings.defaultOgpImage}`)
 link(rel="canonical" href=`${pageUrl}`)
 //- favicon and touch icon
-link(rel="apple-touch-icon" href=`${site.touchIcon}`)
+link(rel="apple-touch-icon" href=`${settings.touchIcon}`)
 //- link(rel="apple-touch-icon-precomposed" href="</apple-touch-icon.pngのパス>")
-link(rel="shortcut icon" href=`${site.favicon}`)
+link(rel="shortcut icon" href=`${settings.favicon}`)
 //- /OGP
-block css
-  link(rel="stylesheet" href="/css/style.css")
+//if lt IE 9
+  script(src='//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js')

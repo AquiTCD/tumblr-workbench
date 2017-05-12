@@ -1,0 +1,29 @@
+{
+  "name": "Base-Workbench",
+  "description": "サイトの概要",
+  "rootUrl": "http://dev.solunita.net",
+  "locale": "ja_JP",
+  "touchIcon": "http://lib.solunita.net/images/apple-touch-icon.png",
+  "favicon": "http://dev.solunita.net/favicon.ico",
+  "defaultLang": "ja",
+  "defaultOgpImage": "http://lib.solunita.net/images/og-image.jpg",
+  "defaultOgpType": "website",
+  "cdn": {
+    "jquery": {
+      "js": "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    },
+    "highlight": {
+      "css": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css",
+      "js": "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"
+    },
+    "ofi": {
+      "js": "https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.0/ofi.min.js"
+    },
+    "yakuhan": {
+      "css": "https://cdn.jsdelivr.net/yakuhanjp/1.3.1/css/yakuhanjp.min.css"
+    },
+    "fontawesome": {
+      "css": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    }
+  }
+}

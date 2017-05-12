@@ -1,26 +1,395 @@
 extends /layouts/_base
-append variables
+//- ============================================================
+block append variables
   //- Required
-  - var pageTitle= "";
-  - var pageDescription= "";
-  - var pageLang= "";
+  - var pageTitle= "Home"
   //- Optional
-  - var pageOgpTitle= "";
-  - var pageOgpImage= "";
+  - var pageDescription= ""
+  - var pageLang= ""
+  - var pageOgpImage= ""
   - var pageOgpType= "";
   //- Not modified
-  - var pageUrl= "/";
-append js
-  script.
-    objectFitImages('img.object-fit-img');
-
+  - var pageUrl= "/"
+//- ============================================================
+block append css
+block append js
+//- ============================================================
 block content
-  ul.thumb
-    li: a(href="#")
-      img(src="http://placehold.jp/500x100.png").object-fit-img
-    li: a(href="#")
-      img(src="http://placehold.jp/100x500.png").object-fit-img
-    li: a(href="#")
-      img(src="http://placehold.jp/250x250.png").object-fit-img
-    li: a(href="#")
-      img(src="http://placehold.jp/500x500.png").object-fit-img
+  main.l-main
+    article.l-main_container
+      // Sample Content to Plugin to Template
+      h1 CSS の基本的な要素
+      h2 for What?
+      p
+        | この HTML の目的は何のデフォルト設定が CSS を持っているか決定するのを手伝うこと、そして、場所を設計するとき、どんな可能な要素でもミスしないようにすべての可能な HTML 要素がこの HTML に含められることを確認することです。
+      h3 inspired
+      dl
+        dt Original:
+        dd
+          a(href='http://www.sitefromscratch.com/content/html-xhtml-css-testing') HTML XHTML for CSS Testing
+        dt Japanese Edition:
+        dd
+          a(href='http://coliss.com/articles/build-websites/operation/css/1457.html') HTMLの各要素が配置されたスタイルシートのチェック用のテンプレート
+      h2 色の確認
+      ul.color
+        li.normalBlock
+          | normal color here
+          br
+          span.primary-text
+            | primary
+          br
+          span.secondary-text
+            | secondary
+          br
+          span.accent-text
+            | acccent
+          br
+          span.accentTint
+            | acccent(tint)
+          br
+          span.accentShade
+            | acccent(shade)
+        li.primaryBlock
+          | primary color here
+          br
+          span.primary-text
+            | primary
+          br
+          span.secondary-text
+            | secondary
+          br
+          span.accent-text
+            | acccent
+          br
+          span.accentTint
+            | acccent(tint)
+          br
+          span.accentShade
+            | acccent(shade)
+        li.secondaryBlock
+          | secondary
+          br
+          span.primary-text
+            | primary
+          br
+          span.secondary-text
+            | secondary
+          br
+          span.accent-text
+            | acccent
+          br
+          span.accentTint
+            | acccent(tint)
+          br
+          span.accentShade
+            | acccent(shade)
+        li.accentBlock
+          | accent color here
+          br
+          span.primary-text
+            | primary
+          br
+          span.secondary-text
+            | secondary
+          br
+          span.accent-text
+            | acccent
+          br
+          span.accentTint
+            | acccent(tint)
+          br
+          span.accentShade
+            | acccent(shade)
+      hr
+      h2#headings 見出し(hn)
+      h1 &lt;h1&gt; 扉は交響のかっこうとんとん汁をわくをおこっ楽譜だう。するととても生意気ましなというろたた。
+      p あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      h2 &lt;h2&gt; 首はへんのおねがい舌汁にわくを過ぎ戸ました。するとまだまじめましたとしてゴーシュました。いやました
+      p.bgtest あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      h3 &lt;h3&gt; ことましはましではあとの元気らのままへはぱたっと上手だまして、わたしじゃあ野ねずみでやっられ気だ
+      p あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      h4 &lt;h4&gt; た。し過ぎみんなもゴーシュにひどいたでたくさんのセロのかっこう顔をなっ第二ホールたちの拍手をなって
+      p あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      h5 &lt;h5&gt; ゴーシュは硝子のあんばい外国会をゴーシュから飛び立ち仲間ないた。ではとても楽るたって中たらた。い
+      p あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      h6 &lt;h6&gt; ましましことですはたけれども音の無理顔のところからはもう愉快たまして、それだけけちへ死んれことな
+      p あなたは今もうその活動めという事の時が断わらたな。必ずしも一遍に講演院はさきほどその煩悶ましんだけへ致すているながは病気掘りたうから、すぐとはしないですですます。
+      small
+        a(href='#wrapper') [トップ]
+      hr
+      h2#paragraph パラグラフ(p)
+      img(style='width:250px;height:125px;float:right', src='/img/dummy.png', alt="CSS | God's Language")
+      p
+        | 洋酒といえば、誰でも最初に思い浮かべるのがウイスキー。
+        a(href='#', title='テストリンク') テストリンク(a)
+        | いわば洋酒のシンボル的な存在なのだが、英語表記が［一般に〔米〕では Whiskey,〔英〕では Whisky.］であることはあまり知られていない。米英両国では、このスペルの差で自国産と輸入品を区別しているという。わが和製ウイスキーの “Whisky”という英国式表示は、手本にしたスコッチのフォルムに倣ったものであり、
+        del それ以上の意味はないようだ(打ち消しdel)
+        | 。カナ表記にしても、ごくまれに〈
+        strong ウヰスキー(より強い強調strong)
+        | 〉という書き方を見かけるが、これとて差別化を意図したものではなく単にカナづかいの時代性にすぎない。
+      p
+        | 現在、カナ表記は〈
+        em ウイスキー(強調em)
+        | 〉に一本化しており、そこに国産・舶来の区別はない。最近は価格面での差もちぢまり、
+        ins 20年前に ￥10,000 だった本場のスコッチが半値近くになるなど、(追加ins)
+        | ウイスキーは一層ポピュラーなものになってきた。しかし、消費量についていえば、洋酒のトップは何といってもビールだろう。よっぽどの下戸はともかく、まず誰でもタシナミ程度には口にする。
+      small 注釈・細目(small)
+      hr
+        |
+      h2#list_types リスト要素
+      h3 定義型リスト(dl)
+      dl
+        dt 定義型リスト 用語
+        dd 定義型リスト 定義
+      p テウトテストテスト
+      h3 順序付きリスト(ol)
+      ol
+        li リストアイテム 1
+        li
+          | リストアイテム 2
+          ol
+            li 二重
+            li
+              | 二重
+              ol
+                li 三重
+        li リストアイテム
+      p テウトテストテスト
+      h3 並列列挙リスト(ul)
+      ul
+        li リストアイテム 1
+        li リストアイテム 2
+        li
+          | リストアイテム 2
+          ul
+            li 二重
+            li
+              | 二重
+              ul
+                li 三重
+      p テウトテストテスト
+      small
+        a(href='#wrapper') [トップ]
+      hr
+      h2#form_elements フォーム要素
+      fieldset
+        legend Legend
+        p
+          | もっとも、オッペケペッポーの攻勢に、ぐぅのネを上げた紳士や淑女がいたかどうか…西洋カブレとは、要するに欧米文化への信奉者のこと。〈鰯ノ頭ヲ信心〉する者があるならヨーロッパやアメリカの文物を信仰する者がいても一向に不思議はない。信ずる者の強さで、依然グラス片手に舞踏会、アン・ドゥ・トロヮとやっていたように思われる。
+        form
+          h3 Form Element
+          p
+            | 憶測になるが、むしろ辛かったのは庶民の中の飲んべぇ連中ではなかったか。ハイカラ族にユサぶりをかけた手前、泰西の酒には手を出しづらい。「なに、ビールだとぉ、べらぼーめ、こちとら人間サマでぃ、カニじゃあるめぇしアブクなんか飲めるかってんだ」などと強がりながらも、サゾ飲みたかったろうという気がする。
+          p
+            label(for='text_field') テキストフィールド(text)：
+            br
+            input#text_field(type='text')
+          p
+            label(for='text_area') テキストエリア(textarea)：
+            br
+            textarea#text_area </textarea>
+          p
+            label(for='select_element') セレクト(select)：
+            br
+            select(name='select_element')
+              optgroup(label='Option Group 1')
+                option(value='1') オプション 1
+                option(value='2') オプション 2
+                option(value='3') オプション 3
+              optgroup(label='Option Group 2')
+                option(value='1') オプション 1
+                option(value='2') オプション 2
+                option(value='3') オプション 3
+          p
+            label(for='radio_buttons') ラジオボタン(radio)：
+            br
+            input.radio(type='radio', name='radio_button', value='radio_1')
+            |  ラジオボタン 1
+            br
+            input.radio(type='radio', name='radio_button', value='radio_2')
+            |  ラジオボタン 2
+            br
+            input.radio(type='radio', name='radio_button', value='radio_3')
+            |  ラジオボタン 3
+            br
+          p
+            label(for='checkboxes') チェックボックス(checkbox)：
+            br
+            input.checkbox(type='checkbox', name='checkboxes', value='check_1')
+            |  チェックボックス 1
+            br
+            input.checkbox(type='checkbox', name='checkboxes', value='check_2')
+            |  チェックボックス 2
+            br
+            input.checkbox(type='checkbox', name='checkboxes', value='check_3')
+            |  チェックボックス 3
+            br
+          p
+            label(for='password') パスワード(password)：
+            br
+            input.password(type='password', name='password')
+          p
+            label(for='file') ファイル(file)：
+            br
+            input.file(type='file', name='file')
+          p
+            input.button(type='reset', value='リセット(reset)')
+            input.button(type='submit', value='サブミット(submit)')
+      small
+        a(href='#wrapper') [トップ]
+      hr
+      h2#tables テーブル
+      table(cellspacing='0', cellpadding='0')
+        tr
+          th テーブルヘッダ(th) 1
+          th テーブルヘッダ 2
+          th テーブルヘッダ 3
+        tr
+          td セル(td) 1
+          td セル 2
+          td セル 3
+        tr.even
+          td セル 1
+          td セル 2
+          td セル 3
+        tr
+          td セル 1
+          td セル 2
+          td セル 3
+      small
+        a(href='#wrapper') [トップ]
+      hr
+      h2#misc その他
+      h3 &lt;sup,sub&gt;
+      p
+        | しかし明治32年７月４日、恵比寿ビールのＰＲを目的にしたビアホールが新橋に登場。
+        sup 上付文字(sup)
+        |  dolor
+        sub 下付文字(sub)
+        | ジャムパン１ヶ２銭の時代に 0.25 リットル５銭でビールの１ぱい売りを始めたことから様相は一転する。レンガづくりのモダンな店ながら、はっぴ姿の車夫も金バッヂの紳士もゼニを払えば平等の客。
+      h3 &lt;pre&gt;
+      pre
+        | pre
+        | &lt;pre&gt;整形済みであるテキストであることを表します。
+        | 改行や余白が定まっている定型詩やアスキーアート、
+        | またソースコードを表示するのに利用されます。
+        | ブロック要素は含めません。また            や            のような、行の幅を変える要素も含めません。
+        | PREformatted text PREformatted text PREformatted text PREformatted text PREformatted text
+        | PREformatted text PREformatted text PREformatted text PREformatted text PREformatted text
+        | この年は西暦1899年。まさに19世紀の〆くくりの年にビールのヌーヴェルバーグがぼっこうしたことになる。恵比寿は文字通り“福の神”となったわけだが、そのころの表記はすべて〈惠比壽〉であり、仮名書きの場合も〈えびす〉・〈エビス〉ならぬ〈ゑびす〉・〈ヱビス〉だった。いかにもゴリヤクのありそうな字ヅラである。
+        | 20世紀に入って1906年になると、夏目漱石は小説『二百十日』（中央公論・明治39年10月号）の中で次のようなエピソードを創作した。舞台は阿蘇のひなびた温泉宿。
+      h3 &lt;blockquote&gt;
+      p
+        | blockquote引用（ブロックレヴェル）
+        | &lt;blockquote&gt;
+        | は引用された段落だということを表します。インデントや装飾ボックスとしての利用は適切ではありません(p)
+      blockquote(cite='出典URL', title='タイトル')
+        | ゆ上がりの男２人と「絣の筒袖をつんつるてんに着てゐる」下女のやりとりは、いささかマンザイのボケとツッコミのセリフを思わせるが、ビールもこの時期には日本のスミズミまでじゅうぶんに出回っていたのがわかる。
+        br
+        | -引用(blockquote)
+      h3 &lt;q, cite&gt;
+      q(cite='出典URI')
+        | &lt;q&gt;
+        code q
+        | は改行されない程度の短い引用された文章を表します。
+      br
+      cite
+        | &lt;cite&gt;
+        code cite
+        | は参照先を表します。&lt;/cite&gt;
+      small
+        a(href='#wrapper') [トップ]
+      h2 連絡先
+      .text
+        address メールアドレス
+        ul.modori
+          li
+      h2 その他要素
+        h3 abbr・acronymサンプル
+        p
+          code <abbr>
+          | は省略語、
+          code <acronym>
+          | は頭文字語を表します。
+          code title
+          | 属性に省略前の語句を記します。
+        p
+          | 例：
+          abbr(title='HyperText Markup Language') HTML
+          acronym(title='North Atlantic Treaty Organisation') NATO
+        h3 codeサンプル
+        p
+          code &lt;code&gt;
+          | はソースコードを表します。
+        p
+          | 例：
+        pre
+          code.ruby target="_blank"
+            |# The Greeter class
+            | class Greeter
+            |   def initialize(name)
+            |     @name = name.capitalize
+            |   end
+            |
+            |   def salute
+            |     puts "Hello @name!"
+            |   end
+            | end
+            |
+            | g = Greeter.new("world")
+            | g.salute
+        h3 varサンプル
+        p
+          code &lt;var&gt;
+          | は変数を表します。プログラムや数式を表現するとき用います。
+        p
+          | 例：
+          var n
+          | =
+          var x
+          | +
+          var y
+          | -2
+        h3 kbdサンプル
+        p
+          code &lt;kbd&gt;
+          | はユーザーが入力するテキスト、またはキーボードのキーを表します。
+        p
+          | 例：
+          kbd OK
+          | と入力したあと
+          kbd Enter
+          | を押してください。
+        h3 sampサンプル
+        p
+          code &lt;samp&gt;
+          | はプログラムなどの出力例を表します。
+        p
+          | 例：sample.cgiが正しく実行されると
+          samp Hello！
+          | と表示されます。
+        h3 dfnサンプル
+        p
+          code &lt;dfn&gt;
+          | は定義される語句を表します。
+        p
+          | 例：
+          dfn dfn要素
+          | は定義語を示します。
+        h3 sub・supサンプル
+        p
+          code &lt;sub&gt;
+          | は下付き文字、
+          code &lt;sup&gt;
+          | は上付き文字です。数式や化学式に使われます。物理要素です。
+        p
+          | 例：水は「H
+          sub 2
+          | O」です。1+2
+          sup 3
+          | =9です。
+        h3 hrサンプル
+        p
+          code &lt;hr&gt;
+          | は水平線です。物理要素です。
+        hr

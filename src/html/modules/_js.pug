@@ -1,0 +1,6 @@
+block js
+  if useCDN
+    script(src=`${settings.cdn.jquery.js}`)
+    script(src=`${settings.cdn.highlight.js}`)
+    script(src=`${settings.cdn.ofi.js}`)
+  script(src="./js/bundle.js")
