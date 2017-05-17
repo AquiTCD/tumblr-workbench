@@ -1,13 +1,4 @@
 {
-  "name": "Base-Workbench",
-  "description": "サイトの概要",
-  "rootUrl": "http://dev.solunita.net",
-  "locale": "ja_JP",
-  "touchIcon": "http://lib.solunita.net/images/apple-touch-icon.png",
-  "favicon": "http://dev.solunita.net/favicon.ico",
-  "defaultLang": "ja",
-  "defaultOgpImage": "http://lib.solunita.net/images/og-image.jpg",
-  "defaultOgpType": "website",
   "cdn": {
     "jquery": {
       "js": "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"

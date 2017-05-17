@@ -1,12 +1,18 @@
 header.l-header
-  .l-header_container
+  h1.blog-title
+    a(href='/') {Title}
+  |       {block:Description}
+  h2.blog-description {Description}
+  |       {/block:Description}
+  nav.nav(role='navigation')
     ul
-      li: a(href="/index.html")
-        | Home
-      li: a(href="/wiki/")
-        | Aqui式Wiki
-      li: a(href="/styleguide")
-        | Styleguide
-      li: a(href="/video.html")
-        | Video
-    .clearfix
+      li
+        a(href='/') Home
+      |         {block:HasPages}
+      |           {block:Pages}
+      li
+        a(href='{URL}') {Label}
+      |           {/block:Pages}
+      |         {/block:HasPages}
+      li
+        a(href='/archive') Archive

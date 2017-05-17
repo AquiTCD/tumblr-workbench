@@ -1,10 +1,11 @@
 block variables
 doctype html
-html(lang=`${pageLang||settings.defaultLang}`)
-  head(prefix=`og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#  ${pageOgpType||settings.defaultOgpType}: http://ogp.me/ns/${pageOgpType||settings.defaultOgpType}#`)
+html(lang="ja")
+  head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# {block:IndexPage}blog: http://ogp.me/ns/blog# {/block:IndexPage}{block:PermalinkPage}article: http://ogp.me/ns/article# {PostID}{/block:PermalinkPage}")
     include /modules/_meta
     include /modules/_css
-  body
+  //- TODO: 状況によってbodyにクラスをつけかえる必要があるのか
+  body(class='{block:IndexPage}page-index{/block:IndexPage}{block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}')
     include /layouts/_header
 
     //- block prepend content
