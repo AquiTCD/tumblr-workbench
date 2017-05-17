@@ -1,0 +1,9 @@
+| {block:Link}
+header.entry-header
+  h1.entry-title
+    a.link-url(href='{URL}', {target}='') {Name}
+.entry-content
+  | {block:Description}
+  .link-description {Description}
+  | {/block:Description}
+| {/block:Link}

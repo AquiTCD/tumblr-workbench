@@ -1,0 +1,10 @@
+| {block:Photo}
+.entry-content
+  | {LinkOpenTag}
+  img(src='{PhotoURL-HighRes}', alt='{PhotoAlt}')
+  | {LinkCloseTag}
+  | {block:Caption}
+  .caption
+    | {Caption}
+  | {/block:Caption}
+| {/block:Photo}

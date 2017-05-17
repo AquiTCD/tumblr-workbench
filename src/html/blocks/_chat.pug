@@ -1,0 +1,15 @@
+| {block:Chat}
+.entry-content
+  | {block:Title}
+  h1.entry-title
+    a(href='{Permalink}') {Title}
+  | {/block:Title}
+  ul.ul-chat
+    | {block:Lines}
+    li(class='{Alt} user_{UserNumber}')
+      | {block:Label}
+      span.label {Label}
+      | {/block:Label}
+      | {Line}
+    | {/block:Lines}
+| {/block:Chat}
