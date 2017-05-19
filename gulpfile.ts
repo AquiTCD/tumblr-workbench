@@ -69,12 +69,20 @@ if (useCDN) {
 gulp.task('html', () => {
   return gulp.src([src.html, withoutPartial])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('html: <%= error.message %>')})))
+    .pipe(gulpIf(isProduction,
+      data(function(file) { return {t: require('./src/data/tumblr_production.json')}}),
+      data(function(file) { return {t: require('./src/data/tumblr_production.json')}}) ))
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
-    .pipe(gulpIf(/\.pug/, pug({
-      basedir: './src/html/',
-      pretty: true,
-      locals: {'useCDN': useCDN}
-    })))
+    .pipe(gulpIf(isProduction,
+      gulpIf(/\.pug/, pug({
+        basedir: './src/html/',
+        locals: {'useCDN': useCDN,
+                 'isProduction': true }
+      })),
+      gulpIf(/\.pug/, pug({
+        basedir: './src/html/',
+        locals: {'useCDN': useCDN}
+      }))))
     .pipe(gulpIf(isProduction, minifyHtml()))
     .pipe(gulp.dest(build.html));
 });

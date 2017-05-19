@@ -1,0 +1,14 @@
+{
+  "CustomCSS": "{CustomCSS}",
+  "Title": "{Title}",
+  "Description": "{Description}",
+  "Label": "{Label}",
+  "b": {
+    "__Description": "{block:Description}",
+    "Description__": "{/block:Description}",
+    "__HasPages": "{block:HasPages}",
+    "HasPages__": "{/block:HasPages}",
+    "__Pages": "{block:Pages}",
+    "Pages__": "{/block:Pages}"
+  }
+}

@@ -1,18 +1,18 @@
 header.l-header
   h1.blog-title
-    a(href='/') {Title}
-  |       {block:Description}
-  h2.blog-description {Description}
-  |       {/block:Description}
+    a(href='/') #{t.Title}
+  = t.b.__Description
+  h2.blog-description #{t.Description}
+  = t.b.Description__
   nav.nav(role='navigation')
     ul
       li
         a(href='/') Home
-      |         {block:HasPages}
-      |           {block:Pages}
+      = t.b.__HasPages
+      =   t.b.__Pages
       li
-        a(href='{URL}') {Label}
-      |           {/block:Pages}
-      |         {/block:HasPages}
+        a(href='{URL}') #{Label}
+      =   t.b.Pages__
+      = t.b.HasPages__
       li
         a(href='/archive') Archive
