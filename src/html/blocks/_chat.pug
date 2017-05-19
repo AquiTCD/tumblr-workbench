@@ -1,15 +1,15 @@
-| {block:Chat}
+= t.b.__Chat
 .entry-content
-  | {block:Title}
+  = t.b.__Title
   h1.entry-title
-    a(href='{Permalink}') {Title}
-  | {/block:Title}
+    a(href=`${t.Permalink}`) #{t.Title}
+  = t.b.Title__
   ul.ul-chat
-    | {block:Lines}
-    li(class='{Alt} user_{UserNumber}')
-      | {block:Label}
-      span.label {Label}
-      | {/block:Label}
-      | {Line}
-    | {/block:Lines}
-| {/block:Chat}
+    = t.b.__Lines
+    li(class=`${t.Alt} user_${t.UserNumber}`)
+      = t.b.__Label
+      span.label #{t.Label}
+      = t.b.Label__
+      = t.Line
+    = t.b.Lines__
+= t.b.Chat__

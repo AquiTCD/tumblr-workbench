@@ -1,8 +1,8 @@
-| {block:Quote}
-.entry-content(class='{Length}')
-  blockquote “{Quote}”
-  | {block:Source}
+= t.b.__Quote
+.entry-content(class=`${t.Length}`)
+  blockquote “#{t.Quote}”
+  = t.b.__Source
   .quote-source
-    | {Source}
-  | {/block:Source}
-| {/block:Quote}
+    = t.Source
+  = t.b.Source__
+= t.b.Quote__

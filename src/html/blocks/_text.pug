@@ -1,9 +1,9 @@
-| {block:Text}
+= t.b.__Text
 header.entry-header
-  | {block:Title}
+  = t.b.__Title
   h1.entry-title
-    a(href='{Permalink}') {Title}
-  | {/block:Title}
+    a(href=`${t.Permalink}`) #{t.Title}
+  = t.b.Title__
 .entry-content
-  | {Body}
-| {/block:Text}
+  = t.Body
+= t.b.Text__

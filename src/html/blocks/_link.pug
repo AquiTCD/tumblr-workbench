@@ -1,9 +1,9 @@
-| {block:Link}
+= t.b.__Link
 header.entry-header
   h1.entry-title
-    a.link-url(href='{URL}', {target}='') {Name}
+    a.link-url(href=`${t.URL}`, {target}='') #{t.Name}
 .entry-content
-  | {block:Description}
-  .link-description {Description}
-  | {/block:Description}
-| {/block:Link}
+  = t.b.__Description
+  .link-description #{t.Description}
+  = t.b.Description__
+= t.b.Link__

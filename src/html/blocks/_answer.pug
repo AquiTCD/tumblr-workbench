@@ -1,9 +1,9 @@
-| {block:Answer}
+= t.b.__Answer
 .entry-content
   .question.bubble
-    | {Question}
+    = t.Question
   .asker-group
-    img(src='{AskerPortraitURL-24}', width='24', height='24')
-    | {Asker}
+    img(src=`${t.AskerPortraitURL-24}`, width='24', height='24')
+    = t.Asker
   .answer.cont {Answer}
-| {/block:Answer}
+= t.b.Answer__

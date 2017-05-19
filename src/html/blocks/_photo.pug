@@ -1,10 +1,10 @@
-| {block:Photo}
+= t.b.__Photo
 .entry-content
-  | {LinkOpenTag}
-  img(src='{PhotoURL-HighRes}', alt='{PhotoAlt}')
-  | {LinkCloseTag}
-  | {block:Caption}
+  = t.LinkOpenTag
+  img(src=`${PhotoURL-HighRes}`, alt=`${PhotoAlt}`)
+  = t.LinkCloseTag
+  = t.b.__Caption
   .caption
-    | {Caption}
-  | {/block:Caption}
-| {/block:Photo}
+    = t.Caption
+  = t.b.Caption__
+= t.b.Photo__

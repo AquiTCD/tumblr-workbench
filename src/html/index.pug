@@ -7,15 +7,15 @@ block append js
 //- ============================================================
 block content
   .l-main.autopagerize_page_element(role='main')
-    | {block:TagPage}
-    h2.tagged Posts tagged "{Tag}"
-    | {/block:TagPage}
-    | {block:Posts}
-    article.post(class='{TagsAsClasses} {PostType}')
-      | {block:Date}
+    = t.b.__TagPage
+    h2.tagged Posts tagged "#{t.Tag}"
+    = t.b.TagPage__
+    = t.b.__Posts
+    article.post(class=`${t.TagsAsClasses} ${t.PostType}`)
+      = t.b.__Date
       .date
-        a(href='{Permalink}') {Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}
-      | {/block:Date}
+        a(href=`${t.Permalink}`) #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
+      = t.b.Date__
       include /blocks/_text
       include /blocks/_photo
       include /blocks/_photoset
@@ -26,20 +26,20 @@ block content
       include /blocks/_audio
       include /blocks/_answer
       // Content Source
-      | {block:ContentSource}
+      = t.b.__ContentSource
       .content-source
         a(href='{SourceURL}')
           | {lang:Source}:
-          | {block:SourceLogo}
+          = t.b.__SourceLogo
           img(src='{BlackLogoURL}', width='{LogoWidth}', height='{LogoHeight}', alt='{SourceTitle}')
-          | {/block:SourceLogo}
-          | {block:NoSourceLogo}
+          = t.b.SourceLogo__
+          = t.b.__NoSourceLogo
           |   {SourceTitle}
-          | {/block:NoSourceLogo}
-      | {/block:ContentSource}
+          = t.b.NoSourceLogo__
+      = t.b.ContentSource__
       // 記事フッタ
       footer.entry-footer
-        | {block:RebloggedFrom}
+        = t.b.__RebloggedFrom
         .rebloggedfrom
           span.meta-elements.reblog-parent-name
             | Reblogged from
@@ -51,40 +51,40 @@ block content
             a(href='{ReblogRootURL}')
               img.favicon(src='{ReblogRootPortraitURL-16}')
               | {ReblogRootName}
-        | {/block:RebloggedFrom}
+        = t.b.RebloggedFrom__
         .meta.meta-footer
           span.meta-elements.timeago
             a(href='{Permalink}') {TimeAgo}
-          | {block:NoteCount}
+          = t.b.__NoteCount
           span.meta-elements.notecount
             a(href='{Permalink}') {NoteCount} Notes
-          | {/block:NoteCount}
-          | {block:HasTags}
+          = t.b.NoteCount__
+          = t.b.__HasTags
           span.meta-elements.hastags
-            | {block:Tags}
+            = t.b.__Tags
             a(href='{TagURL}') #{Tag}
-            | {/block:Tags}
-          | {/block:HasTags}
-        | {block:Date}
+            = t.b.Tags__
+          = t.b.HasTags__
+        = t.b.__Date
         .tumblr-controls
           ul.like-and-reblog-buttons
             li {ReblogButton}
             li {LikeButton}
-        | {/block:Date}
+        = t.b.Date__
         // パーマリンクだけソーシャルボタン出す
-        | {block:PermalinkPage}
+        = t.b.__PermalinkPage
         ul.social-buttons
-          | {block:IfEnableTweetButton}
+          = t.b.__IfEnableTweetButton
           li.social-button
             a.twitter-share-button(href='https://twitter.com/share', data-lang='ja') ツイート
             script.
               !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-          | {/block:IfEnableTweetButton}
-          | {block:IfEnableLikeButton}
+          = t.b.IfEnableTweetButton__
+          = t.b.__IfEnableLikeButton
           li.social-button
             .fb-like(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
-          | {/block:IfEnableLikeButton}
-          | {block:IfEnablePlus1Button}
+          = t.b.IfEnableLikeButton__
+          = t.b.__IfEnablePlus1Button
           li.social-button
             .g-plusone(data-size='medium')
             script(type='text/javascript').
@@ -94,39 +94,39 @@ block content
               po.src = 'https://apis.google.com/js/plusone.js';
               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
               })();
-          | {/block:IfEnablePlus1Button}
-        | {/block:PermalinkPage}
-        | {block:PostNotes}
+          = t.b.IfEnablePlus1Button__
+        = t.b.PermalinkPage__
+        = t.b.__PostNotes
         h3.notecount-header {NoteCount} Notes
         .notecontainer {PostNotes}
-        | {/block:PostNotes}
-    | {/block:Posts}
+        = t.b.PostNotes__
+    = t.b.Posts__
 
   // パーマリンクのページャ
-  | {block:PermalinkPagination}
+  = t.b.__PermalinkPagination
   .pagenation.pagenation-permalink
-    | {block:NextPost}
+    = t.b.__NextPost
     a.next(href='{NextPost}', rel='next') Newer Post
-    | {/block:NextPost}
-    | {block:PreviousPost}
+    = t.b.NextPost__
+    = t.b.__PreviousPost
     a(href='{PreviousPost}') Older Post
-    | {/block:PreviousPost}
-  | {/block:PermalinkPagination}
+    = t.b.PreviousPost__
+  = t.b.PermalinkPagination__
   // ページごとのページャ
-  | {block:Pagination}
+  = t.b.__Pagination
   .pagenation.pagenation-index
-    | {block:PreviousPage}
+    = t.b.__PreviousPage
     a(href='{PreviousPage}') Prev
-    | {/block:PreviousPage}
-    | {block:JumpPagination length="5"}
+    = t.b.PreviousPage__
+    = t.b.__JumpPagination_length5
     |   {block:CurrentPage}
     span.current-page {PageNumber}
     |   {/block:CurrentPage}
     |   {block:JumpPage}
     a.jump-page(href='{URL}') {PageNumber}
     |   {/block:JumpPage}
-    | {/block:JumpPagination}
-    | {block:NextPage}
+    = t.b.JumpPagination__
+    = t.b.__NextPage
     a.next(href='{NextPage}', rel='next') Next
-    | {/block:NextPage}
-  | {/block:Pagination}
+    = t.b.NextPage__
+  = t.b.Pagination__
