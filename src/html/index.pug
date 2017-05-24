@@ -28,10 +28,10 @@ block content
       // Content Source
       = t.b.__ContentSource
       .content-source
-        a(href='{SourceURL}')
+        a(href=`${t.SourceURL}`)
           | {lang:Source}:
           = t.b.__SourceLogo
-          img(src='{BlackLogoURL}', width='{LogoWidth}', height='{LogoHeight}', alt='{SourceTitle}')
+          img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
           = t.b.SourceLogo__
           = t.b.__NoSourceLogo
           |   {SourceTitle}
@@ -43,26 +43,26 @@ block content
         .rebloggedfrom
           span.meta-elements.reblog-parent-name
             | Reblogged from
-            a(href='{ReblogParentURL}')
-              img.favicon(src='{ReblogParentPortraitURL-16}')
+            a(href=`${t.ReblogParentURL}`)
+              img.favicon(src=`${t.ReblogParentPortraitURL-16}`)
               | {ReblogParentName}
           span.meta-elements.reblog-root-name
             | Originally posted by
-            a(href='{ReblogRootURL}')
-              img.favicon(src='{ReblogRootPortraitURL-16}')
+            a(href=`${t.ReblogRootURL}`)
+              img.favicon(src=`${t.ReblogRootPortraitURL-16}`)
               | {ReblogRootName}
         = t.b.RebloggedFrom__
         .meta.meta-footer
           span.meta-elements.timeago
-            a(href='{Permalink}') {TimeAgo}
+            a(href=`${t.Permalink}`) {TimeAgo}
           = t.b.__NoteCount
           span.meta-elements.notecount
-            a(href='{Permalink}') {NoteCount} Notes
+            a(href=`${t.Permalink}`) {NoteCount} Notes
           = t.b.NoteCount__
           = t.b.__HasTags
           span.meta-elements.hastags
             = t.b.__Tags
-            a(href='{TagURL}') #{Tag}
+            a(href=`${t.TagURL}`) #{Tag}
             = t.b.Tags__
           = t.b.HasTags__
         = t.b.__Date
@@ -106,27 +106,27 @@ block content
   = t.b.__PermalinkPagination
   .pagenation.pagenation-permalink
     = t.b.__NextPost
-    a.next(href='{NextPost}', rel='next') Newer Post
+    a.next(href=`${t.NextPost}`, rel='next') Newer Post
     = t.b.NextPost__
     = t.b.__PreviousPost
-    a(href='{PreviousPost}') Older Post
+    a(href=`${t.PreviousPost}`) Older Post
     = t.b.PreviousPost__
   = t.b.PermalinkPagination__
   // ページごとのページャ
   = t.b.__Pagination
   .pagenation.pagenation-index
     = t.b.__PreviousPage
-    a(href='{PreviousPage}') Prev
+    a(href=`${t.PreviousPage}`) Prev
     = t.b.PreviousPage__
     = t.b.__JumpPagination_length5
     |   {block:CurrentPage}
     span.current-page {PageNumber}
     |   {/block:CurrentPage}
     |   {block:JumpPage}
-    a.jump-page(href='{URL}') {PageNumber}
+    a.jump-page(href=`${t.URL}`) {PageNumber}
     |   {/block:JumpPage}
     = t.b.JumpPagination__
     = t.b.__NextPage
-    a.next(href='{NextPage}', rel='next') Next
+    a.next(href=`${t.NextPage}`, rel='next') Next
     = t.b.NextPage__
   = t.b.Pagination__
