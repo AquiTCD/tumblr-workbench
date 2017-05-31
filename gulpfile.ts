@@ -71,7 +71,7 @@ gulp.task('html', () => {
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('html: <%= error.message %>')})))
     .pipe(gulpIf(isProduction,
       data(function(file) { return {t: require('./src/data/tumblr_production.json')}}),
-      data(function(file) { return {t: require('./src/data/tumblr_production.json')}}) ))
+      data(function(file) { return {t: require('./src/data/tumblr_development.json')}}) ))
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
     .pipe(gulpIf(isProduction,
       gulpIf(/\.pug/, pug({

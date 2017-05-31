@@ -6,12 +6,12 @@ block append css
 block append js
 //- ============================================================
 block content
-  .l-main.autopagerize_page_element(role='main')
+  main.l-main.autopagerize_page_element(role='main')
     = t.b.__TagPage
     h2.tagged Posts tagged "#{t.Tag}"
     = t.b.TagPage__
     = t.b.__Posts
-    article.post(class=`${t.TagsAsClasses} ${t.PostType}`)
+    article.post(class=`${t.TagsAsClasses} ${t.PostType} l-main_container`)
       = t.b.__Date
       .date
         a(href=`${t.Permalink}`) #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}

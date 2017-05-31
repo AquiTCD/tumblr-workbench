@@ -1,9 +1,10 @@
-= t.b.__Text
-header.entry-header
-  = t.b.__Title
-  h1.entry-title
-    a(href=`${t.Permalink}`) #{t.Title}
-  = t.b.Title__
-.entry-content
-  = t.Body
-= t.b.Text__
+.c-entry.is-text
+  = t.b.__Text
+  header.c-entry_header
+    = t.b.__Title
+    h1.entry_header_title
+      a(href=`${t.Permalink}`) #{t.Title}
+    = t.b.Title__
+  .c-entry_content
+    != t.Body
+  = t.b.Text__
