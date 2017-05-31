@@ -29,12 +29,13 @@ block content
       = t.b.__ContentSource
       .content-source
         a(href=`${t.SourceURL}`)
-          | {lang:Source}:
+          = t.lang-Source
+          | :
           = t.b.__SourceLogo
           img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
           = t.b.SourceLogo__
           = t.b.__NoSourceLogo
-          |   {SourceTitle}
+          = t.SourceTitle
           = t.b.NoSourceLogo__
       = t.b.ContentSource__
       // 記事フッタ
@@ -44,32 +45,32 @@ block content
           span.meta-elements.reblog-parent-name
             | Reblogged from
             a(href=`${t.ReblogParentURL}`)
-              img.favicon(src=`${t.ReblogParentPortraitURL-16}`)
-              | {ReblogParentName}
+              img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
+              = t.ReblogParentName
           span.meta-elements.reblog-root-name
             | Originally posted by
             a(href=`${t.ReblogRootURL}`)
-              img.favicon(src=`${t.ReblogRootPortraitURL-16}`)
-              | {ReblogRootName}
+              img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
+              = t.ReblogRootName
         = t.b.RebloggedFrom__
         .meta.meta-footer
           span.meta-elements.timeago
-            a(href=`${t.Permalink}`) {TimeAgo}
+            a(href=`${t.Permalink}`) #{t.TimeAgo}
           = t.b.__NoteCount
           span.meta-elements.notecount
-            a(href=`${t.Permalink}`) {NoteCount} Notes
+            a(href=`${t.Permalink}`) #{t.NoteCount} Notes
           = t.b.NoteCount__
           = t.b.__HasTags
           span.meta-elements.hastags
             = t.b.__Tags
-            a(href=`${t.TagURL}`) #{Tag}
+            a(href=`${t.TagURL}`) #{t.Tag}
             = t.b.Tags__
           = t.b.HasTags__
         = t.b.__Date
         .tumblr-controls
           ul.like-and-reblog-buttons
-            li {ReblogButton}
-            li {LikeButton}
+            li #{t.ReblogButton}
+            li #{t.LikeButton}
         = t.b.Date__
         // パーマリンクだけソーシャルボタン出す
         = t.b.__PermalinkPage
@@ -97,7 +98,7 @@ block content
           = t.b.IfEnablePlus1Button__
         = t.b.PermalinkPage__
         = t.b.__PostNotes
-        h3.notecount-header {NoteCount} Notes
+        h3.notecount-header #{t.NoteCount} Notes
         .notecontainer {PostNotes}
         = t.b.PostNotes__
     = t.b.Posts__
@@ -119,12 +120,12 @@ block content
     a(href=`${t.PreviousPage}`) Prev
     = t.b.PreviousPage__
     = t.b.__JumpPagination_length5
-    |   {block:CurrentPage}
-    span.current-page {PageNumber}
-    |   {/block:CurrentPage}
-    |   {block:JumpPage}
-    a.jump-page(href=`${t.URL}`) {PageNumber}
-    |   {/block:JumpPage}
+    = t.b.__CurrentPage
+    span.current-page #{t.PageNumber}
+    = t.b.CurrentPage__
+    = t.b.__JumpPage
+    a.jump-page(href=`${t.URL}`) #{t.PageNumber}
+    = t.b.JumpPage__
     = t.b.JumpPagination__
     = t.b.__NextPage
     a.next(href=`${t.NextPage}`, rel='next') Next
