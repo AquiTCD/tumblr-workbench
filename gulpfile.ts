@@ -134,7 +134,7 @@ gulp.task('font', ['copy_font-files'], () => {
   return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css', './node_modules/font-awesome/css/font-awesome.min.css'])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('font: <%= error.message %>')})))
     .pipe(replace('../fonts/YakuHanJP', '../font'))
-    .pipe(replace('../fonts/fontawesome', '../font/fontawesome'))
+    .pipe(replace('../fonts/fontawesome', '../font'))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
 // Copy

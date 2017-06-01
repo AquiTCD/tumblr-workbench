@@ -14,6 +14,7 @@ block content
     article.post(class=`${t.TagsAsClasses} ${t.PostType} l-main_container`)
       = t.b.__Date
       .date
+        i.fa.fa-clock-o &nbsp;
         a(href=`${t.Permalink}`) #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
       = t.b.Date__
       include /blocks/_text
@@ -29,7 +30,7 @@ block content
       = t.b.__ContentSource
       .content-source
         a(href=`${t.SourceURL}`)
-          = t.lang-Source
+          = t.lang_Source
           | :
           = t.b.__SourceLogo
           img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)

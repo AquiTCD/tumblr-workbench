@@ -39,21 +39,21 @@ meta(name='if:Enable Like Button', content='1')
 meta(name='if:Enable Tweet Button', content='1')
 meta(name='if:Enable Plus1 Button', content='1')
 
-| {block:IfGoogleAuthor}
+= t.b.__IfGoogleAuthor
 link(rel='author', href='{text:Google Author}')
-| {/block:IfGoogleAuthor}
+= t.b.IfGoogleAuthor__
 
-| {block:PermalinkPage}
-|   {block:Posts}
-|     {block:Photo}
+= t.b.__PermalinkPage
+= t.b.__Posts
+= t.b.__Photo
 meta(property="og:image", content="{PhotoURL-HighRes}")
 meta(name="twitter:image" content="{PhotoURL-HighRes}")
-|     {/block:Photo}
-|     {block:Photoset}
-|       {block:Photos}
+= t.b.Photo__
+= t.b.__Photoset
+= t.b.__Photos
 meta(property="og:image", content="{PhotoURL-HighRes}")
 meta(name="twitter:image" content="{PhotoURL-HighRes}")
-|       {/block:Photos}
-|     {/block:Photoset}
-|   {/block:Posts}
-| {/block:PermalinkPage}
+= t.b.Photos__
+= t.b.Photoset__
+= t.b.Posts__
+= t.b.PermalinkPage__

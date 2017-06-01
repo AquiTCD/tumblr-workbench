@@ -4,7 +4,7 @@ block js
     script(src=`${settings.cdn.highlight.js}`)
     script(src=`${settings.cdn.ofi.js}`)
   script(src="./js/bundle.js")
-  | {block:IfEnableLikeButton}
+  = t.b.__IfEnableLikeButton
   #fb-root
   script.
     (function(d, s, id) {
@@ -14,4 +14,4 @@ block js
     js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  | {/block:IfEnableLikeButton}
+  = t.b.IfEnableLikeButton__

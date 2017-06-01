@@ -1,0 +1,39 @@
+.m-blogHeader
+  background: $black-base
+  vertical-rhythm: true
+  .m-blogHeader_title
+    text-align: center
+    rhythmical-padding: 0.5 0 0.5 0
+    link-fix: true
+  .m-blogHeader_logo
+    max-height: 192px
+  .m-blogHeader_nav
+    background: $primary-color-base
+    link-variation: $white-base true
+    transition: background .618s easing( "out-quad" )
+    &.is-scrolled
+      background: $black-base
+  .m-blogHeader_list
+    display: flex
+    flex-flow: row nowrap
+    justify-content: flex-start
+    align-items: center
+    list-style: none
+    margin-bottom: 0
+    margin-left: rhythmical-space(0.25)
+    margin-right: rhythmical-space(0.25)
+    +media-query(media-medium)
+      margin-left: rhythmical-space(0.5)
+      margin-right: rhythmical-space(0.5)
+    +media-query(media-larger)
+      width: 960px
+      margin-left: auto
+      margin-right: auto
+      padding-left: rhythmical-space(1)
+      padding-right: rhythmical-space(1)
+  .m-blogHeader_listItem
+    align-self: stretch
+    &:first-child
+      margin-right: auto
+    &:not(:first-child)
+      margin-left: 1rem

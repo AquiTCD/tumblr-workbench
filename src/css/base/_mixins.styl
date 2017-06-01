@@ -104,6 +104,7 @@ link-variation(link-color = @color, color-fix = false)
   a
     color: link-color
     text-decoration: none
+    border-bottom: 1px solid transparent
     &:visited
       if color-fix
         color: link-color
@@ -118,6 +119,14 @@ link-variation(link-color = @color, color-fix = false)
         color: invert(link-color)
       else
         color: complement(link-color)
+
+link-fix()
+  a, a:visited, a:hover, a:focus, a:active
+    color: @color
+    text-decoration: none
+    border: none
+    outline: none
+
 // ============================================================
 // full-width: contents in container be full width of view
 // ============================================================

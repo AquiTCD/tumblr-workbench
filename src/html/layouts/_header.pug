@@ -1,18 +1,21 @@
-header.l-header
-  h1.blog-title
-    a(href='/') #{t.Title}
-  = t.b.__Description
-  h2.blog-description #{t.Description}
-  = t.b.Description__
-  nav.nav(role='navigation')
-    ul
-      li
+header.l-header.m-blogHeader.js-header
+  h1.m-blogHeader_title
+    a(href='/')
+      img(src='http://lib.solunita.net/images/trial-and-spiral__logo--no-margin.svg' alt=`${t.Title} - ${t.Description}` class='m-blogHeader_logo')
+  //- = t.b.__Description
+  //- h2.m-blogHeader_description #{t.Description}
+  //- = t.b.Description__
+  nav.l-header_nav.m-blogHeader_nav.js-headerNav(role='navigation')
+    ul.m-blogHeader_list
+      li.m-blogHeader_listItem
         a(href='/') Home
       = t.b.__HasPages
       =   t.b.__Pages
-      li
+      li.m-blogHeader_listItem
         a(href='{URL}') #{t.Label}
       =   t.b.Pages__
       = t.b.HasPages__
-      li
+      li.m-blogHeader_listItem
         a(href='/archive') Archive
+      li.m-blogHeader_listItem
+        a(href='/search') Search
