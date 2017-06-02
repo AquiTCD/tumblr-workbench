@@ -12,11 +12,6 @@ block content
     = t.b.TagPage__
     = t.b.__Posts
     article.post(class=`${t.TagsAsClasses} ${t.PostType} l-main_container`)
-      = t.b.__Date
-      .date
-        i.fa.fa-clock-o &nbsp;
-        a(href=`${t.Permalink}`) #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
-      = t.b.Date__
       include /blocks/_text
       include /blocks/_photo
       include /blocks/_photoset
@@ -61,12 +56,6 @@ block content
           span.meta-elements.notecount
             a(href=`${t.Permalink}`) #{t.NoteCount} Notes
           = t.b.NoteCount__
-          = t.b.__HasTags
-          span.meta-elements.hastags
-            = t.b.__Tags
-            a(href=`${t.TagURL}`) #{t.Tag}
-            = t.b.Tags__
-          = t.b.HasTags__
         = t.b.__Date
         .tumblr-controls
           ul.like-and-reblog-buttons

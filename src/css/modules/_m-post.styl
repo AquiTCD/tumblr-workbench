@@ -1,4 +1,26 @@
-.c-entry
+.m-post
+  .m-post_headerTitle
+    text-bold: true
+    font-size: $font-size-x-large
+    display: flex
+    align-items: center
+    text-align: center
+    justify-content: center
+    vertical-rhythm: true
+    rhythmical-margin: 0 0 0 0
+    &:before,
+    &:after
+      content: ''
+      flex-grow: 1
+      height: 3px
+      background: $gray-base
+      min-width: $unit-size-base
+      display: inline-block
+      vertical-align: middle
+     &:before
+      margin-right: $unit-size-base
+     &:after
+      margin-left: $unit-size-base
   &.is-text
     h2
       text-bold: true
@@ -234,3 +256,11 @@
       border-bottom-color: $gray-base
       border-radius: 3px
       box-shadow: inset 0 -1px 0 $gray-base
+.m-post_info
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: center
+.m-post_tag
+  &:before
+    content: '#'
