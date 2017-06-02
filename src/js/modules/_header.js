@@ -3,13 +3,13 @@
 // # .js-headerNavの背景色を変更する
 // TODO:スクロールイベント頻度の間引きが必要
 $(function(){
-  const height = $('.js-header').height() - $('.js-headerNav').height();
+  const offsetTop = $('.js-headerNav').offset().top;
   let timer = null;
   $(window).scroll(function(){
     clearTimeout( timer );
     timer = setTimeout(function() {
       let scrollAmount = $(document).scrollTop();
-      if (scrollAmount > height){
+      if (scrollAmount > offsetTop){
         $('.js-headerNav').addClass('is-scrolled')
       } else {
         $('.js-headerNav').removeClass('is-scrolled')
