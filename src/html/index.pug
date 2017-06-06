@@ -12,7 +12,7 @@ block content
       h2.tagged Posts tagged "#{t.Tag}"
       = t.b.TagPage__
       = t.b.__Posts
-      article.post(class=`${t.TagsAsClasses} ${t.PostType}`)
+      article.m-post(class=`${t.TagsAsClasses} is-${t.PostType}`)
         include /blocks/_text
         include /blocks/_photo
         include /blocks/_photoset
@@ -24,7 +24,7 @@ block content
         include /blocks/_answer
         // Content Source
         = t.b.__ContentSource
-        .content-source
+        .post_source
           a(href=`${t.SourceURL}`)
             = t.lang_Source
             | :
@@ -36,57 +36,82 @@ block content
             = t.b.NoSourceLogo__
         = t.b.ContentSource__
         // 記事フッタ
-        footer.entry-footer
+        footer.m-postFooter
           = t.b.__RebloggedFrom
-          .rebloggedfrom
-            span.meta-elements.reblog-parent-name
-              | Reblogged from
+          .reblogedfrom
+            span.reblogedfrom_parentName
               a(href=`${t.ReblogParentURL}`)
                 img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
                 = t.ReblogParentName
-            span.meta-elements.reblog-root-name
-              | Originally posted by
+              | からリブログ
+            span.reblogedfrom_rootName
+              | 第一発信元:
               a(href=`${t.ReblogRootURL}`)
                 img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
                 = t.ReblogRootName
           = t.b.RebloggedFrom__
-          .meta.meta-footer
-            span.meta-elements.timeago
-              a(href=`${t.Permalink}`) #{t.TimeAgo}
-            = t.b.__NoteCount
-            span.meta-elements.notecount
+          .notecount
+            span.notecount_numbers
               a(href=`${t.Permalink}`) #{t.NoteCount} Notes
             = t.b.NoteCount__
-          = t.b.__Date
-          .tumblr-controls
-            ul.like-and-reblog-buttons
-              li !{t.ReblogButton}
-              li !{t.LikeButton}
-          = t.b.Date__
+          .socialBtns
+            ul.socialBtns_items
+              li.socialBtns_item.is-reblog !{t.ReblogButton}
+              li.socialBtns_item.is-like !{t.LikeButton}
+              = t.b.__IfEnableHatebButton
+              li.socialBtns_item.is-hateb
+                //- a.twitter-btn(href='https://twitter.com/share', data-lang='ja') ツイート
+                //- script.
+                //-   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+              = t.b.IfEnableHatebButton__
+              = t.b.__IfEnableTweetButton
+              li.socialBtns_item.is-twitter
+                a.twitter-btn(href='https://twitter.com/share', data-lang='ja') ツイート
+                script.
+                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+              = t.b.IfEnableTweetButton__
+              = t.b.__IfEnableLikeButton
+              li.socialBtns_item.is-fb
+                .fb-btn(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
+              = t.b.IfEnableLikeButton__
+              = t.b.__IfEnableLineButton
+              li.socialBtns_item.is-line
+                //- code
+              = t.b.IfEnableLineButton__
+              = t.b.__IfEnablePocketButton
+              li.socialBtns_item.is-pocket
+                //- code
+              = t.b.IfEnablePocketButton__
+              = t.b.__IfEnablePlus1Button
+              li.socialBtns_item.is-gplus
+                .g-plusone(data-size='medium')
+                script(type='text/javascript').
+                  window.___gcfg = {lang: 'ja'};
+                  (function() {
+                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                  po.src = 'https://apis.google.com/js/plusone.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                  })();
+              = t.b.IfEnablePlus1Button__
+
+
+          // 全articleにソーシャルボタン、parmalinkかつスマホなら下部固定
+          //- = t.b.__Date
+          //- .tumblr-controls
+          //-   ul.like-and-reblog-buttons
+          //-     li !{t.ReblogButton}
+          //-     li !{t.LikeButton}
+          //- = t.b.Date__
           // パーマリンクだけソーシャルボタン出す
+
+
           = t.b.__PermalinkPage
           ul.social-buttons
-            = t.b.__IfEnableTweetButton
+
             li.social-button
-              a.twitter-share-button(href='https://twitter.com/share', data-lang='ja') ツイート
-              script.
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            = t.b.IfEnableTweetButton__
-            = t.b.__IfEnableLikeButton
-            li.social-button
-              .fb-like(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
-            = t.b.IfEnableLikeButton__
-            = t.b.__IfEnablePlus1Button
-            li.social-button
-              .g-plusone(data-size='medium')
-              script(type='text/javascript').
-                window.___gcfg = {lang: 'ja'};
-                (function() {
-                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                po.src = 'https://apis.google.com/js/plusone.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                })();
-            = t.b.IfEnablePlus1Button__
+
+
+
           = t.b.PermalinkPage__
           = t.b.__PostNotes
           h3.notecount-header #{t.NoteCount} Notes
@@ -94,7 +119,7 @@ block content
           = t.b.PostNotes__
       = t.b.Posts__
 
-  // パーマリンクのページャ
+  // パーマリンクのページング
   = t.b.__PermalinkPagination
   .pagenation.pagenation-permalink
     = t.b.__NextPost
@@ -104,7 +129,7 @@ block content
     a(href=`${t.PreviousPost}`) Older Post
     = t.b.PreviousPost__
   = t.b.PermalinkPagination__
-  // ページごとのページャ
+  // ページごとのページング
   = t.b.__Pagination
   .pagenation.pagenation-index
     = t.b.__PreviousPage

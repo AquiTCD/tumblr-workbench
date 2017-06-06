@@ -1,0 +1,38 @@
+.m-postFooter
+  .reblogedfrom
+    .reblogedfrom_parentName
+      display: none
+    .reblogedfrom_rootName
+      display: none
+  .notecount
+    .notecount_numbers
+      display: none
+  .socialBtns
+    .socialBtns_items
+      display: flex
+      flex-flow: row nowrap
+      justify-content: flex-start
+      align-items: center
+      list-style: none
+      margin-bottom: 0
+      border: 1px solid $black-base
+      border-radius: 3px
+      rhythmical-margin: 0 0.125 0 0.125
+      +media-query(media-medium)
+        rhythmical-margin: 0 0.25 0 0.25
+      .socialBtns_item
+        border-right: 1px solid $black-base
+        align-self: stretch
+        background: $white-base
+        &:last-child
+          border-right: none
+        &.is-reblog
+          max-width: 10%
+        &.is-like
+          max-width: 10%
+        // &.is-hateb
+        // &.is-twitter
+        // &.is-fb
+        // &.is-line
+        // &.is-pocket
+        // &.is-gplus
