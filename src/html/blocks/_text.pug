@@ -1,23 +1,8 @@
 = t.b.__Text
-header.m-post_header
-  = t.b.__Title
-  h1.m-post_headerTitle
-    a(href=`${t.Permalink}`) #{t.Title}
-  .m-postInfo
-    .m-postInfo_tags
-      = t.b.__HasTags
-      i.fa.fa-tags &nbsp;
-      = t.b.__Tags
-      a(href=`${t.TagURL}` class='m-postInfo_tag') #{t.Tag}
-      = t.b.HasTags__
-    .m-postInfo_date
-      = t.b.__Date
-      i.fa.fa-clock-o &nbsp;
-      a(href=`${t.Permalink}`)
-        time #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
-        | （#{t.TimeAgo}）
-      = t.b.Date__
-  = t.b.Title__
+= t.b.__Title
+h1.m-post_headerTitle
+  a(href=`${t.Permalink}`) #{t.Title}
+= t.b.Title__
 .m-post_content
   != t.Body
 = t.b.Text__
