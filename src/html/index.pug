@@ -36,7 +36,7 @@ block content
         include /blocks/_video
         include /blocks/_audio
         include /blocks/_answer
-        // Content Source
+        //- Content Source
         = t.b.__ContentSource
         .post_source
           a(href=`${t.SourceURL}`)
@@ -49,7 +49,7 @@ block content
             = t.SourceTitle
             = t.b.NoSourceLogo__
         = t.b.ContentSource__
-        // 記事フッタ
+        //- 記事フッタ
         footer.m-postFooter
           = t.b.__RebloggedFrom
           .reblogedfrom
@@ -109,14 +109,14 @@ block content
               = t.b.IfEnablePlus1Button__
 
 
-          // 全articleにソーシャルボタン、parmalinkかつスマホなら下部固定
+          //- 全articleにソーシャルボタン、parmalinkかつスマホなら下部固定
           //- = t.b.__Date
           //- .tumblr-controls
           //-   ul.like-and-reblog-buttons
           //-     li !{t.ReblogButton}
           //-     li !{t.LikeButton}
           //- = t.b.Date__
-          // パーマリンクだけソーシャルボタン出す
+          //- パーマリンクだけソーシャルボタン出す
 
 
           = t.b.__PermalinkPage
@@ -133,7 +133,7 @@ block content
           = t.b.PostNotes__
       = t.b.Posts__
 
-  // パーマリンクのページング
+  //- パーマリンクのページング
   = t.b.__PermalinkPagination
   .pagenation.pagenation-permalink
     = t.b.__NextPost
@@ -143,7 +143,7 @@ block content
     a(href=`${t.PreviousPost}`) Older Post
     = t.b.PreviousPost__
   = t.b.PermalinkPagination__
-  // ページごとのページング
+  //- ページごとのページング
   = t.b.__Pagination
   .pagenation.pagenation-index
     = t.b.__PreviousPage

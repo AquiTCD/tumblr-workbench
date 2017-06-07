@@ -16,9 +16,8 @@ import stylus        = require('gulp-stylus');
 import webpack       = require('webpack');
 import webpackStream = require('webpack-stream');
 import replace       = require('gulp-replace');
-import minifyHtml    = require('gulp-minify-html');
-import cssmin        = require('gulp-cssmin');
 import uglify        = require('gulp-uglify');
+import fileInclude   = require('gulp-file-include');
 import data          = require('gulp-data');
 import plumber       = require('gulp-plumber');
 import runSequence   = require('run-sequence');
@@ -55,6 +54,7 @@ const build = {
 const distDir     = './dist';
 const coverageDir = './coverage';
 const useCDN      = false
+const isAmp       = true
 const buildTasks  = ['html', 'css', 'js', 'img']
 if (useCDN) {
   var beforeBuild   = ['assets']
@@ -73,17 +73,13 @@ gulp.task('html', () => {
       data(function(file) { return {t: require('./src/data/tumblr_production.json')}}),
       data(function(file) { return {t: require('./src/data/tumblr_development.json')}}) ))
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
-    .pipe(gulpIf(isProduction,
-      gulpIf(/\.pug/, pug({
+    .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
+        pretty: !isProduction,
         locals: {'useCDN': useCDN,
-                 'isProduction': true }
-      })),
-      gulpIf(/\.pug/, pug({
-        basedir: './src/html/',
-        locals: {'useCDN': useCDN}
-      }))))
-    .pipe(gulpIf(isProduction, minifyHtml()))
+                 'isAmp': isAmp,
+                 'isProduction': isProduction }
+    })))
     .pipe(gulp.dest(build.html));
 });
 // CSS
@@ -94,10 +90,10 @@ gulp.task('css', () => {
     .pipe(gulpIf(!isProduction, sourcemaps.init({loadMaps: true})))
     .pipe(gulpIf(/\.styl/, stylus({
       use: koutoSwiss(),
+      compress: isProduction,
       'include css': true,
       define: {'$useCDN': useCDN}
     })))
-    .pipe(gulpIf(isProduction, cssmin()))
     .pipe(gulpIf(!isProduction, sourcemaps.write('.', {
       addComment: true,
       sourceRoot: './src'
@@ -125,23 +121,22 @@ gulp.task('img', () => {
 // Font
 // ------------------------------------------------------------
 gulp.task('copy_font-files', () => {
-  return gulp.src(['./node_modules/yakuhanjp/dist/fonts/YakuHanJP/*', './node_modules/font-awesome/fonts/*'])
+  return gulp.src(['./node_modules/yakuhanjp/dist/fonts/YakuHanJP/*'])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('copy_font-files: <%= error.message %>')})))
     .pipe(gulp.dest(build.font));
 });
 // TODO: これをjsonでもってきたい
 gulp.task('font', ['copy_font-files'], () => {
-  return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css', './node_modules/font-awesome/css/font-awesome.min.css'])
+  return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css'])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('font: <%= error.message %>')})))
     .pipe(replace('../fonts/YakuHanJP', '../font'))
-    .pipe(replace('../fonts/fontawesome', '../font'))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
 // Copy
 // ------------------------------------------------------------
 // TODO:このソースもsettingsに書きたい
 gulp.task('assets_css', () => {
-  return gulp.src([src.assets.css, './node_modules/video.js/dist/video-js.min.css'])
+  return gulp.src([src.assets.css])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('assets: <%= error.message %>')})))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
@@ -182,6 +177,12 @@ gulp.task('build', (callback) => {
 });
 gulp.task('make', () => {
   return gulp.src(['./build/**/*', '!./build/**/*.map', '!./build/**/plugins'], {base: buildDir})
+  .pipe(gulpIf(isAmp,
+    gulpIf(/\.html/, fileInclude({
+      prefix: '@@',
+      basepath: buildDir
+    }))
+  ))
   .pipe(gulp.dest(distDir))
 });
 gulp.task('upload', () => {
