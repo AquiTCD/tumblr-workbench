@@ -176,7 +176,8 @@ gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
 });
 gulp.task('make', () => {
-  return gulp.src(['./build/**/*', '!./build/**/*.map', '!./build/**/plugins'], {base: buildDir})
+  // NOTE: 疎結合にしたい
+  return gulp.src(['./build/**/*.html', './build/css/style.css', './build/img/*', './build/js/bundle.js'], {base: buildDir})
   .pipe(gulpIf(isAmp,
     gulpIf(/\.html/, fileInclude({
       prefix: '@@',

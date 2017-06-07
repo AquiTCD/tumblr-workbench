@@ -1,5 +1,6 @@
 .m-blogHeader
   vertical-rhythm: true
+  z-depth: 1
   .m-blogHeader_title
     background: $black-base
     text-align: center
@@ -8,11 +9,8 @@
   .m-blogHeader_logo
     max-height: 192px
   .m-blogHeader_nav
-    background: $primary-color-base
+    background: $black-base
     link-variation: $white-base true
-    transition: background .618s easing( "out-quad" )
-    &.is-scrolled
-      background: $black-base
   .m-blogHeader_list
     display: flex
     flex-flow: row nowrap
@@ -38,3 +36,4 @@
       margin-right: auto
   .m-blogHeader_description
     text-align: center
+    background: $primary-color-tint

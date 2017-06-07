@@ -55,11 +55,11 @@ rhythmical-padding(with-padding-top = 0, with-padding-right = 0, with-padding-bo
   if with-padding-left > 0
     padding-left: rhythmical-space(with-padding-left)
 // ============================================================
-//  Debugger
+//  Check like Debugger
 // ============================================================
 //  Usage: just include
 // ------------------------------------------------------------
-debugger()
+check()
   background-color: rgba(255, 0, 0, 0.2)
 // ============================================================
 //  bold font with smooth option
@@ -147,7 +147,9 @@ full-width(value)
 // Usage: z-depth: <integer>(must be 1..6)
 // ------------------------------------------------------------
 z-depth(value)
-  if value == 1
+  if value == 0
+    box-shadow: none
+  else if value == 1
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
   else if value == 2
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
@@ -160,7 +162,7 @@ z-depth(value)
   else if value == 6
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), 0 20px 14px rgba(0, 0, 0, 0.22)
   else
-    error('renge of ' + z-depth + ' must be 1..6 , but got ' + value)
+    error('renge of ' + z-depth + ' must be 0..6 , but got ' + value)
 // // ============================================================
 // // zurui gradietion
 // // ============================================================

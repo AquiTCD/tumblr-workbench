@@ -51,6 +51,9 @@
   "LikeButton": "{LikeButton}",
   "PageNumber": "{PageNumber}",
   "CopyrightYears": "{CopyrightYears}",
+  "t": {
+    "fb_app_id": "{text:fb_app_id}"
+  },
   "b": {
     "__Description": "{block:Description}",
     "Description__": "{/block:Description}",
@@ -120,6 +123,8 @@
     "IfEnableTweetButton__": "{/block:IfEnableTweetButton}",
     "__IfEnableLikeButton": "{block:IfEnableLikeButton}",
     "IfEnableLikeButton__": "{/block:IfEnableLikeButton}",
+    "__IfEnableFbShareButton": "{block:IfEnableFbShareButton}",
+    "IfEnableFbShareButton__": "{/block:IfEnablFbShareButton}",
     "__IfEnableLineButton": "{block:IfEnableLineButton}",
     "IfEnableLineButton__": "{/block:IfEnableLineButton}",
     "__IfEnablePocketButton": "{block:IfEnablePocketButton}",

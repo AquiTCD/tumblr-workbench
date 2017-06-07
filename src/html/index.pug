@@ -9,7 +9,7 @@ block content
   main.l-main.autopagerize_page_element(role='main')
     .l-main_container
       = t.b.__TagPage
-      h2.tagged Posts tagged "#{t.Tag}"
+      h2.tagged タグ "#{t.Tag}" が付けられた記事
       = t.b.TagPage__
       = t.b.__Posts
       article.m-post(class=`${t.TagsAsClasses} is-${t.PostType}`)
@@ -49,7 +49,6 @@ block content
             = t.SourceTitle
             = t.b.NoSourceLogo__
         = t.b.ContentSource__
-        //- 記事フッタ
         footer.m-postFooter
           = t.b.__RebloggedFrom
           .reblogedfrom
@@ -69,95 +68,81 @@ block content
               a(href=`${t.Permalink}`) #{t.NoteCount} Notes
             = t.b.NoteCount__
           .socialBtns
-            ul.socialBtns_items
-              li.socialBtns_item.is-reblog !{t.ReblogButton}
-              li.socialBtns_item.is-like !{t.LikeButton}
+            ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.__PermalinkPage}`)
+              li.socialBtns_item.is-reblog
+                amp-social-share(type="tumblr")
+                //- !{t.ReblogButton}
+              //- li.socialBtns_item.is-like !{t.LikeButton}
               = t.b.__IfEnableHatebButton
               li.socialBtns_item.is-hateb
-                //- a.twitter-btn(href='https://twitter.com/share', data-lang='ja') ツイート
-                //- script.
-                //-   !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                amp-social-share(type="hateb" layout="container" data-share-endpoint=`http://b.hatena.ne.jp/entry/${t.Permalink}`) B!
               = t.b.IfEnableHatebButton__
               = t.b.__IfEnableTweetButton
               li.socialBtns_item.is-twitter
-                a.twitter-btn(href='https://twitter.com/share', data-lang='ja') ツイート
-                script.
-                  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                amp-social-share(type="twitter")
               = t.b.IfEnableTweetButton__
-              = t.b.__IfEnableLikeButton
+              //- = t.b.__IfEnableLikeButton
+              //- li.socialBtns_item.is-fb
+              //-   .fb-btn(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
+              //- = t.b.IfEnableLikeButton__
+              = t.b.__IfEnableFbShareButton
               li.socialBtns_item.is-fb
-                .fb-btn(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
-              = t.b.IfEnableLikeButton__
+                amp-social-share(type="facebook" app_id=`${t.t.fb_app_id}`)
+              = t.b.IfEnableFbShareButton__
               = t.b.__IfEnableLineButton
               li.socialBtns_item.is-line
-                //- code
+                amp-social-share(type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?TITLE%3ASOURCE_URL")
               = t.b.IfEnableLineButton__
               = t.b.__IfEnablePocketButton
               li.socialBtns_item.is-pocket
-                //- code
+                amp-social-share(type="pocket" layout="container" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
               = t.b.IfEnablePocketButton__
-              = t.b.__IfEnablePlus1Button
-              li.socialBtns_item.is-gplus
-                .g-plusone(data-size='medium')
-                script(type='text/javascript').
-                  window.___gcfg = {lang: 'ja'};
-                  (function() {
-                  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                  po.src = 'https://apis.google.com/js/plusone.js';
-                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                  })();
-              = t.b.IfEnablePlus1Button__
-
-
-          //- 全articleにソーシャルボタン、parmalinkかつスマホなら下部固定
-          //- = t.b.__Date
-          //- .tumblr-controls
-          //-   ul.like-and-reblog-buttons
-          //-     li !{t.ReblogButton}
-          //-     li !{t.LikeButton}
-          //- = t.b.Date__
-          //- パーマリンクだけソーシャルボタン出す
-
-
-          = t.b.__PermalinkPage
-          ul.social-buttons
-
-            li.social-button
-
-
-
-          = t.b.PermalinkPage__
+              //- = t.b.__IfEnablePlus1Button
+              //- li.socialBtns_item.is-gplus
+              //-   amp-social-share(type="googleplus")
+              //- = t.b.IfEnablePlus1Button__
+          //- = t.b.__PermalinkPage
+          //- .socialBtns.is-spArticle
+          //-   ul.social-buttons
+          //-     li.social-button
+          //- = t.b.PermalinkPage__
           = t.b.__PostNotes
           h3.notecount-header #{t.NoteCount} Notes
           .notecontainer {PostNotes}
           = t.b.PostNotes__
       = t.b.Posts__
-
-  //- パーマリンクのページング
-  = t.b.__PermalinkPagination
-  .pagenation.pagenation-permalink
-    = t.b.__NextPost
-    a.next(href=`${t.NextPost}`, rel='next') Newer Post
-    = t.b.NextPost__
-    = t.b.__PreviousPost
-    a(href=`${t.PreviousPost}`) Older Post
-    = t.b.PreviousPost__
-  = t.b.PermalinkPagination__
-  //- ページごとのページング
-  = t.b.__Pagination
-  .pagenation.pagenation-index
-    = t.b.__PreviousPage
-    a(href=`${t.PreviousPage}`) Prev
-    = t.b.PreviousPage__
-    = t.b.__JumpPagination_length5
-    = t.b.__CurrentPage
-    span.current-page #{t.PageNumber}
-    = t.b.CurrentPage__
-    = t.b.__JumpPage
-    a.jump-page(href=`${t.URL}`) #{t.PageNumber}
-    = t.b.JumpPage__
-    = t.b.JumpPagination__
-    = t.b.__NextPage
-    a.next(href=`${t.NextPage}`, rel='next') Next
-    = t.b.NextPage__
-  = t.b.Pagination__
+  .m-paging
+    = t.b.__PermalinkPagination
+    ul.m-paging_items.is-permalink
+      = t.b.__NextPost
+      li.m-paging_item: a.is-link.next(href=`${t.NextPost}`, rel='next')
+        i.fa.fa-angle-double-left &nbsp;
+        | ひとつ新しい記事
+      = t.b.NextPost__
+      = t.b.__PreviousPost
+      li.m-paging_item: a.is-link(href=`${t.PreviousPost}`)
+        |ひとつ古い記事&nbsp;
+        i.fa.fa-angle-double-right
+      = t.b.PreviousPost__
+    = t.b.PermalinkPagination__
+    = t.b.__Pagination
+    ul.m-paging_items
+      = t.b.__PreviousPage
+      li.m-paging_item: a.is-link(href=`${t.PreviousPage}`)
+        i.fa.fa-angle-double-left &nbsp;
+        | 新しい記事
+      = t.b.PreviousPage__
+      = t.b.__JumpPagination_length5
+      = t.b.__CurrentPage
+      li.m-paging_item.is-current #{t.PageNumber}
+      = t.b.CurrentPage__
+      = t.b.__JumpPage
+      li.m-paging_item: a.is-link.is-jump(href=`${t.URL}`) #{t.PageNumber}
+      = t.b.JumpPage__
+      = t.b.JumpPagination__
+      = t.b.__NextPage
+      li.m-paging_item: a.is-link.next(href=`${t.NextPage}`, rel='next')
+        | 古い記事&nbsp;
+        i.fa.fa-angle-double-right
+      = t.b.NextPage__
+    = t.b.Pagination__

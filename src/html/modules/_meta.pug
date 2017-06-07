@@ -16,8 +16,9 @@ meta(property="og:site_name" content="{Title}")
 meta(property="og:locale" content="ja_JP")
 
 //- OGP Facebook
-//- / meta(property="fb:app_id" content="XXXXXXXXXXXXXXX")
-
+= t.b.__TagPage
+meta(property="fb:app_id" content="{text:fb_app_id}")
+= t.b.__TagPage
 //- OGP Twitter Cards
 meta(name="twitter:card" content="summary")
 //- / meta(name="twitter:site" content="@site")
@@ -35,6 +36,7 @@ link(rel="shortcut icon" href="{Favicon}")
 link(rel="alternate", type="application/rss+xml", href="{RSS}")
 //- API for Tumblr Theme
 meta(name='text:Google Author', content='')
+meta(name='if:Enable Fb-share Button', content='1')
 meta(name='if:Enable Like Button', content='1')
 meta(name='if:Enable Tweet Button', content='1')
 meta(name='if:Enable Plus1 Button', content='1')
