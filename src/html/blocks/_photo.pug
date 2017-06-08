@@ -1,11 +1,10 @@
+= t.b.__Photo
 div(class=`m-postBlock is-${t.PostType}`)
-  = t.b.__Photo
-  .entry-content
-    = t.LinkOpenTag
-    img(src=`${PhotoURL-HighRes}`, alt=`${PhotoAlt}`)
-    = t.LinkCloseTag
-    = t.b.__Caption
-    .caption
-      = t.Caption
-    = t.b.Caption__
-  = t.b.Photo__
+  = t.LinkOpenTag
+  img(src=`${PhotoURL-HighRes}`, alt=`${PhotoAlt}`)
+  = t.LinkCloseTag
+  = t.b.__Caption
+  .caption
+    = t.Caption
+  = t.b.Caption__
+= t.b.Photo__

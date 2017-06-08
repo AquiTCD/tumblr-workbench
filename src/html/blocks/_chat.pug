@@ -1,16 +1,15 @@
+= t.b.__Chat
 div(class=`m-postBlock is-${t.PostType}`)
-  = t.b.__Chat
-  .entry-content
-    = t.b.__Title
-    h1.entry-title
-      a(href=`${t.Permalink}`) #{t.Title}
-    = t.b.Title__
-    ul.ul-chat
-      = t.b.__Lines
-      li(class=`${t.Alt} user_${t.UserNumber}`)
-        = t.b.__Label
-        span.label #{t.Label}
-        = t.b.Label__
-        = t.Line
-      = t.b.Lines__
-  = t.b.Chat__
+  = t.b.__Title
+  h1.entry-title
+    a(href=`${t.Permalink}`) #{t.Title}
+  = t.b.Title__
+  ul.ul-chat
+    = t.b.__Lines
+    li(class=`${t.Alt} user_${t.UserNumber}`)
+      = t.b.__Label
+      span.label #{t.Label}
+      = t.b.Label__
+      = t.Line
+    = t.b.Lines__
+= t.b.Chat__

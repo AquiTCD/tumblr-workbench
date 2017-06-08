@@ -1,10 +1,9 @@
+= t.b.__Answer
 div(class=`m-postBlock is-${t.PostType}`)
-  = t.b.__Answer
-  .entry-content
-    .question.bubble
-      = t.Question
-    .asker-group
-      img(src=`${t.AskerPortraitURL_24}`, width='24', height='24')
-      = t.Asker
-    .answer.cont {Answer}
-  = t.b.Answer__
+  .question.bubble
+    = t.Question
+  .asker-group
+    img(src=`${t.AskerPortraitURL_24}`, width='24', height='24')
+    = t.Asker
+  .answer.cont {Answer}
+= t.b.Answer__

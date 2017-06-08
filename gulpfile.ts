@@ -75,7 +75,7 @@ gulp.task('html', () => {
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
     .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
-        pretty: !isProduction,
+        pretty: isProduction,
         locals: {'useCDN': useCDN,
                  'isAmp': isAmp,
                  'isProduction': isProduction }
@@ -191,7 +191,8 @@ gulp.task('upload', () => {
   .pipe(sftp(ftpconfig))
 });
 gulp.task('deploy', (callback) => {
-  runSequence('clean', 'build', 'make', 'upload', 'msg', callback);
+  // runSequence('clean', 'build', 'make', 'upload', 'msg', callback);
+  runSequence('clean', 'build', 'make', 'msg', callback);
 });
 gulp.task('msg', () => {
   return console.log("👍  Deployed, YEY!")

@@ -64,6 +64,7 @@ block content
                 = t.ReblogRootName
           = t.b.RebloggedFrom__
           .notecount
+            = t.b.__NoteCount
             span.notecount_numbers
               a(href=`${t.Permalink}`) #{t.NoteCount} Notes
             = t.b.NoteCount__
@@ -128,7 +129,7 @@ block content
         i.fa.fa-angle-double-left &nbsp;
         | 新しい記事
       = t.b.PreviousPage__
-      = t.b.__JumpPagination_length5
+      != t.b.__JumpPagination_length5
       = t.b.__CurrentPage
       li.m-paging_item.is-current #{t.PageNumber}
       = t.b.CurrentPage__

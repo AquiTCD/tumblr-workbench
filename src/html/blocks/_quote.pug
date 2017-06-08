@@ -1,9 +1,8 @@
+= t.b.__Quote
 div(class=`m-postBlock is-${t.PostType}`)
-  = t.b.__Quote
-  .entry-content(class=`${t.Length}`)
-    blockquote “#{t.Quote}”
-    = t.b.__Source
-    .quote-source
-      = t.Source
-    = t.b.Source__
-  = t.b.Quote__
+  blockquote “#{t.Quote}”
+  = t.b.__Source
+  .quote-source
+    = t.Source
+  = t.b.Source__
+= t.b.Quote__

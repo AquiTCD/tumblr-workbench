@@ -97,7 +97,7 @@
     "Posts__": "{/block:Posts}",
     "__Date": "{block:Date}",
     "Date__": "{/block:Date}",
-    "__JumpPagination_length5": "{block:JumpPagination length='5'}",
+    "__JumpPagination_length5": "{block:JumpPagination length=\"5\"}",
     "JumpPagination__": "{/block:JumpPagination}",
     "__ContentSource": "{block:ContentSource}",
     "ContentSource__": "{/block:ContentSource}",
