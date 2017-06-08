@@ -11,6 +11,12 @@ block content
       = t.b.__TagPage
       h2.tagged タグ "#{t.Tag}" が付けられた記事
       = t.b.TagPage__
+      = t.b.__SearchPage
+      h2 "#{t.SearchQuery}"の検索結果: #{t.SearchResultCount} 件
+      = t.b.SearchPage__
+      = t.b.__NoSearchResults
+      p 該当する記事は見つかりませんでした
+      = t.b.NoSearchResults__
       = t.b.__Posts
       article(class=`m-post ${t.TagsAsClasses}`)
         .m-postInfo
@@ -19,6 +25,7 @@ block content
             i.fa.fa-tags &nbsp;
             = t.b.__Tags
             a(href=`${t.TagURL}` class='m-postInfo_tag') #{t.Tag}
+            = t.b.Tags__
             = t.b.HasTags__
           .m-postInfo_date
             = t.b.__Date

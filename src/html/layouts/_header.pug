@@ -9,9 +9,12 @@ header.l-header.m-blogHeader
           i.fa.fa-bars &nbsp;
           | MENU
       li.m-blogHeader_item
-        form(method="GET" class="p2" action="/components/amp-form/submit-form" target="_top")
-          input.m-blogHeader_searchField(type="search" placeholder="Search..." name="search")
+        form(method="GET" action="/search" target="_top")
+          input.m-blogHeader_searchField(type="search" placeholder="Search..." name="q" value="{SearchQuery}")
           button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
+        //- form(method="GET" class="p2" action="/components/amp-form/submit-form" target="_top")
+        //-   input.m-blogHeader_searchField(type="search" placeholder="Search..." name="search")
+        //-   button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
   = t.b.__Description
   amp-fit-text.m-blogHeader_description(height="16" min-font-size="12" layout="fixed-height") #{t.Description}
   = t.b.Description__

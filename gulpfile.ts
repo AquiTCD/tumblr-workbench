@@ -57,7 +57,7 @@ const useCDN      = false
 const isAmp       = true
 const buildTasks  = ['html', 'css', 'js', 'img']
 if (useCDN) {
-  var beforeBuild   = ['assets']
+  var beforeBuild   = ['font', 'assets']
   var webpackConfig = require('./webpack.config.cdn.js');
 } else {
   var beforeBuild    = ['font', 'assets']
@@ -75,7 +75,7 @@ gulp.task('html', () => {
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
     .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
-        pretty: isProduction,
+        pretty: !isProduction,
         locals: {'useCDN': useCDN,
                  'isAmp': isAmp,
                  'isProduction': isProduction }
@@ -129,7 +129,7 @@ gulp.task('copy_font-files', () => {
 gulp.task('font', ['copy_font-files'], () => {
   return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css'])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('font: <%= error.message %>')})))
-    .pipe(replace('../fonts/YakuHanJP', '../font'))
+    .pipe(replace('../fonts/YakuHanJP', 'http://lib.solunita.net/font'))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
 // Copy
