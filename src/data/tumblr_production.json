@@ -52,7 +52,7 @@
   "PageNumber": "{PageNumber}",
   "CopyrightYears": "{CopyrightYears}",
   "t": {
-    "fb_app_id": "{text:fb_app_id}"
+    "fb_app_id": "{text:FbAppId}"
   },
   "b": {
     "__Description": "{block:Description}",
@@ -121,10 +121,8 @@
     "IfEnableHatebButton__": "{/block:IfEnableHatebButton}",
     "__IfEnableTweetButton": "{block:IfEnableTweetButton}",
     "IfEnableTweetButton__": "{/block:IfEnableTweetButton}",
-    "__IfEnableLikeButton": "{block:IfEnableLikeButton}",
-    "IfEnableLikeButton__": "{/block:IfEnableLikeButton}",
     "__IfEnableFbShareButton": "{block:IfEnableFbShareButton}",
-    "IfEnableFbShareButton__": "{/block:IfEnablFbShareButton}",
+    "IfEnableFbShareButton__": "{/block:IfEnableFbShareButton}",
     "__IfEnableLineButton": "{block:IfEnableLineButton}",
     "IfEnableLineButton__": "{/block:IfEnableLineButton}",
     "__IfEnablePocketButton": "{block:IfEnablePocketButton}",

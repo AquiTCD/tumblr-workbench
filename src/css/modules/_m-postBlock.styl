@@ -1,0 +1,243 @@
+.m-postBlock
+  &.is-text
+    h2
+      text-bold: true
+      font-size: $font-size-large
+      border-left: rhythmical-space(0.25) solid $black-base
+      padding-left: rhythmical-space(0.25)
+      padding-right: rhythmical-space(0.25)
+      background-color: $bg-color-emphasis
+      vertical-rhythm: true
+      rhythmical-margin: 0 0 1 0
+      +media-query(media-medium)
+        border-left: rhythmical-space(0.5) solid $black-base
+        padding-left: rhythmical-space(0.5)
+        padding-right: rhythmical-space(0.5)
+    h3
+      text-bold: true
+      font-size: $font-size-large
+      border-bottom: 2px solid $black-base
+      border-left: rhythmical-space(0.125) solid $black-base
+      padding-left: rhythmical-space(0.25)
+      padding-right: rhythmical-space(0.25)
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.125 1 0.125
+      +media-query(media-medium)
+        border-left: rhythmical-space(0.25) solid $black-base
+        padding-left: rhythmical-space(0.5)
+        padding-right: rhythmical-space(0.5)
+        rhythmical-margin: 0 0.25 1 0.25
+    h4
+      text-bold: true
+      font-size: $font-size-large
+      border-left: rhythmical-space(0.125) solid $black-base
+      padding-left: rhythmical-space(0.25)
+      padding-right: rhythmical-space(0.25)
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.125 1 0.125
+      +media-query(media-medium)
+        border-left: rhythmical-space(0.25) solid $black-base
+        padding-left: rhythmical-space(0.5)
+        padding-right: rhythmical-space(0.5)
+        rhythmical-margin: 0 0.25 1 0.25
+    h5
+      text-bold: true
+      font-size: $font-size-base
+      border-left: rhythmical-space(0.125) solid $black-base
+      padding-left: rhythmical-space(0.25)
+      padding-right: rhythmical-space(0.25)
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.125 1 0.125
+      +media-query(media-medium)
+        border-left: rhythmical-space(0.25) solid $black-base
+        padding-left: rhythmical-space(0.5)
+        padding-right: rhythmical-space(0.5)
+        rhythmical-margin: 0 0.25 1 0.25
+    h6
+      text-bold: true
+      font-size: $font-size-base
+      padding-left: rhythmical-space(0.375)
+      padding-right: rhythmical-space(0.375)
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.125 1 0.125
+      +media-query(media-medium)
+        padding-left: rhythmical-space(0.75)
+        padding-right: rhythmical-space(0.75)
+        rhythmical-margin: 0 0.25 1 0.25
+    // ------------------------------------------------------------
+    // List
+    // ------------------------------------------------------------
+    /*
+  ---
+  name: list
+  tag:
+    - base
+    - latest
+  category:
+    - article
+    - article/list
+  compile: true
+  ---
+  ```jade
+  article
+    dl
+      dt 定義型リスト 用語
+      dd 定義型リスト 定義
+    p テウトテストテスト
+    h3 順序付きリスト(ol)
+    ol
+      li リストアイテム 1
+      li
+        | リストアイテム 2
+        ol
+          li 二重
+          li
+            | 二重
+            ol
+              li 三重
+      li リストアイテム
+    p テウトテストテスト
+    h3 並列列挙リスト(ul)
+    ul
+      li リストアイテム 1
+      li リストアイテム 2
+      li
+        | リストアイテム 2
+        ul
+          li 二重
+          li
+            | 二重
+            ul
+              li 三重
+  ```
+    */
+    ol, ul
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+      li
+        rhythmical-margin: 0 0 0 0.75
+        & > ol, & > ul
+          margin-left: 0
+    ol
+      list-style-type: decimal
+    ul
+      list-style-type: disc
+      ul
+        list-style-type: circle
+        ul
+          list-style-type: square
+    dl
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+      dd
+        rhythmical-margin: 0 0 0 0.75
+    // ------------------------------------------------------------
+    // Image
+    // ------------------------------------------------------------
+    img
+      border: solid 5px $black-base
+      border-radius: 3px
+      max-width: 100%
+    // ------------------------------------------------------------
+    // Quote
+    // ------------------------------------------------------------
+    blockquote
+      vertical-rhythm: true
+      background: $pure-white
+      border: 1px solid $bg-color-emphasis
+      border-left: rhythmical-space(0.25) solid $bg-color-emphasis
+      border-radius: 5px
+      rhythmical-padding: 0.5 0.5 0.5 0.5
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+    // ------------------------------------------------------------
+    // Paragraph and etc.
+    // ------------------------------------------------------------
+    p
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+    em
+      border-bottom: 1px dotted @color
+    strong
+      text-bold: true
+      line-marker: true
+    code
+      font-family: $font-family-monospace
+    // ------------------------------------------------------------
+    // Table
+    // ------------------------------------------------------------
+    table
+      border-collapse: collapse
+      border-spacing: 0
+      overflow: auto
+      display: block
+      vertical-rhythm: true
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+      th
+        padding: 5px 10px
+        background: tint($bg-color-emphasis, 20%)
+        text-bold: true
+        &:first-child
+          border-radius: 5px 0 0 0
+        &:last-child
+          border-radius: 0 5px 0 0
+      td
+        padding: 5px 10px
+      tr
+        background: tint($bg-color-emphasis, 60%)
+        border-bottom: 1px solid shade($bg-color-emphasis, 5%)
+        &:last-child
+          border-bottom: none
+        &:nth-child(odd)
+          background: tint($bg-color-emphasis, 75%)
+    // ------------------------------------------------------------
+    // Blocks
+    // ------------------------------------------------------------
+    pre
+      background: $black-base
+      color: $white-base
+      border-radius: 3px
+      line-height: 1.61
+      overflow-x: auto
+      white-space: pre
+      rhythmical-padding: 0.25 0.5 0.25 0.5
+      rhythmical-margin: 0 0.5 1 0.5
+      +media-query(media-medium)
+        rhythmical-margin: 0 1 1 1
+    code, var, samp, dfn
+      font-size: $font-size-small
+      font-family: $font-family-monospace
+      background: shade($pure-white, round($amount-base * 0.25))
+      color: $pure-black
+      border-radius: 3px
+      rhythmical-padding: 0.0625 0.25 0.0625 0.25
+      rhythmical-margin: 0 0.125 0 0.125
+    pre > code
+      font-size: inherit
+      background: none
+      color: inherit
+      border-radius: inherit
+      padding: inherit
+      margin: auto
+    kbd
+      display: inline-block
+      padding: 3px 5px
+      margin: auto 5px 2px 5px
+      font-size: $font-size-small
+      line-height: 10px
+      color: $pure-black
+      vertical-align: middle
+      background-color: $pure-white
+      border: solid 1px $gray-base
+      border-bottom-color: $gray-base
+      border-radius: 3px
+      box-shadow: inset 0 -1px 0 $gray-base

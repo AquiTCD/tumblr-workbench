@@ -6,7 +6,7 @@
 
 // Red
 // ------------------------------------------------------------
-material-desing-color-red = {
+$mdc-red = {
   base: #f44336,
   b50:   #ffebee,
   b100:  #ffcdd2,
@@ -26,7 +26,7 @@ material-desing-color-red = {
 
 // Pink
 // ------------------------------------------------------------
-material-desing-color-pink = {
+$mdc-pink = {
   base: #e91e63,
   b50:   #fce4ec,
   b100:  #f8bbd0,
@@ -46,7 +46,7 @@ material-desing-color-pink = {
 
 // Purple
 // ------------------------------------------------------------
-material-desing-color-purple = {
+$mdc-purple = {
   base: #9c27b0,
   b50:   #f3e5f5,
   b100:  #e1bee7,
@@ -66,7 +66,7 @@ material-desing-color-purple = {
 
 // Deep purple
 // ------------------------------------------------------------
-material-desing-color-deep-purple = {
+$mdc-deep-purple = {
   base: #673ab7,
   b50:   #ede7f6,
   b100:  #d1c4e9,
@@ -86,7 +86,7 @@ material-desing-color-deep-purple = {
 
 // Indigo
 // ------------------------------------------------------------
-material-desing-color-indigo = {
+$mdc-indigo = {
   base: #3f51b5,
   b50:   #e8eaf6,
   b100:  #c5cae9,
@@ -106,7 +106,7 @@ material-desing-color-indigo = {
 
 // Blue
 // ------------------------------------------------------------
-material-desing-color-blue = {
+$mdc-blue = {
   base: #2196f3,
   b50:   #e3f2fd,
   b100:  #bbdefb,
@@ -126,7 +126,7 @@ material-desing-color-blue = {
 
 // Light Blue
 // ------------------------------------------------------------
-material-desing-color-light-blue = {
+$mdc-light-blue = {
   base: #03a9f4,
   b50:   #e1f5fe,
   b100:  #b3e5fc,
@@ -146,7 +146,7 @@ material-desing-color-light-blue = {
 
 // Cyan
 // ------------------------------------------------------------
-material-desing-color-cyan = {
+$mdc-cyan = {
   base: #00bcd4,
   b50:   #e0f7fa,
   b100:  #b2ebf2,
@@ -166,7 +166,7 @@ material-desing-color-cyan = {
 
 // Teal
 // ------------------------------------------------------------
-material-desing-color-teal = {
+$mdc-teal = {
   base: #009688,
   b50:   #e0f2f1,
   b100:  #b2dfdb,
@@ -185,7 +185,7 @@ material-desing-color-teal = {
 }
 // Green
 // ------------------------------------------------------------
-material-desing-color-green = {
+$mdc-green = {
   base: #4caf50,
   b50:   #e8f5e9,
   b100:  #c8e6c9,
@@ -205,7 +205,7 @@ material-desing-color-green = {
 
 // Light green
 // ------------------------------------------------------------
-material-desing-color-light-green = {
+$mdc-light-green = {
   base: #8bc34a,
   b50:   #f1f8e9,
   b100:  #dcedc8,
@@ -225,7 +225,7 @@ material-desing-color-light-green = {
 
 // Lime
 // ------------------------------------------------------------
-material-desing-color-lime = {
+$mdc-lime = {
   base: #cddc39,
   b50:   #f9fbe7,
   b100:  #f0f4c3,
@@ -245,7 +245,7 @@ material-desing-color-lime = {
 
 // Yellow
 // ------------------------------------------------------------
-material-desing-color-yellow = {
+$mdc-yellow = {
   base: #ffeb3b,
   b50:   #fffde7,
   b100:  #fff9c4,
@@ -264,7 +264,7 @@ material-desing-color-yellow = {
 }
 // amber
 // ------------------------------------------------------------
-material-desing-color-amber = {
+$mdc-amber = {
   base: #ffc107,
   b50:   #fff8e1,
   b100:  #ffecb3,
@@ -283,7 +283,7 @@ material-desing-color-amber = {
 }
 // Orange
 // ------------------------------------------------------------
-material-desing-color-orange = {
+$mdc-orange = {
   base: #ff9800,
   b50:   #fff3e0,
   b100:  #ffe0b2,
@@ -302,7 +302,7 @@ material-desing-color-orange = {
 }
 // Deep orangle
 // ------------------------------------------------------------
-material-desing-color-deep-orange = {
+$mdc-deep-orange = {
   base: #ff5722,
   b50:   #fbe9e7,
   b100:  #ffccbc,
@@ -321,7 +321,7 @@ material-desing-color-deep-orange = {
 }
 // Brown
 // ------------------------------------------------------------
-material-desing-color-brown = {
+$mdc-brown = {
   base: #795548,
   b50:   #efebe9,
   b100:  #d7ccc8,
@@ -336,7 +336,7 @@ material-desing-color-brown = {
 }
 // Grey
 // ------------------------------------------------------------
-material-desing-color-grey = {
+$mdc-grey = {
   base: #9e9e9e,
   b50:   #fafafa,
   b100:  #f5f5f5,
@@ -349,9 +349,10 @@ material-desing-color-grey = {
   b800:  #424242,
   b900:  #212121,
 }
+$mdc-gray = $mdc-grey
 // Blue grey
 // ------------------------------------------------------------
-material-desing-color-blue-grey = {
+$mdc-blue-grey = {
   base: #607d8b,
   b50:   #eceff1,
   b100:  #cfd8dc,
@@ -364,51 +365,24 @@ material-desing-color-blue-grey = {
   b800:  #37474f,
   b900:  #263238,
 }
-
+$mdc-blue-gray = $mdc-blue-grey
 // Black
 // ------------------------------------------------------------
 
-material-desing-color-black = {
+$mdc-black = {
   base: #000
 }
 
 // White
 // ------------------------------------------------------------
 
-material-desing-color-white = {
+$mdc-white = {
   base: #fff
 }
 
-// Merge colors in $mdc variable
-// ------------------------------------------------------------
-$mdc = {
-  red:         material-desing-color-red,
-  pink:        material-desing-color-pink,
-  purple:      material-desing-color-purple,
-  deep-purple: material-desing-color-deep-purple,
-  indigo:      material-desing-color-indigo,
-  blue:        material-desing-color-blue,
-  light-blue:  material-desing-color-light-blue,
-  cyan:        material-desing-color-cyan,
-  teal:        material-desing-color-teal,
-  green:       material-desing-color-green,
-  light-green: material-desing-color-light-green,
-  lime:        material-desing-color-lime,
-  yellow:      material-desing-color-yellow,
-  amber:       material-desing-color-amber,
-  orange:      material-desing-color-orange,
-  deep-orange: material-desing-color-deep-orange,
-  brown:       material-desing-color-brown,
-  grey:        material-desing-color-grey,
-  gray:        material-desing-color-grey, // for spelling
-  blue-grey:   material-desing-color-blue-grey,
-  black:       material-desing-color-black.base,
-  white:       material-desing-color-white.base
-}
-
 // SNS colors
-$sns-color = {
-  fb: #3b5999,
+$sc = {
+  facebook: #3b5999,
   messenger: #0084ff,
   twitter: #55acee,
   linkedin: #0077B5,
@@ -417,11 +391,33 @@ $sns-color = {
   wordpress: #21759b,
   vimeo: #1ab7ea,
   slideshare: #0077b5,
+  hatenabookmark: #00A5DE,
   vk: #4c75a3,
   tumblr: #34465d,
   yahoo: #410093,
   googleplus: #dd4b39,
   pinterest: #bd081c,
   youtube: #cd201f,
+  stumbleupon: #eb4924,
+  reddit: #ff5700,
+  quora: #b92b27,
+  yelp: #af0606,
+  weibo: #df2029,
+  producthunt: #da552f,
+  hackernews: #ff6600,
+  soundcloud: #ff3300,
+  blogger: #f57d00,
+  whatsapp: #25D366,
+  wechat: #09b83e,
   line: #00c300,
+  medium: #02b875,
+  vine: #00b489,
+  slack: #3aaf85,
+  pocket: #ee4056,
+  instagram: #e4405f,
+  dribble: #ea4c89,
+  flickr: #ff0084,
+  foursquare: #f94877,
+  behance: #131418,
+  snapchat: #FFFC00,
 }

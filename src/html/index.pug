@@ -12,7 +12,7 @@ block content
       h2.tagged タグ "#{t.Tag}" が付けられた記事
       = t.b.TagPage__
       = t.b.__Posts
-      article.m-post(class=`${t.TagsAsClasses} is-${t.PostType}`)
+      article(class=`m-post ${t.TagsAsClasses}`)
         .m-postInfo
           .m-postInfo_tags
             = t.b.__HasTags
@@ -68,7 +68,7 @@ block content
               a(href=`${t.Permalink}`) #{t.NoteCount} Notes
             = t.b.NoteCount__
           .socialBtns
-            ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.__PermalinkPage}`)
+            ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
               li.socialBtns_item.is-reblog
                 amp-social-share(type="tumblr")
                 //- !{t.ReblogButton}
@@ -81,10 +81,6 @@ block content
               li.socialBtns_item.is-twitter
                 amp-social-share(type="twitter")
               = t.b.IfEnableTweetButton__
-              //- = t.b.__IfEnableLikeButton
-              //- li.socialBtns_item.is-fb
-              //-   .fb-btn(data-send='false', data-layout='button_count', data-width='100', data-show-faces='false')
-              //- = t.b.IfEnableLikeButton__
               = t.b.__IfEnableFbShareButton
               li.socialBtns_item.is-fb
                 amp-social-share(type="facebook" app_id=`${t.t.fb_app_id}`)

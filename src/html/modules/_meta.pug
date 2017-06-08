@@ -7,6 +7,15 @@ title {block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}
 meta(property="og:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}")
 meta(name="twitter:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}")
 meta(name="description" content="{block:Description}{MetaDescription}{/block:Description}")
+//- API for Tumblr Theme
+meta(name='text:Google Author', content='')
+meta(name='text:Fb App Id', content='')
+meta(name='if:Enable Hateb Button', content='1')
+meta(name='if:Enable Tweet Button', content='1')
+meta(name='if:Enable Fb Share Button', content='1')
+meta(name='if:Enable Line Button', content='1')
+meta(name='if:Enable Pocket Button', content='1')
+meta(name='if:Enable Plus1 Button', content='1')
 //- OGP General
 meta(property="og:type" content="{block:IndexPage}blog{/block:IndexPage}{block:PermalinkPage}article{PostID}{/block:PermalinkPage}")
 meta(property="og:image" content="{PortraitURL-128}")
@@ -16,9 +25,7 @@ meta(property="og:site_name" content="{Title}")
 meta(property="og:locale" content="ja_JP")
 
 //- OGP Facebook
-= t.b.__TagPage
 meta(property="fb:app_id" content="{text:fb_app_id}")
-= t.b.__TagPage
 //- OGP Twitter Cards
 meta(name="twitter:card" content="summary")
 //- / meta(name="twitter:site" content="@site")
@@ -34,13 +41,6 @@ link(rel="apple-touch-icon" href='{PortraitURL-128}')
 link(rel="shortcut icon" href="{Favicon}")
 //- RSS
 link(rel="alternate", type="application/rss+xml", href="{RSS}")
-//- API for Tumblr Theme
-meta(name='text:Google Author', content='')
-meta(name='if:Enable Fb-share Button', content='1')
-meta(name='if:Enable Like Button', content='1')
-meta(name='if:Enable Tweet Button', content='1')
-meta(name='if:Enable Plus1 Button', content='1')
-
 = t.b.__IfGoogleAuthor
 link(rel='author', href='{text:Google Author}')
 = t.b.IfGoogleAuthor__

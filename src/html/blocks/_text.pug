@@ -1,8 +1,9 @@
-= t.b.__Text
-= t.b.__Title
-h1.m-post_headerTitle
-  a(href=`${t.Permalink}`) #{t.Title}
-= t.b.Title__
-.m-post_content
-  != t.Body
-= t.b.Text__
+div(class=`m-postBlock is-${t.PostType}`)
+  = t.b.__Text
+  = t.b.__Title
+  h1.m-post_headerTitle
+    a(href=`${t.Permalink}`) #{t.Title}
+  = t.b.Title__
+  .m-post_content
+    != t.Body
+  = t.b.Text__
