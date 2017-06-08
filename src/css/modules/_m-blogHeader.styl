@@ -11,7 +11,7 @@
   .m-blogHeader_nav
     background: $black-base
     link-variation: $white-base true
-  .m-blogHeader_list
+  .m-blogHeader_items
     display: flex
     flex-flow: row nowrap
     justify-content: flex-start
@@ -29,11 +29,22 @@
       margin-right: auto
       padding-left: rhythmical-space(1)
       padding-right: rhythmical-space(1)
-  .m-blogHeader_listItem
+  .m-blogHeader_item
     align-self: stretch
     margin-right: 1.5rem
     &:first-child
       margin-right: auto
+    &.is-menu
+      // a
+      //   display: inline-block
+      //   rhythmical-padding: 0 0.25 0 0.25
+      //   border: 1px solid $white-base
+      //   border-radius: 3px
+  .m-blogHeader_btn
+    color: $white-base
+    border: 1px solid $white-base
+    border-radius: 3px
+    rhythmical-padding: 0 0.25 0 0.25
   .m-blogHeader_description
     text-align: center
     background: $primary-color-tint

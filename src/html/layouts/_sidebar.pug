@@ -1,0 +1,22 @@
+amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
+  button.m-sidebar_btn(on="tap:sidebar.close")
+    i.fa.fa-times
+  //- p.m-sidebar_title
+  //-   | TRIAL &amp; SPIRAL
+  ul.m-sidebar_items
+    li.m-sidebar_item
+      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
+        a(href="/") Home
+    //- li.m-sidebar_item
+    //-   amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
+    //-     a(href="/about") About
+    = t.b.__HasPages
+    =   t.b.__Pages
+    li.m-sidebar_item
+      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
+        a(href='{URL}') #{t.Label}
+    =   t.b.Pages__
+    = t.b.HasPages__
+    li.m-sidebar_item
+      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
+        a(href='/archive') Archive

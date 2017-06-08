@@ -3,19 +3,15 @@ header.l-header.m-blogHeader
     a(href='/')
       amp-img(src='http://lib.solunita.net/images/trial-and-spiral__logo--no-margin.svg' alt=`${t.Title} Logo` width="101" height="300" layout="responsive" class='m-blogHeader_logo')
   nav.l-header_nav.m-blogHeader_nav.js-headerNav(role='navigation')
-    ul.m-blogHeader_list
-      li.m-blogHeader_listItem
-        a(href='/') Home
-      = t.b.__HasPages
-      =   t.b.__Pages
-      li.m-blogHeader_listItem
-        a(href='{URL}') #{t.Label}
-      =   t.b.Pages__
-      = t.b.HasPages__
-      li.m-blogHeader_listItem
-        a(href='/archive') Archive
-      li.m-blogHeader_listItem
-        a(href='/search') Search
+    ul.m-blogHeader_items
+      li.m-blogHeader_item.is-menu
+        button.m-blogHeader_btn(on="tap:sidebar.toggle")
+          i.fa.fa-bars &nbsp;
+          | MENU
+      li.m-blogHeader_item
+        button.m-blogHeader_btn
+          i.fa.fa-search &nbsp;
+          | Search
   = t.b.__Description
   h2.m-blogHeader_description.js-headerDescription #{t.Description}
   = t.b.Description__
