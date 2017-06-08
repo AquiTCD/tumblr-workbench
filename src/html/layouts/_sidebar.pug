@@ -13,6 +13,13 @@ amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
     = t.b.__HasPages
     =   t.b.__Pages
     li.m-sidebar_item
+      amp-accordion
+        section
+          .m-sidebar_tagBlock
+            | tag
+          .m-sidebar_tags
+            | test
+    li.m-sidebar_item
       amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
         a(href='{URL}') #{t.Label}
     =   t.b.Pages__

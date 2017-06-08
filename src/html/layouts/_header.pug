@@ -4,14 +4,14 @@ header.l-header.m-blogHeader
       amp-img(src='http://lib.solunita.net/images/trial-and-spiral__logo--no-margin.svg' alt=`${t.Title} Logo` width="101" height="300" layout="responsive" class='m-blogHeader_logo')
   nav.l-header_nav.m-blogHeader_nav.js-headerNav(role='navigation')
     ul.m-blogHeader_items
-      li.m-blogHeader_item.is-menu
-        button.m-blogHeader_btn(on="tap:sidebar.toggle")
+      li.m-blogHeader_item
+        button.m-blogHeader_btn.is-menu(on="tap:sidebar.toggle")
           i.fa.fa-bars &nbsp;
           | MENU
       li.m-blogHeader_item
-        button.m-blogHeader_btn
-          i.fa.fa-search &nbsp;
-          | Search
+        form(method="GET" class="p2" action="/components/amp-form/submit-form" target="_top")
+          input.m-blogHeader_searchField(type="search" placeholder="Search..." name="search")
+          button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
   = t.b.__Description
   h2.m-blogHeader_description.js-headerDescription #{t.Description}
   = t.b.Description__
