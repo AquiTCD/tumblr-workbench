@@ -4,26 +4,32 @@ amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
   //- p.m-sidebar_title
   //-   | TRIAL &amp; SPIRAL
   ul.m-sidebar_items
+    li.m-sidebar_item: a(href="/")
+      i.fa.fa-home &nbsp; Home
+    li.m-sidebar_item: a(href="/about")
+      i.fa.fa-id-card &nbsp; About
+    //- = t.b.__HasPages
+    //- =   t.b.__Pages
+    //- li.m-sidebar_item: a(href='{URL}') #{t.Label}
+    //- =   t.b.Pages__
+    //- = t.b.HasPages__
     li.m-sidebar_item
-      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
-        a(href="/") Home
-    //- li.m-sidebar_item
-    //-   amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
-    //-     a(href="/about") About
-    = t.b.__HasPages
-    =   t.b.__Pages
-    li.m-sidebar_item
-      amp-accordion
+      amp-accordion.m-sidebar_accordion
         section
-          .m-sidebar_tagBlock
-            | tag
-          .m-sidebar_tags
-            | test
+          span.m-sidebar_accordionTitle
+            i.fa.fa-angle-right &nbsp; 人気のある記事
+          ul.m-sidebar_tags
+            li.m-sidebar_tag: a(href="") tag
+            li.m-sidebar_tag: a(href="") tat
     li.m-sidebar_item
-      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
-        a(href='{URL}') #{t.Label}
-    =   t.b.Pages__
-    = t.b.HasPages__
-    li.m-sidebar_item
-      amp-fit-text(width="220" height="20" layout="responsive" max-font-size="24")
-        a(href='/archive') Archive
+      amp-accordion.m-sidebar_accordion
+        section
+          span.m-sidebar_accordionTitle
+            i.fa.fa-angle-right &nbsp; tags
+          ul.m-sidebar_tags
+            li.m-sidebar_tag: a(href="") tag
+            li.m-sidebar_tag: a(href="") tat
+    li.m-sidebar_item: a(href="/archive")
+      i.fa.fa-archive &nbsp; Archive
+    li.m-sidebar_item: a(href="/rss")
+      i.fa.fa-rss-square &nbsp; RSS

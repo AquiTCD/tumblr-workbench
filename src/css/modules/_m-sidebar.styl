@@ -5,19 +5,26 @@
   rhythmical-padding: 0.5 1 0.5 1
   .m-sidebar_btn
     color: $white-base
-    // border: 1px solid $white-base
-    // border-radius: 3px
     rhythmical-padding: 0 0.25 0 0.25
   .m-sidebar_title
     font-family: 'Montserrat Subrayada'
   .m-sidebar_items
     .m-sidebar_item
+      rhythmical-padding: 0.25 0.25 0.25 0.25
       link-variation: $white-base true
       border-bottom: 1px solid $white-base
-  .m-sidebar_tagBlock
+  .m-sidebar_accordion
+    color: $white-base
+    link-variation: $white-base true
+    .m-sidebar_accordionTitle
+      background: $black-base
+      border: 0
+      outline: 0
+  .m-sidebar_tags
+    margin-left: rhythmical-space(0.5)
     & > li
-      color: $white-base display: inline-block
+      color: $white-base
+      display: inline-block
       margin-right: 0.5rem
-      font-size: 1rem
       &:before
         content: '#'

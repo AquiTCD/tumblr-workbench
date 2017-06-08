@@ -13,5 +13,5 @@ header.l-header.m-blogHeader
           input.m-blogHeader_searchField(type="search" placeholder="Search..." name="search")
           button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
   = t.b.__Description
-  h2.m-blogHeader_description.js-headerDescription #{t.Description}
+  amp-fit-text.m-blogHeader_description(height="16" min-font-size="12" layout="fixed-height") #{t.Description}
   = t.b.Description__
