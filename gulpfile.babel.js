@@ -14,6 +14,7 @@ import koutoSwiss     from 'kouto-swiss'
 import stylus         from 'gulp-stylus'
 import replace        from 'gulp-replace'
 import fileInclude    from 'gulp-file-include'
+import checkFilesize  from 'gulp-check-filesize'
 import data           from 'gulp-data'
 import plumber        from 'gulp-plumber'
 import runSequence    from 'run-sequence'
@@ -143,22 +144,21 @@ gulp.task('clean', () => {
 gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
 });
-gulp.task('make', () => {
+gulp.task('bind', () => {
   // NOTE: 疎結合にしたい
-  return gulp.src(['./build/**/*.html', './build/css/style.css', './build/img/*', './build/js/bundle.js'], {base: buildDir})
-  .pipe(gulpIf(isAmp,
-    gulpIf(/\.html/, fileInclude({
+  return gulp.src(['./build/**/*.html', './build/css/style.css', './build/img/*', './build/font/*'], {base: buildDir})
+  .pipe(gulpIf(/\.css/, checkFilesize({ fileSizeLimit: 50000 })))
+  .pipe(gulpIf(/\.html/, fileInclude({
       prefix: '@@',
       basepath: buildDir
-    }))
-  ))
+    })))
   .pipe(gulp.dest(distDir))
 });
-gulp.task('upload', () => {
-  return gulp.src(`${distDir}/**/*`, {base: distDir})
-});
-gulp.task('deploy', (callback) => {
-  runSequence('clean', 'build', 'make', 'msg', callback);
+gulp.task('organize', () => {
+  return del([`${distDir}/css`, `${distDir}/**/*.html`, `!${distDir}/dist.html` ]);
+})
+gulp.task('release', (callback) => {
+  runSequence('clean', 'build', 'bind', 'organize', 'msg', callback);
 });
 gulp.task('msg', () => {
   return console.log("👍  No errors, YEY!")

@@ -1965,7 +1965,7 @@ filenamify@^1.0.1:
     strip-outer "^1.0.0"
     trim-repeated "^1.0.0"
 
-filesize@^3.3.0:
+filesize@^3.1.2, filesize@^3.3.0:
   version "3.5.9"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.5.9.tgz#9e3dd8a9b124f5b2f1fb2ee9cd13a86c707bb222"
 
@@ -2514,6 +2514,15 @@ gulp-changed@^3.1.0:
     pify "^2.3.0"
     through2 "^2.0.0"
 
+gulp-check-filesize@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-check-filesize/-/gulp-check-filesize-2.0.1.tgz#b3406c069651d91cd951e700a58668734f1570e0"
+  dependencies:
+    filesize "^3.1.2"
+    gulp-util "~2.2.0"
+    map-stream "0.0.5"
+    through2 "*"
+
 gulp-data@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gulp-data/-/gulp-data-1.2.1.tgz#a94b54de7d4f3b8ea1f40ef859749c24578cf12b"
@@ -2704,7 +2713,7 @@ gulp-util@*, gulp-util@^3, gulp-util@^3.0.0, gulp-util@^3.0.1, gulp-util@^3.0.2,
     through2 "^2.0.0"
     vinyl "^0.5.0"
 
-gulp-util@^2.2.14:
+gulp-util@^2.2.14, gulp-util@~2.2.0:
   version "2.2.20"
   resolved "https://registry.yarnpkg.com/gulp-util/-/gulp-util-2.2.20.tgz#d7146e5728910bd8f047a6b0b1e549bc22dbd64c"
   dependencies:
@@ -3905,6 +3914,10 @@ map-cache@^0.2.0:
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
+
+map-stream@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.0.5.tgz#80ffe0f588da32bf006b7f12d9197c5b8725df1c"
 
 marked@^0.3.3, marked@^0.3.5:
   version "0.3.6"
@@ -5954,7 +5967,7 @@ through2-filter@^2.0.0:
     through2 "~2.0.0"
     xtend "~4.0.0"
 
-through2@2.X, through2@^2, through2@^2.0.0, through2@^2.0.1, through2@^2.0.3, through2@~2.0.0:
+through2@*, through2@2.X, through2@^2, through2@^2.0.0, through2@^2.0.1, through2@^2.0.3, through2@~2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.3.tgz#0004569b37c7c74ba39c43f3ced78d1ad94140be"
   dependencies:

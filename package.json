@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp",
     "production": "NODE_ENV=production gulp build",
-    "deploy": "NODE_ENV=production gulp deploy",
+    "release": "NODE_ENV=production gulp release",
     "clean": "gulp clean",
     "build": "gulp build",
     "server": "gulp server"
@@ -20,6 +20,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-changed": "^3.1.0",
+    "gulp-check-filesize": "^2.0.1",
     "gulp-data": "^1.2.1",
     "gulp-file-include": "^1.1.0",
     "gulp-if": "^2.0.2",
