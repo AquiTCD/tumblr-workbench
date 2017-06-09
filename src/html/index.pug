@@ -1,6 +1,7 @@
 extends /layouts/_base
 //- ============================================================
 block append variables
+  - var blocks = ['text', 'photo', 'photoset', 'quote', 'link', 'chat', 'video', 'audio', 'answer']
 //- ============================================================
 block append css
 block append js
@@ -8,145 +9,35 @@ block append js
 block content
   main.l-main.autopagerize_page_element(role='main')
     .l-main_container
-      = t.b.__TagPage
-      h2.tagged タグ "#{t.Tag}" が付けられた記事
-      = t.b.TagPage__
-      = t.b.__SearchPage
-      h2 "#{t.SearchQuery}"の検索結果: #{t.SearchResultCount} 件
-      = t.b.SearchPage__
-      = t.b.__NoSearchResults
-      p 該当する記事は見つかりませんでした
-      = t.b.NoSearchResults__
-      = t.b.__Posts
-      article(class=`m-post ${t.TagsAsClasses}`)
-        .m-postInfo
-          .m-postInfo_tags
-            = t.b.__HasTags
-            i.fa.fa-tags &nbsp;
-            = t.b.__Tags
-            a(href=`${t.TagURL}` class='m-postInfo_tag') #{t.Tag}
-            = t.b.Tags__
-            = t.b.HasTags__
-          .m-postInfo_date
-            = t.b.__Date
-            i.fa.fa-clock-o &nbsp;
-            a(href=`${t.Permalink}`)
-              time #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
-              | （#{t.TimeAgo}）
-            = t.b.Date__
-        include /blocks/_text
-        include /blocks/_photo
-        include /blocks/_photoset
-        include /blocks/_quote
-        include /blocks/_link
-        include /blocks/_chat
-        include /blocks/_video
-        include /blocks/_audio
-        include /blocks/_answer
-        //- Content Source
-        = t.b.__ContentSource
-        .post_source
-          a(href=`${t.SourceURL}`)
-            = t.lang_Source
-            | :
-            = t.b.__SourceLogo
-            img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
-            = t.b.SourceLogo__
-            = t.b.__NoSourceLogo
-            = t.SourceTitle
-            = t.b.NoSourceLogo__
-        = t.b.ContentSource__
-        footer.m-postFooter
-          = t.b.__RebloggedFrom
-          .reblogedfrom
-            span.reblogedfrom_parentName
-              a(href=`${t.ReblogParentURL}`)
-                img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
-                = t.ReblogParentName
-              | からリブログ
-            span.reblogedfrom_rootName
-              | 第一発信元:
-              a(href=`${t.ReblogRootURL}`)
-                img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
-                = t.ReblogRootName
-          = t.b.RebloggedFrom__
-          .notecount
-            = t.b.__NoteCount
-            span.notecount_numbers
-              a(href=`${t.Permalink}`) #{t.NoteCount} Notes
-            = t.b.NoteCount__
-          .socialBtns
-            ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
-              li.socialBtns_item.is-reblog
-                amp-social-share(type="tumblr")
-                //- !{t.ReblogButton}
-              //- li.socialBtns_item.is-like !{t.LikeButton}
-              = t.b.__IfEnableHatebButton
-              li.socialBtns_item.is-hateb
-                amp-social-share(type="hateb" layout="container" data-share-endpoint=`http://b.hatena.ne.jp/entry/${t.Permalink}`) B!
-              = t.b.IfEnableHatebButton__
-              = t.b.__IfEnableTweetButton
-              li.socialBtns_item.is-twitter
-                amp-social-share(type="twitter")
-              = t.b.IfEnableTweetButton__
-              = t.b.__IfEnableFbShareButton
-              li.socialBtns_item.is-fb
-                amp-social-share(type="facebook" app_id=`${t.t.fb_app_id}`)
-              = t.b.IfEnableFbShareButton__
-              = t.b.__IfEnableLineButton
-              li.socialBtns_item.is-line
-                amp-social-share(type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?TITLE%3ASOURCE_URL")
-              = t.b.IfEnableLineButton__
-              = t.b.__IfEnablePocketButton
-              li.socialBtns_item.is-pocket
-                amp-social-share(type="pocket" layout="container" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
-              = t.b.IfEnablePocketButton__
-              //- = t.b.__IfEnablePlus1Button
-              //- li.socialBtns_item.is-gplus
-              //-   amp-social-share(type="googleplus")
-              //- = t.b.IfEnablePlus1Button__
-          //- = t.b.__PermalinkPage
-          //- .socialBtns.is-spArticle
-          //-   ul.social-buttons
-          //-     li.social-button
-          //- = t.b.PermalinkPage__
-          = t.b.__PostNotes
-          h3.notecount-header #{t.NoteCount} Notes
-          .notecontainer {PostNotes}
-          = t.b.PostNotes__
-      = t.b.Posts__
-  .m-paging
-    = t.b.__PermalinkPagination
-    ul.m-paging_items.is-permalink
-      = t.b.__NextPost
-      li.m-paging_item: a.is-link.next(href=`${t.NextPost}`, rel='next')
-        i.fa.fa-angle-double-left &nbsp;
-        | ひとつ新しい記事
-      = t.b.NextPost__
-      = t.b.__PreviousPost
-      li.m-paging_item: a.is-link(href=`${t.PreviousPost}`)
-        |ひとつ古い記事&nbsp;
-        i.fa.fa-angle-double-right
-      = t.b.PreviousPost__
-    = t.b.PermalinkPagination__
-    = t.b.__Pagination
-    ul.m-paging_items
-      = t.b.__PreviousPage
-      li.m-paging_item: a.is-link(href=`${t.PreviousPage}`)
-        i.fa.fa-angle-double-left &nbsp;
-        | 新しい記事
-      = t.b.PreviousPage__
-      != t.b.__JumpPagination_length5
-      = t.b.__CurrentPage
-      li.m-paging_item.is-current #{t.PageNumber}
-      = t.b.CurrentPage__
-      = t.b.__JumpPage
-      li.m-paging_item: a.is-link.is-jump(href=`${t.URL}`) #{t.PageNumber}
-      = t.b.JumpPage__
-      = t.b.JumpPagination__
-      = t.b.__NextPage
-      li.m-paging_item: a.is-link.next(href=`${t.NextPage}`, rel='next')
-        | 古い記事&nbsp;
-        i.fa.fa-angle-double-right
-      = t.b.NextPage__
-    = t.b.Pagination__
+      include /modules/_displayNotes
+
+      each block in blocks
+        = t.b.__Posts
+        article(class=`m-post ${t.TagsAsClasses}`)
+          include /modules/_postHeader
+
+          //- blocks
+          case block
+            when 'text'
+              include /blocks/_text
+            when 'photo'
+              include /blocks/_photo
+            when 'photoset'
+              include /blocks/_photoset
+            when 'quote'
+              include /blocks/_quote
+            when 'link'
+              include /blocks/_link
+            when 'chat'
+              include /blocks/_chat
+            when 'video'
+              include /blocks/_video
+            when 'audio'
+              include /blocks/_audio
+            when 'answer'
+              include /blocks/_answer
+
+          include /modules/_contentSource
+          include /modules/_postFooter
+        = t.b.Posts__
+  include /modules/_paging

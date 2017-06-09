@@ -1,0 +1,58 @@
+footer.m-postFooter
+  = t.b.__RebloggedFrom
+  .reblogedfrom
+    span.reblogedfrom_parentName
+      a(href=`${t.ReblogParentURL}`)
+        img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
+        = t.ReblogParentName
+      | からリブログ
+    span.reblogedfrom_rootName
+      | 第一発信元:
+      a(href=`${t.ReblogRootURL}`)
+        img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
+        = t.ReblogRootName
+  = t.b.RebloggedFrom__
+  .notecount
+    = t.b.__NoteCount
+    span.notecount_numbers
+      a(href=`${t.Permalink}`) #{t.NoteCount} Notes
+    = t.b.NoteCount__
+  .socialBtns
+    ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
+      li.socialBtns_item.is-reblog
+        amp-social-share(type="tumblr")
+        //- !{t.ReblogButton}
+      //- li.socialBtns_item.is-like !{t.LikeButton}
+      = t.b.__IfEnableHatebButton
+      li.socialBtns_item.is-hateb
+        amp-social-share(type="hateb" layout="container" data-share-endpoint=`http://b.hatena.ne.jp/entry/${t.Permalink}`) B!
+      = t.b.IfEnableHatebButton__
+      = t.b.__IfEnableTweetButton
+      li.socialBtns_item.is-twitter
+        amp-social-share(type="twitter")
+      = t.b.IfEnableTweetButton__
+      = t.b.__IfEnableFbShareButton
+      li.socialBtns_item.is-fb
+        amp-social-share(type="facebook" app_id=`${t.t.fb_app_id}`)
+      = t.b.IfEnableFbShareButton__
+      = t.b.__IfEnableLineButton
+      li.socialBtns_item.is-line
+        amp-social-share(type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?TITLE%3ASOURCE_URL")
+      = t.b.IfEnableLineButton__
+      = t.b.__IfEnablePocketButton
+      li.socialBtns_item.is-pocket
+        amp-social-share(type="pocket" layout="container" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
+      = t.b.IfEnablePocketButton__
+      //- = t.b.__IfEnablePlus1Button
+      //- li.socialBtns_item.is-gplus
+      //-   amp-social-share(type="googleplus")
+      //- = t.b.IfEnablePlus1Button__
+  //- = t.b.__PermalinkPage
+  //- .socialBtns.is-spArticle
+  //-   ul.social-buttons
+  //-     li.social-button
+  //- = t.b.PermalinkPage__
+  = t.b.__PostNotes
+  h3.notecount-header #{t.NoteCount} Notes
+  .notecontainer {PostNotes}
+  = t.b.PostNotes__

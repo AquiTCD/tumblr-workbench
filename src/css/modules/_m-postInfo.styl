@@ -1,4 +1,4 @@
-.m-postInfo
+.m-postHeader
   display: flex
   flex-flow: row nowrap
   justify-content: flex-start
@@ -7,13 +7,13 @@
   +media-query(media-medium)
     rhythmical-margin: 0 0.25 0 0.25
   // TODO: スマホの場合は二行に
-  .m-postInfo_tags
+  .m-postHeader_tags
     margin-right: auto
     & > *
       margin-right: 0.5rem
-    .m-postInfo_tag
+    .m-postHeader_tag
       &:before
         content: '#'
-  .m-postInfo_date
+  .m-postHeader_date
     align-self: stretch
     white-space: nowrap

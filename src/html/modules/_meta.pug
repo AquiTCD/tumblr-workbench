@@ -8,7 +8,7 @@ meta(property="og:title" content="{block:PostSummary}{PostSummary} - {/block:Pos
 meta(name="twitter:title" content="{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}")
 meta(name="description" content="{block:Description}{MetaDescription}{/block:Description}")
 //- API for Tumblr Theme
-meta(name='text:Google Author', content='')
+//- NOTE:どう対応してて大文字小文字区別する？
 meta(name='text:Fb App Id', content='')
 meta(name='if:Enable Hateb Button', content='1')
 meta(name='if:Enable Tweet Button', content='1')
@@ -41,9 +41,6 @@ link(rel="apple-touch-icon" href='{PortraitURL-128}')
 link(rel="shortcut icon" href="{Favicon}")
 //- RSS
 link(rel="alternate", type="application/rss+xml", href="{RSS}")
-= t.b.__IfGoogleAuthor
-link(rel='author', href='{text:Google Author}')
-= t.b.IfGoogleAuthor__
 
 = t.b.__PermalinkPage
 = t.b.__Posts

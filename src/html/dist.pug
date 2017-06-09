@@ -1,0 +1,29 @@
+extends /layouts/_base
+//- ============================================================
+block append variables
+//- ============================================================
+block append css
+block append js
+//- ============================================================
+block content
+  main.l-main.autopagerize_page_element(role='main')
+    .l-main_container
+      include /modules/_displayNotes
+      = t.b.__Posts
+      article(class=`m-post ${t.TagsAsClasses}`)
+        include /modules/_postHeader
+        //- blocks
+        include /blocks/_text
+        include /blocks/_photo
+        include /blocks/_photoset
+        include /blocks/_quote
+        include /blocks/_link
+        include /blocks/_chat
+        include /blocks/_video
+        include /blocks/_audio
+        include /blocks/_answer
+
+        include /modules/_contentSource
+        include /modules/_postFooter
+      = t.b.Posts__
+  include /modules/_paging

@@ -1,29 +1,24 @@
-import gulp          = require('gulp');
-import browserSync   = require('browser-sync');
+import gulp           from 'gulp'
+import browserSync    from 'browser-sync'
 import * as path from "path";
 import * as fs from "fs";
-import del           = require('del');
-import watch         = require('gulp-watch');
-import sourcemaps    = require('gulp-sourcemaps');
-import gulpIf        = require('gulp-if');
-import sftp          = require('gulp-sftp');
-import image         = require('gulp-image');
-import changed       = require('gulp-changed');
-import imageResize   = require('gulp-image-resize');
-import pug           = require('gulp-pug');
-import koutoSwiss    = require('kouto-swiss');
-import stylus        = require('gulp-stylus');
-import webpack       = require('webpack');
-import webpackStream = require('webpack-stream');
-import replace       = require('gulp-replace');
-import uglify        = require('gulp-uglify');
-import fileInclude   = require('gulp-file-include');
-import data          = require('gulp-data');
-import plumber       = require('gulp-plumber');
-import runSequence   = require('run-sequence');
-import notify        = require('gulp-notify');
+import del            from 'del'
+import watch          from 'gulp-watch'
+import sourcemaps     from 'gulp-sourcemaps'
+import gulpIf         from 'gulp-if'
+import image          from 'gulp-image'
+import changed        from 'gulp-changed'
+import imageResize    from 'gulp-image-resize'
+import pug            from 'gulp-pug'
+import koutoSwiss     from 'kouto-swiss'
+import stylus         from 'gulp-stylus'
+import replace        from 'gulp-replace'
+import fileInclude    from 'gulp-file-include'
+import data           from 'gulp-data'
+import plumber        from 'gulp-plumber'
+import runSequence    from 'run-sequence'
+import notify         from 'gulp-notify'
 const pkg            = require('./package.json');
-const ftpconfig      = JSON.parse(fs.readFileSync('./ftpconfig.json', 'utf8'));
 const isProduction   = ((process.env.NODE_ENV || '').trim().toLowerCase() == 'production');
 const bsConfig       = require('./bs-config.js');
 const withoutPartial = '!./src/**/_*';
@@ -32,12 +27,10 @@ const src = {
   any:   `${srcDir}/**/*`,
   html:  `${srcDir}/html/**/*.{html,pug}`,
   css:   `${srcDir}/css/**/*.{css,styl}`,
-  js:    `${srcDir}/js/**/*.{js,ts}`,
   tag:   `${srcDir}/tag/**/*.tag`,
   img:   `${srcDir}/img/**/*.{png,jpg,svg,gif}`,
   assets: {
     css: `${srcDir}/assets/css/*`,
-    js:  `${srcDir}/assets/js/*`,
     img: `${srcDir}/assets/img/*`
   }
 };
@@ -49,20 +42,12 @@ const build = {
   js:   `${buildDir}/js`,
   tag:  `${buildDir}/tag`,
   img:  `${buildDir}/img`,
-  font: `${buildDir}/font`,
+  font: `${buildDir}/font`
 };
+const fontPath    = 'http://lib.solunita.net/font'
 const distDir     = './dist';
-const coverageDir = './coverage';
-const useCDN      = false
-const isAmp       = true
-const buildTasks  = ['html', 'css', 'js', 'img']
-if (useCDN) {
-  var beforeBuild   = ['font', 'assets']
-  var webpackConfig = require('./webpack.config.cdn.js');
-} else {
-  var beforeBuild    = ['font', 'assets']
-  var webpackConfig = require('./webpack.config.js');
-}
+const buildTasks  = ['html', 'css', 'img']
+const beforeBuild = ['font', 'assets']
 
 // HTML
 // ------------------------------------------------------------
@@ -76,9 +61,7 @@ gulp.task('html', () => {
     .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
         pretty: !isProduction,
-        locals: {'useCDN': useCDN,
-                 'isAmp': isAmp,
-                 'isProduction': isProduction }
+        locals: {'isProduction': isProduction }
     })))
     .pipe(gulp.dest(build.html));
 });
@@ -91,22 +74,13 @@ gulp.task('css', () => {
     .pipe(gulpIf(/\.styl/, stylus({
       use: koutoSwiss(),
       compress: isProduction,
-      'include css': true,
-      define: {'$useCDN': useCDN}
+      'include css': true
     })))
     .pipe(gulpIf(!isProduction, sourcemaps.write('.', {
       addComment: true,
       sourceRoot: './src'
     })))
     .pipe(gulp.dest(build.css));
-});
-// JavaScript
-// ------------------------------------------------------------
-gulp.task('js', () => {
-  return gulp.src(src.js)
-    .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('js: <%= error.message %>')})))
-    .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(build.js));
 });
 // Image
 // ------------------------------------------------------------
@@ -129,7 +103,7 @@ gulp.task('copy_font-files', () => {
 gulp.task('font', ['copy_font-files'], () => {
   return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css'])
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('font: <%= error.message %>')})))
-    .pipe(replace('../fonts/YakuHanJP', 'http://lib.solunita.net/font'))
+    .pipe(replace('../fonts/YakuHanJP', fontPath))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
 // Copy
@@ -140,17 +114,12 @@ gulp.task('assets_css', () => {
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('assets: <%= error.message %>')})))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
-gulp.task('assets_js', () => {
-  return gulp.src([src.assets.js])
-    .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('assets: <%= error.message %>')})))
-    .pipe(gulp.dest(build.js));
-});
 gulp.task('assets_img', () => {
   return gulp.src(src.assets.img)
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('assets: <%= error.message %>')})))
     .pipe(gulp.dest(build.img));
 });
-gulp.task('assets', ['assets_css', 'assets_js', 'assets_img']);
+gulp.task('assets', ['assets_css', 'assets_img']);
 // Server, Reload, Watch
 // ------------------------------------------------------------
 gulp.task('server', () => {
@@ -164,13 +133,12 @@ gulp.task('reload', () => {
 gulp.task('watch', () => {
   watch(src.html, () => { return runSequence('html', 'reload')});
   watch(src.css, () => { return runSequence('css', 'reload')});
-  watch(src.js, () => { return runSequence('js', 'reload')});
   watch(src.img, () => { return runSequence('img', 'reload')});
 });
 // Build and Deploy
 // ------------------------------------------------------------
 gulp.task('clean', () => {
-  return del([`${buildDir}/*`, `${distDir}/*`, `${coverageDir}/*` ]);
+  return del([`${buildDir}/*`, `${distDir}/*`]);
 })
 gulp.task('build', (callback) => {
   runSequence(beforeBuild, buildTasks, callback);
@@ -188,14 +156,12 @@ gulp.task('make', () => {
 });
 gulp.task('upload', () => {
   return gulp.src(`${distDir}/**/*`, {base: distDir})
-  .pipe(sftp(ftpconfig))
 });
 gulp.task('deploy', (callback) => {
-  // runSequence('clean', 'build', 'make', 'upload', 'msg', callback);
   runSequence('clean', 'build', 'make', 'msg', callback);
 });
 gulp.task('msg', () => {
-  return console.log("👍  Deployed, YEY!")
+  return console.log("👍  No errors, YEY!")
 });
 gulp.task('default', ['build'], () => {
  return gulp.start(['watch', 'server'])

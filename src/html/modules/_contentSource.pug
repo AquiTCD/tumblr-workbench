@@ -1,0 +1,12 @@
+= t.b.__ContentSource
+.post_source
+  a(href=`${t.SourceURL}`)
+    = t.lang_Source
+    | :
+    = t.b.__SourceLogo
+    img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
+    = t.b.SourceLogo__
+    = t.b.__NoSourceLogo
+    = t.SourceTitle
+    = t.b.NoSourceLogo__
+= t.b.ContentSource__

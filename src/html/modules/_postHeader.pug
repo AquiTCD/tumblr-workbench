@@ -1,0 +1,15 @@
+header.m-postHeader
+  .m-postHeader_tags
+    = t.b.__HasTags
+    i.fa.fa-tags &nbsp;
+    = t.b.__Tags
+    a(href=`${t.TagURL}` class='m-postHeader_tag') #{t.Tag}
+    = t.b.Tags__
+    = t.b.HasTags__
+  .m-postHeader_date
+    = t.b.__Date
+    i.fa.fa-clock-o &nbsp;
+    a(href=`${t.Permalink}`)
+      time #{t.Year}-#{t.MonthNumberWithZero}-#{t.DayOfMonthWithZero}
+      | （#{t.TimeAgo}）
+    = t.b.Date__

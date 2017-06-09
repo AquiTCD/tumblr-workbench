@@ -3,6 +3,7 @@ header.l-header.m-blogHeader
     a(href='/')
       amp-img(src='http://lib.solunita.net/images/trial-and-spiral__logo--no-margin.svg' alt=`${t.Title} Logo` width="101" height="300" layout="responsive" class='m-blogHeader_logo')
   nav.l-header_nav.m-blogHeader_nav.js-headerNav(role='navigation')
+    //- TODO: div に含めてスタイリングしなおし
     ul.m-blogHeader_items
       li.m-blogHeader_item
         button.m-blogHeader_btn.is-menu(on="tap:sidebar.toggle")
@@ -12,9 +13,6 @@ header.l-header.m-blogHeader
         form(method="GET" action="/search" target="_top")
           input.m-blogHeader_searchField(type="search" placeholder="Search..." name="q" value="{SearchQuery}")
           button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
-        //- form(method="GET" class="p2" action="/components/amp-form/submit-form" target="_top")
-        //-   input.m-blogHeader_searchField(type="search" placeholder="Search..." name="search")
-        //-   button.m-blogHeader_btn.is-search.fa(type="submit") &#xf002;
   = t.b.__Description
   amp-fit-text.m-blogHeader_description(height="16" min-font-size="12" layout="fixed-height") #{t.Description}
   = t.b.Description__
