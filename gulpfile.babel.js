@@ -45,7 +45,7 @@ const build = {
   img:  `${buildDir}/img`,
   font: `${buildDir}/font`
 };
-const fontPath    = 'http://lib.solunita.net/font'
+const fontPath    = 'http://lib.solunita.net/fonts'
 const distDir     = './dist';
 const buildTasks  = ['html', 'css', 'img']
 const beforeBuild = ['font', 'assets']

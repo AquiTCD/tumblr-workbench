@@ -1,58 +1,68 @@
 footer.m-postFooter
-  = t.b.__RebloggedFrom
-  .reblogedfrom
-    span.reblogedfrom_parentName
-      a(href=`${t.ReblogParentURL}`)
-        img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
-        = t.ReblogParentName
-      | からリブログ
-    span.reblogedfrom_rootName
-      | 第一発信元:
-      a(href=`${t.ReblogRootURL}`)
-        img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
-        = t.ReblogRootName
-  = t.b.RebloggedFrom__
-  .notecount
-    = t.b.__NoteCount
-    span.notecount_numbers
-      a(href=`${t.Permalink}`) #{t.NoteCount} Notes
-    = t.b.NoteCount__
-  .socialBtns
+  = t.b.__ContentSource
+  .m-postFooter_postSource
+    a(href=`${t.SourceURL}`)
+      = t.lang_Source
+      | :
+      = t.b.__SourceLogo
+      img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
+      = t.b.SourceLogo__
+      = t.b.__NoSourceLogo
+      = t.SourceTitle
+      = t.b.NoSourceLogo__
+    = t.b.__RebloggedFrom
+    .postSource_reblog
+      .reblog_parentName
+        | リブログ元:
+        a(href=`${t.ReblogParentURL}`)
+          img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
+          = t.ReblogParentName
+      .reblog_rootName
+        | オリジナル:
+        a(href=`${t.ReblogRootURL}`)
+          img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
+          = t.ReblogRootName
+    = t.b.RebloggedFrom__
+  = t.b.ContentSource__
+  .m-postFooter_socialBtns
     ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
       li.socialBtns_item.is-reblog
-        amp-social-share(type="tumblr")
-        //- !{t.ReblogButton}
-      //- li.socialBtns_item.is-like !{t.LikeButton}
+        .socialBtns_btn
+          amp-social-share(type="tumblr" layout="fixed" width="27" height="27")
       = t.b.__IfEnableHatebButton
       li.socialBtns_item.is-hateb
-        amp-social-share(type="hateb" layout="container" data-share-endpoint=`http://b.hatena.ne.jp/entry/${t.Permalink}`) B!
+        .socialBtns_btn
+          amp-social-share(type="hateb" layout="fixed" width="27" height="27" data-share-endpoint=`http://b.hatena.ne.jp/entry/${t.Permalink}`)
       = t.b.IfEnableHatebButton__
       = t.b.__IfEnableTweetButton
       li.socialBtns_item.is-twitter
-        amp-social-share(type="twitter")
+        .socialBtns_btn
+          amp-social-share(type="twitter" layout="fixed" width="27" height="27")
       = t.b.IfEnableTweetButton__
       = t.b.__IfEnableFbShareButton
       li.socialBtns_item.is-fb
-        amp-social-share(type="facebook" app_id=`${t.t.fb_app_id}`)
+        .socialBtns_btn
+          amp-social-share(type="facebook" layout="fixed" width="27" height="27" app_id=`${t.t.fb_app_id}`)
       = t.b.IfEnableFbShareButton__
       = t.b.__IfEnableLineButton
       li.socialBtns_item.is-line
-        amp-social-share(type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?TITLE%3ASOURCE_URL")
+        .socialBtns_btn
+          amp-social-share(type="line" layout="fixed" width="27" height="27" data-share-endpoint="http://line.me/R/msg/text/?TITLE%3ASOURCE_URL")
       = t.b.IfEnableLineButton__
       = t.b.__IfEnablePocketButton
       li.socialBtns_item.is-pocket
-        amp-social-share(type="pocket" layout="container" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
+        .socialBtns_btn
+          amp-social-share(type="pocket" layout="fixed" width="27" height="27" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
       = t.b.IfEnablePocketButton__
       //- = t.b.__IfEnablePlus1Button
       //- li.socialBtns_item.is-gplus
       //-   amp-social-share(type="googleplus")
       //- = t.b.IfEnablePlus1Button__
-  //- = t.b.__PermalinkPage
-  //- .socialBtns.is-spArticle
-  //-   ul.social-buttons
-  //-     li.social-button
-  //- = t.b.PermalinkPage__
-  = t.b.__PostNotes
-  h3.notecount-header #{t.NoteCount} Notes
-  .notecontainer {PostNotes}
-  = t.b.PostNotes__
+  .m-postFooter_notesSection
+    = t.b.__NoteCount
+    span.notesSection_count #{t.NoteCount} Notes
+    = t.b.__PostNotes
+    .notesSection_list {PostNotes}
+    = t.b.PostNotes__
+    = t.b.NoteCount__
+  
