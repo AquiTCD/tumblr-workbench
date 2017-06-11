@@ -1,10 +1,11 @@
 .m-postHeader
   display: flex
-  flex-flow: row nowrap
+  flex-flow: column-reverse nowrap
   justify-content: flex-start
   align-items: center
   rhythmical-margin: 0 0.125 0 0.125
   +media-query(media-medium)
+    flex-flow: row nowrap
     rhythmical-margin: 0 0.25 0 0.25
   // TODO: スマホの場合は二行に
   .m-postHeader_tags
@@ -12,6 +13,7 @@
     & > *
       margin-right: 0.5rem
     .m-postHeader_tag
+      display: inline-block
       &:before
         content: '#'
   .m-postHeader_date

@@ -83,12 +83,13 @@ text-bold(change-smoothing = true)
 // ------------------------------------------------------------
 line-marker(value, marker-color = $bg-color-emphasis)
   $amount-base ?= 33%
+  thickness = $amount-base * 2
   if value == true
     padding-left: .125em
     padding-right: .125em
     margin-left: .125em
     margin-right: .125em
-    background-image: linear-gradient(transparent $amount-base, marker-color ( $amount-base * 2))
+    background-image: linear-gradient(transparent thickness, marker-color thickness)
   else
     error('expected a `link-maker: true`, but got ' + value)
 // ============================================================

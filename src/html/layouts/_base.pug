@@ -1,11 +1,23 @@
 block variables
 doctype html
-html(lang="ja")
+html(amp lang="ja")
   head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# {block:IndexPage}blog: http://ogp.me/ns/blog# {/block:IndexPage}{block:PermalinkPage}article: http://ogp.me/ns/article# {PostID}{/block:PermalinkPage}")
     include /modules/_meta
     include /modules/_css
   //- NOTE: 状況によってbodyにクラスをつけかえる必要があるのか
   body(class='{block:IndexPage}page-index{/block:IndexPage}{block:PermalinkPage}page-permalink page-{PostID}{/block:PermalinkPage}')
+    amp-analytics(type="googleanalytics" id="analytics1")
+      script(type="application/json").
+        {"vars": {
+          "account": "#{t.t.analiticsId}"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+            }
+          }
+        }
     include /layouts/_header
     include /layouts/_sidebar
 

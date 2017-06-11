@@ -54,7 +54,8 @@
   "PageNumber": "{PageNumber}",
   "CopyrightYears": "{CopyrightYears}",
   "t": {
-    "fb_app_id": "{text:FbAppId}"
+    "fb_app_id": "{text:FbAppId}",
+    "analiticsId": "{text:analiticsId}"
   },
   "b": {
     "__Description": "{block:Description}",
