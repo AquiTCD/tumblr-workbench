@@ -1,0 +1,27 @@
+script(type="application/ld+json").
+  {
+    "@context": "http://schema.org",
+    "@type":    "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{block:IndexPage}{BlogURL}{/block:IndexPage}{block:PermalinkPage}{Permalink}{/block:PermalinkPage}"
+    },
+    "headline":       "{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}",
+    "description":    "{Description}",
+    "image":          "{PortraitURL-128}",
+    "datePublished":  "{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}",
+    "publisher": {
+      "@type": "Organization",
+      "name":  "Solunita.net",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{PortraitURL-48}",
+        "width": 48,
+        "height": 48
+      }
+    },
+    "author": {
+      "@type": "Person",
+      "name":  "Aqui Tsuchida"
+    }
+  }

@@ -54,10 +54,15 @@ footer.m-postFooter
         .socialBtns_btn
           amp-social-share(type="pocket" layout="fixed" width="27" height="27" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
       = t.b.IfEnablePocketButton__
-      //- = t.b.__IfEnablePlus1Button
-      //- li.socialBtns_item.is-gplus
-      //-   amp-social-share(type="googleplus")
-      //- = t.b.IfEnablePlus1Button__
+  //- = t.b.__PermalinkPage
+  //- .m-relatedPosts
+  //-   amp-list(width="300" height="100" layout="responsive" credentials="include"  src="https://api.tumblr.com/v2/blog/blog.solunita.net/posts?api_key={text:ApiKey}{block:Tags}&tag={URLSafeTag}{/block:Tags}&limit=5&clientId=CLIENT_ID(myCookieId)")
+  //-     template(type="amp-mustache")
+  //-       | {{response.posts}}
+  //-       ul
+  //-         li: a(href="{{post_url}}") {{slug}}
+  //-       | {{/response.posts}}
+  //- = t.b.PermalinkPage__
   .m-postFooter_notesSection
     = t.b.__NoteCount
     span.notesSection_count #{t.NoteCount} Notes
@@ -65,4 +70,3 @@ footer.m-postFooter
     .notesSection_list {PostNotes}
     = t.b.PostNotes__
     = t.b.NoteCount__
-  

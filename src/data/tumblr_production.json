@@ -55,7 +55,7 @@
   "CopyrightYears": "{CopyrightYears}",
   "t": {
     "fb_app_id": "{text:FbAppId}",
-    "analiticsId": "{text:analiticsId}"
+    "analyticsId": "{text:AnalyticsId}"
   },
   "b": {
     "__Description": "{block:Description}",

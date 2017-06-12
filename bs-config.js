@@ -50,6 +50,7 @@ module.exports = {
     "logSnippet": true,
     "rewriteRules": [],
     "open": "local",
+    "host": "tumblr.dev",
     "browser": "default",
     "cors": false,
     "xip": false,
