@@ -5,9 +5,11 @@ amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
   //-   | TRIAL &amp; SPIRAL
   ul.m-sidebar_items
     li.m-sidebar_item: a(href="/")
-      i.fa.fa-home &nbsp; Home
+      i.fa.fa-fw.fa-home
+      | &nbsp;Home
     li.m-sidebar_item: a(href="/about")
-      i.fa.fa-id-card &nbsp; About
+      i.fa.fa-fw.fa-id-card
+      | &nbsp;About
     //- = t.b.__HasPages
     //- =   t.b.__Pages
     //- li.m-sidebar_item: a(href='{URL}') #{t.Label}
@@ -22,12 +24,12 @@ amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
             li: a.m-sidebar_tag(href="") 1
             li: a.m-sidebar_tag(href="") 2
     li.m-sidebar_item
-      //- TODO: 最初はh1-6 or header
       amp-accordion.m-sidebar_accordion
         section
-          span.m-sidebar_accordionTitle
-            i.fa.fa-angle-right &nbsp;
-            i.fa.fa-tags &nbsp; Tags
+          h3.m-sidebar_accordionTitle
+            i.fa.fa-fw.fa-angle-right &nbsp;
+            i.fa.fa-fw.fa-tags
+            | &nbsp;Tags
           ul.m-sidebar_tags
             li: a.m-sidebar_tag(href="/tagged/Announce（通知）") Announce（通知）
             li: a.m-sidebar_tag(href="/tagged/App") App
@@ -49,10 +51,17 @@ amp-sidebar#sidebar.m-sidebar(layout="nodisplay" side="left")
             li: a.m-sidebar_tag(href="/tagged/Review（論評）") Review（論評）
             li: a.m-sidebar_tag(href="/tagged/Tumblr") Tumblr
     li.m-sidebar_item: a(href="/photo")
-      i.fa.fa-picture-o &nbsp; 旅写真
+      i.fa.fa-fw.fa-picture-o
+      | &nbsp;旅写真
     li.m-sidebar_item: a(href="http://the-excursion-for-me.tumblr.com/")
-      i.fa.fa-book &nbsp; 旅日記
+      i.fa.fa-fw.fa-book
+      | &nbsp;旅日記
     li.m-sidebar_item: a(href="/archive")
-      i.fa.fa-archive &nbsp; Archive
+      i.fa.fa-fw.fa-archive
+      | &nbsp;Archive
     li.m-sidebar_item: a(href="/rss")
-      i.fa.fa-rss-square &nbsp; RSS
+      i.fa.fa-fw.fa-fw.fa-rss-square
+      | &nbsp;RSS
+  //- .m-sidebar_bottom
+    amp-iframe(class="btn" frameborder="0" border="0" scrolling="no" allowtransparency="true" height="20" width="65" layout="fixed"  src="https://platform.tumblr.com/v2/follow_button.html?type=follow&amp;tumblelog=trial-and-spiral&amp;color=white")
+    | &nbsp; this Tumblr
