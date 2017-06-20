@@ -129,6 +129,16 @@ link-fix()
     outline: 0
 
 // ============================================================
+// Text-outline, add bold outline for text, it is like Fuchidori in Japanese
+// ============================================================
+// Usage: text-outline(outline-color)
+// ------------------------------------------------------------
+text-outline(outline-color)
+  if outline-color is a 'rgba'
+    text-shadow: outline-color 2px 0 0, outline-color -2px 0 0, outline-color 0 -2px 0, outline-color -2px 0 0, outline-color 2px 2px 0, outline-color -2px 2px 0, outline-color 2px -2px 0, outline-color -2px -2px 0, outline-color 1px 2px 0, outline-color -1px 2px 0, outline-color 1px -2px 0, outline-color -1px -2px 0, outline-color 2px 1px 0, outline-color -2px 1px 0, outline-color 2px -1px 0, outline-color -2px -1px 0, outline-color 1px 1px 0, outline-color -1px 1px 0, outline-color 1px -1px 0, outline-color -1px -1px 0
+  else
+    error('expected a `text-outline: outline-color`, but got invalid color or not defined')
+// ============================================================
 // full-width: contents in container be full width of view
 // ============================================================
 // Usage: full-width: true
