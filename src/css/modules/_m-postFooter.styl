@@ -21,6 +21,7 @@
       text-align: right
     .notesSection_count
       font-weight: bold
+      link-variation: $font-color-base true
     .notesSection_list
       li
         border-bottom: 1px dashed $grey-base
@@ -59,14 +60,13 @@
           +media-query(media-medium)
             border-right: 1px solid $black-base
       .socialBtns_item
-        border-right: 1px solid $black-base
         align-self: stretch
         text-align: center
         flex-grow: 1
         padding-top: 8px
         padding-bottom: 8px
-        &:last-child
-          border-right: none
+        &:not(:last-child)
+          border-right: 1px solid $black-base
         amp-social-share
           display: block
           margin: auto

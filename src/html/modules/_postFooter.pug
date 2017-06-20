@@ -65,7 +65,9 @@ footer.m-postFooter
   //- = t.b.PermalinkPage__
   div(class=`m-postFooter_notesSection ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
     = t.b.__NoteCount
-    span.notesSection_count #{t.NoteCount} Notes
+    span.notesSection_count
+      a(href=`${t.Permalink}`)
+        | #{t.NoteCount} Notes
     = t.b.__PostNotes
     .notesSection_list {PostNotes}
     = t.b.PostNotes__

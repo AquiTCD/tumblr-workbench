@@ -26,13 +26,12 @@
     rhythmical-margin: 0 0.25 1 0.25
     vertical-rhythm: true
   .m-paging_item
-    border-right: 1px solid $black-base
     align-self: stretch
     text-align: center
     flex-grow: 1
     // background: $white-base
-    &:last-child
-      border-right: none
+    &:not(:last-child)
+      border-right: 1px solid $black-base
     &.is-current
       background: $primary-color-tint
       color: $white-base
