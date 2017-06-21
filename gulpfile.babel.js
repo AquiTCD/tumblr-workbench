@@ -13,6 +13,7 @@ import pug            from 'gulp-pug'
 import koutoSwiss     from 'kouto-swiss'
 import stylus         from 'gulp-stylus'
 import replace        from 'gulp-replace'
+import download       from 'gulp-downloader'
 import fileInclude    from 'gulp-file-include'
 import checkFilesize  from 'gulp-check-filesize'
 import data           from 'gulp-data'
@@ -45,7 +46,15 @@ const build = {
   img:  `${buildDir}/img`,
   font: `${buildDir}/font`
 };
-const fontPath    = 'http://lib.solunita.net/fonts'
+const fontUrl    = {
+  cdn:      'https://cdn.jsdelivr.net/npm/yakuhanjp',
+  version:  '@2.0.0',
+  distDir:  'dist',
+  cssDir:   'css',
+  cssFile:  'yakuhanjp.min.css',
+  fontDir:  'fonts',
+  fontName: 'YakuHanJP'
+}
 const distDir     = './dist';
 const buildTasks  = ['html', 'css', 'img']
 const beforeBuild = ['font', 'assets']
@@ -95,16 +104,15 @@ gulp.task('img', () => {
 });
 // Font
 // ------------------------------------------------------------
-gulp.task('copy_font-files', () => {
-  return gulp.src(['./node_modules/yakuhanjp/dist/fonts/YakuHanJP/*'])
-    .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('copy_font-files: <%= error.message %>')})))
-    .pipe(gulp.dest(build.font));
-});
-// TODO: これをjsonでもってきたい
-gulp.task('font', ['copy_font-files'], () => {
-  return gulp.src(['./node_modules/yakuhanjp/dist/css/yakuhanjp.min.css'])
+gulp.task('font', () => {
+  return download({
+      fileName: 'yakuhan.css',
+      request: {
+        url: `${fontUrl.cdn}${fontUrl.version}/${fontUrl.distDir}/${fontUrl.cssDir}/${fontUrl.cssFile}`
+      }
+    })
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('font: <%= error.message %>')})))
-    .pipe(replace('../fonts/YakuHanJP', fontPath))
+    .pipe(replace('../fonts/', `${fontUrl.cdn}${fontUrl.version}/${fontUrl.distDir}/${fontUrl.fontDir}/`))
     .pipe(gulp.dest(`${build.css}/plugins`));
 });
 // Copy
@@ -161,8 +169,9 @@ gulp.task('release', (callback) => {
   runSequence('clean', 'build', 'bind', 'organize', 'msg', callback);
 });
 gulp.task('msg', () => {
-  return console.log("👍  No errors, YEY!")
+  // NOTE: doesn't work properly
+  return notify('No error release build, YEY! :+1:');
 });
 gulp.task('default', ['build'], () => {
- return gulp.start(['watch', 'server'])
+  return gulp.start(['watch', 'server'])
 });
