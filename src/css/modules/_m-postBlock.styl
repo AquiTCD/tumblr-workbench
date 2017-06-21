@@ -23,7 +23,7 @@
      &:after
       margin-left: $unit-size-base
   &.is-text
-    h2
+    h2:not([class])
       text-bold: true
       font-size: $font-size-large
       border-left: rhythmical-space(0.25) solid $black-base
@@ -36,7 +36,7 @@
         border-left: rhythmical-space(0.5) solid $black-base
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
-    h3
+    h3:not([class])
       text-bold: true
       font-size: $font-size-large
       border-bottom: 2px solid $black-base
@@ -50,7 +50,7 @@
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
-    h4
+    h4:not([class])
       text-bold: true
       font-size: $font-size-large
       border-left: rhythmical-space(0.125) solid $black-base
@@ -63,7 +63,7 @@
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
-    h5
+    h5:not([class])
       text-bold: true
       font-size: $font-size-base
       border-left: rhythmical-space(0.125) solid $black-base
@@ -76,7 +76,7 @@
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
-    h6
+    h6:not([class])
       text-bold: true
       font-size: $font-size-base
       padding-left: rhythmical-space(0.375)
@@ -134,7 +134,7 @@
               li 三重
   ```
     */
-    ol, ul
+    ol:not([class]), ul:not([class])
       vertical-rhythm: true
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
@@ -143,32 +143,47 @@
         rhythmical-margin: 0 0 0 0.75
         & > ol, & > ul
           margin-left: 0
-    ol
+    ol:not([class])
       list-style-type: decimal
-    ul
+    ul:not([class])
       list-style-type: disc
-      ul
+      ul:not([class])
         list-style-type: circle
-        ul
+        ul:not([class])
           list-style-type: square
-    dl
+    dl:not([class])
       vertical-rhythm: true
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
-      dd
+      dd:not([class])
         rhythmical-margin: 0 0 0 0.75
     // ------------------------------------------------------------
     // Image
     // ------------------------------------------------------------
-    img
+    img:not([class])
       border: solid 5px $black-base
       border-radius: 3px
       max-width: 100%
+      display: block
+      height: auto
+      position: relative
+      text-align: center
+      &:after
+        content: "\f1c5" " 画像[" attr(alt)"]が見つかりません"
+        font-size: 1rem
+        font-family: FontAwesome
+        color: $grey-shade
+        display: block
+        absolute: top 0 left 0
+        z-index: 2
+        width: 100%
+        height: 100%
+        background-color: $grey-tint
     // ------------------------------------------------------------
     // Quote
     // ------------------------------------------------------------
-    blockquote
+    blockquote:not([class])
       vertical-rhythm: true
       background: $pure-white
       border: 1px solid $bg-color-emphasis
@@ -181,22 +196,22 @@
     // ------------------------------------------------------------
     // Paragraph and etc.
     // ------------------------------------------------------------
-    p
+    p:not([class])
       vertical-rhythm: true
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
-    em
+    em:not([class])
       border-bottom: 1px dotted @color
-    strong
+    strong:not([class])
       text-bold: true
       line-marker: true
-    code
+    code:not([class])
       font-family: $font-family-monospace
     // ------------------------------------------------------------
     // Table
     // ------------------------------------------------------------
-    table
+    table:not([class])
       border-collapse: collapse
       border-spacing: 0
       overflow: auto
@@ -205,7 +220,7 @@
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
-      th
+      th:not([class])
         padding: 5px 10px
         background: tint($bg-color-emphasis, 20%)
         text-bold: true
@@ -213,9 +228,9 @@
           border-radius: 5px 0 0 0
         &:last-child
           border-radius: 0 5px 0 0
-      td
+      td:not([class])
         padding: 5px 10px
-      tr
+      tr:not([class])
         background: tint($bg-color-emphasis, 60%)
         border-bottom: 1px solid shade($bg-color-emphasis, 5%)
         &:last-child
@@ -225,7 +240,7 @@
     // ------------------------------------------------------------
     // Blocks
     // ------------------------------------------------------------
-    pre
+    pre:not([class])
       background: $black-base
       color: $white-base
       border-radius: 3px
@@ -236,7 +251,7 @@
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
-    code, var, samp, dfn
+    code:not([class]), var:not([class]), samp:not([class]), dfn:not([class])
       font-size: $font-size-small
       font-family: $font-family-monospace
       background: shade($pure-white, round($amount-base * 0.25))
@@ -244,14 +259,14 @@
       border-radius: 3px
       rhythmical-padding: 0.0625 0.25 0.0625 0.25
       rhythmical-margin: 0 0.125 0 0.125
-    pre > code
+    pre:not([class]) > code
       font-size: inherit
       background: none
       color: inherit
       border-radius: inherit
       padding: inherit
       margin: auto
-    kbd
+    kbd:not([class])
       display: inline-block
       padding: 3px 5px
       margin: auto 5px 2px 5px
