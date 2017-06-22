@@ -25,6 +25,23 @@ body
 //   transition-timing-function: ease
 //   transition-duration: 0.3s
 //   transition-property: all
+img // for missing image
+  height: auto
+  position: relative
+  text-align: center
+  max-width: 100%
+  &:after
+    overflow: hidden
+    border: 1px dashed $grey-base
+    content: "\f1c5" " 画像[" attr(alt)
+    font-size: 1rem
+    font-family: FontAwesome
+    color: $grey-shade
+    absolute: top 0 left 0
+    z-index: 2
+    width: 100%
+    height: 100%
+    background-color: $grey-tint
 button // reset
   background-color: transparent
   border: 0
