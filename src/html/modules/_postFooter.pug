@@ -1,6 +1,6 @@
-footer.m-postFooter
+footer.o-postFooter
   = t.b.__ContentSource
-  .m-postFooter_postSource
+  .o-postFooter_postSource
     a(href=`${t.SourceURL}`)
       = t.lang_Source
       | :
@@ -24,7 +24,7 @@ footer.m-postFooter
           = t.ReblogRootName
     = t.b.RebloggedFrom__
   = t.b.ContentSource__
-  .m-postFooter_socialBtns
+  .o-postFooter_socialBtns
     ul(class=`socialBtns_items ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
       li.socialBtns_item.is-reblog
         .socialBtns_btn
@@ -55,7 +55,7 @@ footer.m-postFooter
           amp-social-share(type="pocket" layout="fixed" width="27" height="27" data-share-endpoint="http://getpocket.com/edit?url=SOURCE_URL")
       = t.b.IfEnablePocketButton__
   //- = t.b.__PermalinkPage
-  //- .m-relatedPosts
+  //- .o-relatedPosts
   //-   amp-list(width="300" height="100" layout="responsive" credentials="include"  src="https://api.tumblr.com/v2/blog/blog.solunita.net/posts?api_key={text:ApiKey}{block:Tags}&tag={URLSafeTag}{/block:Tags}&limit=5&clientId=CLIENT_ID(myCookieId)")
   //-     template(type="amp-mustache")
   //-       | {{response.posts}}
@@ -63,7 +63,7 @@ footer.m-postFooter
   //-         li: a(href="{{post_url}}") {{slug}}
   //-       | {{/response.posts}}
   //- = t.b.PermalinkPage__
-  div(class=`m-postFooter_notesSection ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
+  div(class=`o-postFooter_notesSection ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
     = t.b.__NoteCount
     span.notesSection_count
       a(href=`${t.Permalink}`)

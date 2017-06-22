@@ -1,0 +1,73 @@
+.o-blogHeader
+  vertical-rhythm: true
+  z-depth: 1
+.o-blogHeader_title
+  background: $black-base
+  text-align: center
+  rhythmical-padding: 0.5 0 0.5 0
+  link-fix: true
+.o-blogHeader_logo
+  max-height: 192px
+.o-blogHeader_nav
+  background: $black-base
+  link-variation: $white-base true
+.o-blogHeader_items
+  display: flex
+  flex-flow: row nowrap
+  justify-content: flex-start
+  align-items: center
+  list-style: none
+  margin-bottom: 0
+  margin-left: rhythmical-space(0.25)
+  margin-right: rhythmical-space(0.25)
+  +media-query(media-medium)
+    margin-left: rhythmical-space(0.5)
+    margin-right: rhythmical-space(0.5)
+  +media-query(media-larger)
+    width: 960px
+    margin-left: auto
+    margin-right: auto
+    padding-left: rhythmical-space(1)
+    padding-right: rhythmical-space(1)
+.o-blogHeader_item
+  align-self: center
+  margin-right: 1.5rem
+  &:first-child
+    margin-right: auto
+.o-blogHeader_search
+  font-size: $font-size-base
+  width: @font-size * 14
+  height: @font-size * 1.25
+  border-radius: (@height / 2)
+  background: $white-base
+  rhythmical-padding: 0 0.25 0 0.25
+  position: relative
+  +media-query(media-medium)
+    width: @font-size * 24
+.o-blogHeader_searchField
+  border: 0
+  outline: 0
+  absolute: top 0 left 1rem
+  font-size: $font-size-base
+  height: 100%
+  width: @font-size * 11
+  -webkit-appearance: none
+  +media-query(media-medium)
+    width: @font-size * 21
+.o-blogHeader_btn
+  color: $white-base
+  background: $black-base
+  border: 1px solid $white-base
+  rhythmical-padding: 0 0.25 0 0.25
+  &.is-menu
+    border-radius: 2px
+  &.is-search
+    absolute: top 0 right -2px
+    margin-left: -0.5rem
+    font-size: $font-size-base
+    border-top-right-radius: ($font-size-base * 1.25 / 2)
+    border-bottom-right-radius: ($font-size-base * 1.25 / 2)
+    height: 100%
+.o-blogHeader_description
+  text-align: center
+  background: $primary-color-tint

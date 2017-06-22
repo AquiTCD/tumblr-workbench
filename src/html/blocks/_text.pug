@@ -1,9 +1,9 @@
 = t.b.__Text
-div(class=`m-postBlock is-${t.PostType}`)
+div(class=`o-postBlock is-${t.PostType}`)
   = t.b.__Title
-  h1.m-postBlock_title
+  h1.o-postBlock_title
     a(href=`${t.Permalink}`) #{t.Title}
   = t.b.Title__
-  .m-postBlock_content
+  .o-postBlock_content
     != t.Body
 = t.b.Text__

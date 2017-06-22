@@ -1,0 +1,45 @@
+.o-paging
+  margin-left: rhythmical-space(0.25)
+  margin-right: rhythmical-space(0.25)
+  +media-query(media-medium)
+    margin-left: rhythmical-space(0.5)
+    margin-right: rhythmical-space(0.5)
+  +media-query(media-larger)
+    width: 960px
+    margin-left: auto
+    margin-right: auto
+    padding-left: rhythmical-space(1)
+    padding-right: rhythmical-space(1)
+  // &.is-permalink
+.o-paging_items
+  display: flex
+  flex-flow: row nowrap
+  justify-content: center
+  align-items: center
+  list-style: none
+  margin-bottom: 0
+  border: 1px solid $black-base
+  border-radius: 3px
+  background: $white-base
+  background-color: $bg-object-base
+  rhythmical-margin: 0 0.25 1 0.25
+  vertical-rhythm: true
+.o-paging_item
+  align-self: stretch
+  text-align: center
+  flex-grow: 1
+  // background: $white-base
+  &:not(:last-child)
+    border-right: 1px solid $black-base
+  &.is-current
+    background: $primary-color-tint
+    color: $white-base
+  .is-link
+    width: 100%
+    height: 100%
+    display: block
+    border-bottom: 0
+    &:hover
+      background: $primary-color-shade
+      color: $white-base
+      border-bottom: 0

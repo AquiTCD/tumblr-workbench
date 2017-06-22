@@ -1,27 +1,4 @@
-.m-postBlock
-  .m-postBlock_title
-    text-bold: true
-    font-size: $font-size-x-large
-    display: flex
-    align-items: center
-    text-align: center
-    justify-content: center
-    vertical-rhythm: true
-    rhythmical-margin: 0 0 0.5 0
-    link-variation: $font-color-base true
-    &:before,
-    &:after
-      content: ''
-      flex-grow: 1
-      height: 3px
-      background: $grey-base
-      min-width: $unit-size-base
-      display: inline-block
-      vertical-align: middle
-     &:before
-      margin-right: $unit-size-base
-     &:after
-      margin-left: $unit-size-base
+.o-postBlock
   &.is-text
     h2:not([class])
       text-bold: true
@@ -265,3 +242,26 @@
       border-bottom-color: $grey-base
       border-radius: 3px
       box-shadow: inset 0 -1px 0 $grey-base
+.o-postBlock_title
+  text-bold: true
+  font-size: $font-size-x-large
+  display: flex
+  align-items: center
+  text-align: center
+  justify-content: center
+  vertical-rhythm: true
+  rhythmical-margin: 0 0 0.5 0
+  link-variation: $font-color-base true
+  &:before,
+  &:after
+    content: ''
+    flex-grow: 1
+    height: 3px
+    background: $grey-base
+    min-width: $unit-size-base
+    display: inline-block
+    vertical-align: middle
+   &:before
+    margin-right: $unit-size-base
+   &:after
+    margin-left: $unit-size-base
