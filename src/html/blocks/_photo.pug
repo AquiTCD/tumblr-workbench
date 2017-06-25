@@ -1,15 +1,11 @@
-if isProduction
-  - var postType = t.PostType;
-else
-  - var postType = photo;
-//- ------------------------------------------------------------
 = t.b.__Photo
-div(class=`o-postBlock is-${postType}`)
-  = t.LinkOpenTag
-  img(src=`${PhotoURL-HighRes}`, alt=`${PhotoAlt}`)
-  = t.LinkCloseTag
+.o-postBlock.is-photo
+  != t.LinkOpenTag
+  amp-img(src=`${t.PhotoURL_HighRes}` alt=`${t.PhotoAlt}` width="960" height="640" layout="responsive")
+    p(fallback) 画像を表示できませんでした
+  != t.LinkCloseTag
   = t.b.__Caption
-  .caption
+  .o-postBlock_caption
     = t.Caption
   = t.b.Caption__
 = t.b.Photo__

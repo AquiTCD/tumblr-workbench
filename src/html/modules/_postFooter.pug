@@ -5,7 +5,7 @@ footer.o-postFooter
       = t.lang_Source
       | :
       = t.b.__SourceLogo
-      img(src=`${t.BlackLogoURL}`, width=`${t.LogoWidth}`, height=`${t.LogoHeight}`, alt=`${t.SourceTitle}`)
+      amp-img(src=`${t.BlackLogoURL}` alt=`${t.SourceTitle}` width=`${t.LogoWidth}`  height=`${t.LogoHeight}` layout="fixed")
       = t.b.SourceLogo__
       = t.b.__NoSourceLogo
       = t.SourceTitle
@@ -15,12 +15,14 @@ footer.o-postFooter
       .reblog_parentName
         | リブログ元:
         a(href=`${t.ReblogParentURL}`)
-          img.favicon(src=`${t.ReblogParentPortraitURL_16}`)
+          amp-img.favicon(src=`${t.ReblogParentPortraitURL_16}` alt='' width='16'  height='16' layout="fixed")
+            p(fallback) 画像
           = t.ReblogParentName
       .reblog_rootName
         | オリジナル:
         a(href=`${t.ReblogRootURL}`)
-          img.favicon(src=`${t.ReblogRootPortraitURL_16}`)
+          amp-img.favicon(src=`${t.ReblogParentPortraitURL_16}` alt='' width='16'  height='16' layout="fixed")
+            p(fallback) 画像
           = t.ReblogRootName
     = t.b.RebloggedFrom__
   = t.b.ContentSource__

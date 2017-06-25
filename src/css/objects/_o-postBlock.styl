@@ -1,4 +1,6 @@
 .o-postBlock
+  &.is-photo
+    //
   &.is-text
     h2:not([class])
       text-bold: true
@@ -159,6 +161,7 @@
     // Paragraph and etc.
     // ------------------------------------------------------------
     p:not([class])
+      text-align: justify
       vertical-rhythm: true
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
@@ -242,6 +245,20 @@
       border-bottom-color: $grey-base
       border-radius: 3px
       box-shadow: inset 0 -1px 0 $grey-base
+  &.is-quote
+    blockquote
+      @extend .o-postBlock.is-text blockquote:not([class])
+      margin-top: rhythmical-space(1)
+      .fa-quote-left
+        margin-right: 0.5em
+      .fa-quote-right
+        margin-left: 0.5em
+      &.is-short
+        font-size: $font-size-x-large
+      &.is-medium
+        font-size: $font-size-large   = $font-size-base * $ratio-base
+      &.is-long
+        font-size: 1rem
 .o-postBlock_title
   text-bold: true
   font-size: $font-size-x-large
@@ -265,3 +282,44 @@
     margin-right: $unit-size-base
    &:after
     margin-left: $unit-size-base
+.o-postBlock_caption, .o-postBlock_quoteSource
+  vertical-rhythm: true
+  rhythmical-margin: 0 0.5 1 0.5
+  +media-query(media-medium)
+    rhythmical-margin: 0 1 1 1
+.o-postBlock_link
+  text-bold: true
+  font-size: $font-size-large
+  border-left: rhythmical-space(0.25) solid $black-base
+  padding-left: rhythmical-space(0.25)
+  padding-right: rhythmical-space(0.25)
+  background-color: $grey-tint
+  vertical-rhythm: true
+  rhythmical-margin: 0 0 1 0
+  +media-query(media-medium)
+    border-left: rhythmical-space(0.5) solid $black-base
+    padding-left: rhythmical-space(0.5)
+    padding-right: rhythmical-space(0.5)
+.o_postBlock_linkUrl
+//
+.o-postBlock_linkDescription
+  @extend .o-postBlock_caption
+.o-postBlock_chat
+  vertical-rhythm: true
+  rhythmical-margin: 0 0.5 1 0.5
+  +media-query(media-medium)
+    rhythmical-margin: 0 1 1 1
+  .line
+    border-bottom: 1px dashed $grey-base
+  .name
+    font-weight: bold
+    padding-left: 0.5em
+    padding-right: 0.5em
+    margin-right: 0.5em
+    border-radius: 3px
+  .user_1
+    background: rgba(rgb($grey-tint), 1.00)
+  .user_2
+    background: rgba(rgb($grey-tint), 0.66)
+  .user_3
+    background: rgba(rgb($grey-tint), 0.33)

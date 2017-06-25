@@ -1,10 +1,9 @@
 = t.b.__Link
-div(class=`o-postBlock is-${t.PostType}`)
-  header.entry-header
-    h1.entry-title
-      a.link-url(href=`${t.URL}`, {target}='') #{t.Name}
-  .entry-content
+.o-postBlock.is-link
+  .o-postBlock_link
+    a.o_postBlock_linkUrl(href=`${t.URL}`) #{t.Name}
+  .o-postBlock_content
     = t.b.__Description
-    .link-description #{t.Description}
+    .o-postBlock_linkDescription #{t.Description}
     = t.b.Description__
 = t.b.Link__

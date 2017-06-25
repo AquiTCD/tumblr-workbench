@@ -1,8 +1,11 @@
 = t.b.__Quote
-div(class=`o-postBlock is-${t.PostType}`)
-  blockquote “#{t.Quote}”
+.o-postBlock.is-quote
+  blockquote(class=`o-postBlock_quote is-${t.Length}`)
+    i.fa.fa-quote-left
+    = t.Quote
+    i.fa.fa-quote-right
   = t.b.__Source
-  .quote-source
+  .o-postBlock_quoteSource
     = t.Source
   = t.b.Source__
 = t.b.Quote__

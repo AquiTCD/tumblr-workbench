@@ -10,6 +10,7 @@ import image          from 'gulp-image'
 import changed        from 'gulp-changed'
 import imageResize    from 'gulp-image-resize'
 import pug            from 'gulp-pug'
+// import markdownIt     from 'jstransformer-markdown-it'
 import koutoSwiss     from 'kouto-swiss'
 import stylus         from 'gulp-stylus'
 import replace        from 'gulp-replace'
@@ -58,6 +59,11 @@ const fontUrl    = {
 const distDir     = './dist';
 const buildTasks  = ['html', 'css', 'img']
 const beforeBuild = ['font', 'assets']
+// pug.filters.markdownIt = function (filePath) {
+//   let str = fs.readFileSync(filePath).toString();
+//   return markdownIt(str);
+// }
+
 
 // HTML
 // ------------------------------------------------------------
@@ -66,7 +72,7 @@ gulp.task('html', () => {
     .pipe(gulpIf(!isProduction, plumber({errorHandler: notify.onError('html: <%= error.message %>')})))
     .pipe(gulpIf(isProduction,
       data(function(file) { return {t: require('./src/data/tumblr_production.json')}}),
-      data(function(file) { return {t: require('./src/data/tumblr_development.json')}}) ))
+      data(function(file) { return {t: require('./src/data/tumblr_development.json')}})))
     .pipe(data(function(file) { return {settings: require('./src/data/settings.json')}}))
     .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
