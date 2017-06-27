@@ -2,6 +2,7 @@
   &.is-photo
     //
   &.is-text
+    // NOTE: the selector has ':not([class])' in below is for default style which created by blog post like markdown
     h2:not([class])
       text-bold: true
       font-size: $font-size-large
@@ -216,6 +217,13 @@
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
+    pre:not([class]) > code
+      letter-spacing: 0
+      background: none
+      color: inherit
+      border-radius: inherit
+      padding: inherit
+      margin: auto
     code:not([class]), var:not([class]), samp:not([class]), dfn:not([class])
       font-size: $font-size-small
       font-family: $font-family-monospace
@@ -224,14 +232,6 @@
       border-radius: 3px
       rhythmical-padding: 0.0625 0.25 0.0625 0.25
       rhythmical-margin: 0 0.125 0 0.125
-    pre:not([class]) > code
-      font-size: 1rem
-      letter-spacing: 0
-      background: none
-      color: inherit
-      border-radius: inherit
-      padding: inherit
-      margin: auto
     kbd:not([class])
       display: inline-block
       padding: 3px 5px
