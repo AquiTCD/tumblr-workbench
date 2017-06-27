@@ -1,24 +1,14 @@
-# Base-workbench
+# Tumblr Theme Builder
 
-One of the workbench series that I make. Base-workbench is a kind of bolarplaete for anything. For example,
-
-- study or do tutorial
-- try some function of JS or other
-- want to see some styles with css
-
-Or, you can use static site generator if you want.
+TTB is a theme builder for tumbler.
 
 ## Description
 
 - HTML - Pug
-- JavaScript - Webpack
 - CSS - Stylus
+- AMP project (but AMP is not enable at tumblr because of built-in js from tumblr)
 
-and if you want to deploy(upload to webserver), must set `ftpconfig.json` in project root.
-
-## <!-- Demo
-
-VS. ------------------------------------------------------------ -->
+## <!-- Demo / VS. -->
 
 ## Requirement
 
@@ -29,13 +19,21 @@ node.js, yarn, gulp-cli
 ```
 $ npm start
 ```
-
-and look `package.json` to know other commands.
+if you would like to use theme,
+```
+$ npm start -- --theme=<themeName>
+```
+other commands
+```
+$ npm start #gulp
+$ npm run release # NODE_ENV=production gulp release
+$ npm run clean # gulp clean
+```
 
 ## Install
 
 ```
-$ yarn install
+$ yarn install # or npm install if you like
 ```
 
 <!-- Contribution ------------------------------------------------------------ -->
