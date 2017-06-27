@@ -173,8 +173,7 @@ gulp.task('release', (callback) => {
   runSequence('clean', 'build', 'bind', 'organize', 'msg', callback);
 });
 gulp.task('msg', () => {
-  // NOTE: doesn't work properly
-  return notify('No error release build, YEY! :+1:');
+  console.log('No error release build, YEY! :+1:');
 });
 gulp.task('default', ['build'], () => {
   return gulp.start(['watch', 'server'])
