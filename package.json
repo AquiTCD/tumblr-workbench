@@ -1,8 +1,8 @@
 {
-  "name": "base_workbench",
+  "name": "tumblr theme builder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A Theme builder for tumblr",
+  "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "production": "NODE_ENV=production gulp build",
@@ -11,7 +11,7 @@
     "build": "gulp build",
     "server": "gulp server"
   },
-  "author": "",
+  "author": "Aqui TCD",
   "license": "ISC",
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",

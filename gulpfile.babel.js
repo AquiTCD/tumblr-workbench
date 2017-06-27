@@ -2,6 +2,7 @@ import gulp           from 'gulp'
 import browserSync    from 'browser-sync'
 import * as path from "path";
 import * as fs from "fs";
+import {argv as argv} from 'yargs';
 import del            from 'del'
 import watch          from 'gulp-watch'
 import sourcemaps     from 'gulp-sourcemaps'
@@ -23,6 +24,7 @@ import runSequence    from 'run-sequence'
 import notify         from 'gulp-notify'
 const pkg            = require('./package.json');
 const isProduction   = ((process.env.NODE_ENV || '').trim().toLowerCase() == 'production');
+const theme          = argv.theme ? argv.theme : 'default';
 const bsConfig       = require('./bs-config.js');
 const withoutPartial = '!./src/**/_*';
 const srcDir         = './src';
@@ -55,16 +57,10 @@ const fontUrl    = {
   cssFile:  'yakuhanjp.min.css',
   fontDir:  'fonts',
   fontName: 'YakuHanJP'
-}
+};
 const distDir     = './dist';
 const buildTasks  = ['html', 'css', 'img']
 const beforeBuild = ['font', 'assets']
-// pug.filters.markdownIt = function (filePath) {
-//   let str = fs.readFileSync(filePath).toString();
-//   return markdownIt(str);
-// }
-
-
 // HTML
 // ------------------------------------------------------------
 gulp.task('html', () => {
@@ -77,7 +73,8 @@ gulp.task('html', () => {
     .pipe(gulpIf(/\.pug/, pug({
         basedir: './src/html/',
         pretty: !isProduction,
-        locals: {'isProduction': isProduction }
+        locals: {'isProduction': isProduction,
+                 'theme': theme}
     })))
     .pipe(gulp.dest(build.html));
 });
@@ -90,6 +87,7 @@ gulp.task('css', () => {
     .pipe(gulpIf(/\.styl/, stylus({
       use: koutoSwiss(),
       compress: isProduction,
+      define: {'$theme': theme},
       'include css': true
     })))
     .pipe(gulpIf(!isProduction, sourcemaps.write('.', {
