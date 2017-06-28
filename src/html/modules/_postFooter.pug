@@ -65,10 +65,10 @@ footer.o-postFooter
   //-         li: a(href="{{post_url}}") {{slug}}
   //-       | {{/response.posts}}
   //- = t.b.PermalinkPage__
-  div(class=`o-postFooter_notesSection ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}`)
+  div(class=`o-postFooter_notesSection ${t.b.__PermalinkPage}is-permalink${t.b.PermalinkPage__}` {block:PermalinkPage}id="postNote"{/block:PermalinkPage})
     = t.b.__NoteCount
     span.notesSection_count
-      a(href=`${t.Permalink}`)
+      a(href=`${t.Permalink}#postNote`)
         | #{t.NoteCount} Notes
     = t.b.__PostNotes
     .notesSection_list {PostNotes}

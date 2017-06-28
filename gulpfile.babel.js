@@ -11,7 +11,6 @@ import image          from 'gulp-image'
 import changed        from 'gulp-changed'
 import imageResize    from 'gulp-image-resize'
 import pug            from 'gulp-pug'
-// import markdownIt     from 'jstransformer-markdown-it'
 import koutoSwiss     from 'kouto-swiss'
 import stylus         from 'gulp-stylus'
 import replace        from 'gulp-replace'
@@ -23,7 +22,7 @@ import plumber        from 'gulp-plumber'
 import runSequence    from 'run-sequence'
 import notify         from 'gulp-notify'
 const pkg            = require('./package.json');
-const isProduction   = ((process.env.NODE_ENV || '').trim().toLowerCase() == 'production');
+const isProduction   = ((process.env.NODE_ENV || '').trim().toLowerCase() === 'production');
 const theme          = argv.theme ? argv.theme : 'default';
 const bsConfig       = require('./bs-config.js');
 const withoutPartial = '!./src/**/_*';

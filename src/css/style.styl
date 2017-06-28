@@ -15,11 +15,10 @@ box-sizing-reset()
 // ============================================================
 @import 'foundation/_fonts'
 @import 'foundation/_colors'
-@import 'objects/themes/' + $theme + '/_config.styl'
+@require 'objects/themes/' + $theme + '/_config.styl'
 @import 'foundation/_variables'
 @import 'foundation/_mixins'
 @import 'foundation/_base'
-@import 'foundation/_utilities'
 // ============================================================
 // Layouts
 // ============================================================
@@ -27,5 +26,8 @@ box-sizing-reset()
 // ============================================================
 // objects
 // ============================================================
+// components
+// projects
+// utilities
 // theme
-@import 'objects/themes/' + $theme + '/**/*'
+@require 'objects/themes/' + $theme + '/**/*'

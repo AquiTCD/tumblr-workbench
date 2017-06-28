@@ -1,5 +1,5 @@
 {
-  "name": "tumblr theme builder",
+  "name": "tumblr-theme-builder",
   "version": "1.0.0",
   "description": "A Theme builder for tumblr",
   "main": "gulpfile.babel.js",
