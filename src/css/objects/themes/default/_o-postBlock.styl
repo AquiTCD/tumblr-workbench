@@ -4,7 +4,7 @@
   &.is-text
     // NOTE: the selector has ':not([class])' in below is for default style which created by blog post like markdown
     h2:not([class])
-      text-bold: true
+      font-weight: bold
       font-size: $font-size-large
       border-left: rhythmical-space(0.25) solid $black-base
       padding-left: rhythmical-space(0.25)
@@ -17,7 +17,7 @@
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
     h3:not([class])
-      text-bold: true
+      font-weight: bold
       font-size: $font-size-large
       border-bottom: 2px solid $black-base
       border-left: rhythmical-space(0.125) solid $black-base
@@ -31,7 +31,7 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h4:not([class])
-      text-bold: true
+      font-weight: bold
       font-size: $font-size-large
       border-left: rhythmical-space(0.125) solid $black-base
       padding-left: rhythmical-space(0.25)
@@ -44,7 +44,7 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h5:not([class])
-      text-bold: true
+      font-weight: bold
       font-size: $font-size-base
       border-left: rhythmical-space(0.125) solid $black-base
       padding-left: rhythmical-space(0.25)
@@ -57,7 +57,7 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h6:not([class])
-      text-bold: true
+      font-weight: bold
       font-size: $font-size-base
       padding-left: rhythmical-space(0.375)
       padding-right: rhythmical-space(0.375)
@@ -170,7 +170,7 @@
     em:not([class])
       border-bottom: 1px dotted @color
     strong:not([class])
-      text-bold: true
+      font-weight: bold
       line-marker: true
     code:not([class])
       font-family: $font-family-monospace
@@ -189,7 +189,7 @@
       th:not([class])
         padding: 5px 10px
         background: tint($bg-color-emphasis, 20%)
-        text-bold: true
+        font-weight: bold
         &:first-child
           border-radius: 5px 0 0 0
         &:last-child
@@ -210,7 +210,7 @@
       background: $black-base
       color: $white-base
       border-radius: 3px
-      line-height: 1.61
+      line-height: 1.125
       overflow-x: auto
       white-space: pre
       rhythmical-padding: 0.25 0.5 0.25 0.5
@@ -224,7 +224,11 @@
       border-radius: inherit
       padding: inherit
       margin: auto
-    code:not([class]), var:not([class]), samp:not([class]), dfn:not([class])
+      font-smoothing: antialiased
+    code:not([class]),
+    var:not([class]),
+    samp:not([class]),
+    dfn:not([class])
       font-size: $font-size-small
       font-family: $font-family-monospace
       background: shade($pure-white, round($amount-base * 0.25))
@@ -260,7 +264,7 @@
       &.is-long
         font-size: 1rem
 .o-postBlock_title
-  text-bold: true
+  font-weight: bold
   font-size: $font-size-x-large
   display: flex
   align-items: center
@@ -288,7 +292,7 @@
   +media-query(media-medium)
     rhythmical-margin: 0 1 1 1
 .o-postBlock_link
-  text-bold: true
+  font-weight: bold
   font-size: $font-size-large
   border-left: rhythmical-space(0.25) solid $black-base
   padding-left: rhythmical-space(0.25)

@@ -62,19 +62,6 @@ rhythmical-padding(with-padding-top = 0, with-padding-right = 0, with-padding-bo
 check()
   background-color: rgba(255, 0, 0, 0.2)
 // ============================================================
-//  bold font with smooth option
-// ============================================================
-//  Usage: text-bold: true
-// ------------------------------------------------------------
-text-bold(change-smoothing = true)
-  font-weight: bold
-  if change-smoothing
-    -webkit-font-smoothing: subpixel-antialiased
-    -moz-osx-font-smoothing: auto
-  else
-   -webkit-font-smoothing: antialiased
-   -moz-osx-font-smoothing: auto
-// ============================================================
 //  Line Marker, to make decoration like a maker under the text
 // ============================================================
 // Usage: line-marker: true <color>
