@@ -4,7 +4,6 @@
   &.is-text
     // NOTE: the selector has ':not([class])' in below is for default style which created by blog post like markdown
     h2:not([class])
-      font-feature-settings: 'palt' 1
       font-weight: bold
       font-size: $font-size-large
       border-left: rhythmical-space(0.25) solid $black-base
@@ -18,7 +17,6 @@
         padding-left: rhythmical-space(0.5)
         padding-right: rhythmical-space(0.5)
     h3:not([class])
-      font-feature-settings: 'palt' 1
       font-weight: bold
       font-size: $font-size-large
       border-bottom: 2px solid $black-base
@@ -33,7 +31,6 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h4:not([class])
-      font-feature-settings: 'palt' 1
       font-weight: bold
       font-size: $font-size-large
       border-left: rhythmical-space(0.125) solid $black-base
@@ -47,7 +44,6 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h5:not([class])
-      font-feature-settings: 'palt' 1
       font-weight: bold
       font-size: $font-size-base
       border-left: rhythmical-space(0.125) solid $black-base
@@ -61,7 +57,6 @@
         padding-right: rhythmical-space(0.5)
         rhythmical-margin: 0 0.25 1 0.25
     h6:not([class])
-      font-feature-settings: 'palt' 1
       font-weight: bold
       font-size: $font-size-base
       padding-left: rhythmical-space(0.375)
@@ -121,7 +116,6 @@
     */
     ol:not([class]), ul:not([class])
       vertical-rhythm: true
-      font-feature-settings: 'palt' 1
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
         rhythmical-margin: 0 1 1 1
@@ -139,7 +133,6 @@
         ul:not([class])
           list-style-type: square
     dl:not([class])
-      font-feature-settings: 'palt' 1
       vertical-rhythm: true
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
@@ -186,7 +179,6 @@
     // Table
     // ------------------------------------------------------------
     table:not([class])
-      font-feature-settings: 'palt' 1
       border-collapse: collapse
       border-spacing: 0
       overflow: auto
@@ -222,6 +214,7 @@
       line-height: 1.125
       overflow-x: auto
       white-space: pre
+      font-feature-settings: 'palt' 0
       rhythmical-padding: 0.25 0.5 0.25 0.5
       rhythmical-margin: 0 0.5 1 0.5
       +media-query(media-medium)
@@ -259,7 +252,6 @@
       border-radius: 3px
       box-shadow: inset 0 -1px 0 $grey-base
     .kaerebalink-box
-      font-feature-settings: 'palt' 1
       vertical-rhythm: true
       background: $pure-white
       border: 1px solid $bg-color-emphasis
@@ -340,7 +332,6 @@
 .o-postBlock_title
   font-weight: bold
   font-size: $font-size-x-large
-  font-feature-settings: 'palt' 1
   display: flex
   align-items: center
   text-align: center
